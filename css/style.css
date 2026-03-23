@@ -251,9 +251,12 @@ a {
 }
 
 .logo img {
-  height: 40px;
+  height: 75px;
+  width: auto;
+  object-fit: contain;
   transition: var(--transition);
 }
+
 
 .nav-links {
   display: flex;
