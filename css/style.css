@@ -471,7 +471,7 @@ a {
 .metrics-editorial {
   border-top: 1px solid rgba(0,0,0,0.08);
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 .metrics-editorial-grid {
@@ -881,7 +881,7 @@ a {
 
 .step-icon {
   font-size: 2.5rem;
-  color: var(--brand-red);
+  color: var(--brand-cyan);
 }
 
 .step-text h4 {
@@ -1001,6 +1001,7 @@ a {
 .portfolio-desc .category {
   font-family: var(--font-display);
   font-size: 0.75rem;
+  font-weight: bold;
   text-transform: uppercase;
   color: var(--brand-cyan);
   letter-spacing: 0.1em;
