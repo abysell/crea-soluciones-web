@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avalúos Inmobiliarios | CREA Soluciones</title>
+  <meta name="description" content="Garantiza un proyecto inmobiliario próspero al conocer su rentabilidad financiera.">
+  
+  <!-- Fonts: Barlow and Noto Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Icons: Phosphor -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- ======================== HEADER ======================== -->
+  <header id="main-header" class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA Soluciones Logo" style="filter: brightness(0) invert(1);" id="brand-logo">
+      </a>
+      <nav class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#services" class="dropbtn">Servicios <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">Inteligencia de mercado inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="estudios-mercado-inmobiliario.html">Estudios de mercado inmobiliario</a>
+                <a href="mayor-mejor-uso.html">Estudio de mayor y mejor uso de la tierra</a>
+                <a href="#">Reposicionamiento/ reconversión inmobiliaria</a>
+              </div>
+            </div>
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">Análisis financiero <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="modelos-financieros.html">Modelos financieros</a>
+                <a href="avaluos-inmobiliarios.html">Avalúos inmobiliarios</a>
+              </div>
+            </div>
+            <a href="#">CREA SOLUCIONES 360°</a>
+            <a href="financiamiento.html">Financiamiento</a>
+            <a href="test-fit-arquitectonico.html">Test Fit Arquitectónico</a>
+          </div>
+        </div>
+        
+        <div class="dropdown">
+          <a href="index.html#ecosystem" class="dropbtn">Sectores <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Centros Comerciales</a>
+            <a href="#">Vivienda</a>
+            <a href="#">Hospitality/ Hoteles/ Branded Residences/ Wellness</a>
+            <a href="#">Macroproyectos/ Master Plan</a>
+            <a href="#">Usos Mixtos</a>
+            <a href="#">Parques industriales</a>
+            <a href="#">Senior Living</a>
+            <a href="#">Hospitales y Clínicas</a>
+            <a href="#">Educación</a>
+            <a href="#">Oficinas</a>
+            <a href="#">Gobierno</a>
+            <a href="#">Desarrollos Orientados al Transporte</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="index.html#resources" class="dropbtn">Reportes <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">SmartScan Inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="#">Potencial de mi predio</a>
+                <a href="#">¿Dónde desarrollar en x ciudad?</a>
+                <a href="#">Geoventas Retail</a>
+                <a href="#">Pulso Socioeconómico</a>
+                <a href="#">Ciudades con potencial de desarrollo de Centro Comerciales</a>
+                <a href="#">Ciudades con potencial de desarrollo de proyectos de salud</a>
+                <a href="#">Ciudades con potencial de desarrollo de Senior Living en México</a>
+              </div>
+            </div>
+            <a href="#">Reporte de Centros Comerciales</a>
+            <a href="#">Reporte Parques Industriales</a>
+            <a href="#">Reporte Vivienda Institucional en Renta</a>
+          </div>
+        </div>
+
+        <a href="index.html#portfolio">Casos de Éxito</a>
+        <a href="#footer">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#footer" class="btn btn-outline-light">Agendar Consultoría</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- CABECERA SAAS (Interior) -->
+    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/avaluos.webp'); background-size: cover; background-position: center; padding-top: 160px; padding-bottom: 80px; text-align: center; z-index: 1;">
+      <div class="container" style="position: relative; z-index: 2;">
+        <span class="cintillo gsap-fade-up">Análisis Financiero</span>
+        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">Avalúos Inmobiliarios</h1>
+        <p class="gsap-fade-up" style="font-size: 1.5rem; color: rgba(255,255,255,0.8); max-width: 700px; margin: 0 auto; line-height: 1.4;">Tu patrimonio merece un avalúo profesional. Nosotros lo hacemos posible.</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: INTRODUCCIÓN (Split Layout) -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="text-center gsap-fade-up" style="max-width: 800px; margin: 0 auto;">
+          <h3 style="font-family: var(--font-display); font-weight: 600; color: var(--neutral-dark); margin-bottom: 2rem; font-size: clamp(1.8rem, 3vw, 2.2rem); line-height: 1.3;">Nos regimos bajo las mejores prácticas de valuación internacional: <span style="color: var(--brand-cyan);">RICS</span></h3>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); font-weight: 400; line-height: 1.6; margin-bottom: 1.5rem;">Estamos certificados por bancos e instituciones gubernamentales.</p>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); font-weight: 400; line-height: 1.6; margin: 0;">Nuestro acceso a información del mercado inmobiliario y experiencia financiera nos permiten ser asertivos en el avalúo comercial de un inmueble.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE PESTAÑAS (TABS): NUESTROS AVALÚOS -->
+    <section class="section-pad" style="background-color: #F8F9FA;">
+      <div class="container">
+        
+        <div class="text-center mb-5 gsap-fade-up">
+          <h2 style="font-family: var(--font-display); font-weight: 600; color: var(--neutral-dark); font-size: 2.5rem;">Nuestros Avalúos</h2>
+        </div>
+
+        <!-- TABS NAV -->
+        <div class="tabs-nav gsap-fade-up">
+          <button class="tab-btn active" data-target="tab-para-que">
+            <i class="ph ph-target"></i>
+            <span>¿Para qué sirven?</span>
+          </button>
+          <button class="tab-btn" data-target="tab-tipos">
+            <i class="ph ph-files"></i>
+            <span>Tipos de Avalúos</span>
+          </button>
+          <button class="tab-btn" data-target="tab-beneficios">
+            <i class="ph ph-buildings"></i>
+            <span>Beneficios de los avalúos inmobiliarios</span>
+          </button>
+          <button class="tab-btn" data-target="tab-inmuebles">
+            <i class="ph ph-clipboard-text"></i>
+            <span>¿Qué inmuebles evaluamos?</span>
+          </button>
+        </div>
+
+        <!-- TABS CONTENT -->
+        <div class="tabs-content-container gsap-fade-up">
+          
+          <!-- TAB 0: PARA QUÉ SIRVEN -->
+          <div id="tab-para-que" class="tab-pane active">
+            <div style="max-width: 650px; margin: 0 auto; margin-bottom: 2rem;">
+              <div class="saas-card">
+                 <h4 style="margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 12px; font-family: var(--font-display); font-weight: 600; color: var(--neutral-dark); font-size: 1.5rem; line-height: 1.3; text-align: left;">
+                   <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; margin-top: 2px;"></i>
+                   ¿Para qué sirven los avalúos inmobiliarios?
+                 </h4>
+                 <div class="list-container" style="text-align: left;">
+                   <ul style="list-style-type: none; margin: 0; padding: 0;">
+                     <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                       <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Conocimiento del Valor Real del Inmueble
+                     </li>
+                     <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                       <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Operaciones de Compra y Venta
+                     </li>
+                     <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                       <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Financiamiento Hipotecario
+                     </li>
+                     <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                       <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Seguros y Tasas de Impuestos
+                     </li>
+                     <li style="position: relative; padding-left: 20px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                       <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Planificación Financiera
+                     </li>
+                   </ul>
+                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 1: TIPOS DE AVALÚOS -->
+          <div id="tab-tipos" class="tab-pane">
+            <div class="saas-cards-grid">
+              
+              <!-- Tarjeta 1: Comerciales -->
+              <div class="saas-card">
+                <h4 style="margin-bottom: 2rem; display: flex; align-items: center; gap: 10px;">
+                  <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem;"></i>
+                  Comerciales <span style="font-family: 'Noto Serif', serif; font-weight: 400; font-size: 1rem; color: var(--neutral-semi);"> - Para operaciones de mercado</span>
+                </h4>
+                
+                <p style="font-family: var(--font-display); font-weight: 600; margin-bottom: 1rem;">Utilizado para:</p>
+                <ul style="list-style-type: none; margin: 0; padding: 0;">
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Compra - Venta
+                  </li>
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Arrendamiento
+                  </li>
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Administración
+                  </li>
+                  <li style="position: relative; padding-left: 20px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Conocer el Valor Comercial
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tarjeta 2: Fiscales -->
+              <div class="saas-card">
+                <h4 style="margin-bottom: 2rem; display: flex; align-items: center; gap: 10px;">
+                  <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem;"></i>
+                  Fiscales <span style="font-family: 'Noto Serif', serif; font-weight: 400; font-size: 1rem; color: var(--neutral-semi);"> - Para transacciones legales</span>
+                </h4>
+                
+                <p style="font-family: var(--font-display); font-weight: 600; margin-bottom: 1rem;">Utilizado para:</p>
+                <ul style="list-style-type: none; margin: 0; padding: 0;">
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Escrituración
+                  </li>
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Efectos fiscales
+                  </li>
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Traslado de dominio
+                  </li>
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Impuestos a la propiedad o la renta
+                  </li>
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Sucesión testamentaria
+                  </li>
+                  <li style="position: relative; padding-left: 20px; margin-bottom: 10px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Donación de inmuebles
+                  </li>
+                  <li style="position: relative; padding-left: 20px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark);">
+                    <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.2rem;">•</span> Otras contribuciones
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TAB 2: BENEFICIOS -->
+          <div id="tab-beneficios" class="tab-pane">
+            <div style="max-width: 800px; margin: 0 auto; margin-bottom: 2rem;">
+              <div class="saas-card">
+                <h4 style="margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 12px; font-family: var(--font-display); font-weight: 600; color: var(--neutral-dark); font-size: 1.5rem; line-height: 1.3; text-align: left;">
+                  <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; margin-top: 2px;"></i>
+                  Beneficios de los avalúos inmobiliarios
+                </h4>
+                <div class="list-container" style="text-align: left;">
+                  <ul style="list-style-type: none; margin: 0; padding: 0;">
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                      <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Conocer el valor real de tu propiedad con expertos en avalúos, lo que te ayuda a tomar decisiones informadas.
+                    </li>
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                      <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Establecer un precio justo y competitivo al inmueble, lo que puede acelerar el proceso de compra.
+                    </li>
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                      <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Es un documento oficial, confidencial y realizado por especialistas que avalan el valor de la propiedad.
+                    </li>
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                      <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Brinda confianza y certeza a los compradores de que el inmueble se ofrece a un valor justo y competitivo.
+                    </li>
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 12px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                      <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Permite tomar mejores decisiones al comprador para aprovechar al máximo el inmueble.
+                    </li>
+                    <li style="position: relative; padding-left: 20px; font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                      <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> Contar con avalúos válidos ante bancos, notarías, instituciones y juzgados, garantizando respaldo legal en cada proceso.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: QUÉ EVALUAMOS -->
+          <div id="tab-inmuebles" class="tab-pane">
+            <div class="text-left statement-card" style="max-width: 900px; margin: 0 auto; background-color: var(--white); padding: 50px; border: 1px solid var(--black); border-radius: 8px;">
+              <p style="font-family: 'Noto Serif', serif; font-size: 1.25rem; color: var(--neutral-dark); font-weight: 400; line-height: 1.8; margin: 0; text-align: left;">
+                En CREA Soluciones valoramos tu inmueble con precisión y respaldo legal. Somos una empresa de consultoría especializada en inteligencia de mercado y financiera para desarrollos inmobiliarios en sectores como viviendas, terrenos, fincas, naves, locales comerciales, macroproyectos, hoteles, manufactura y logística, senior living, transporte, salud, educación, oficinas, entre otros.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== SECTION: LOGOS ======================== -->
+    <section class="clients client-pad bg-grid-light" id="clients" style="border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08);">
+      <div class="container text-center gsap-fade-up relative z-10">
+        <span class="cintillo mt-5">Confian en nosotros</span>
+        <h2 class="section-title" style="color: var(--black); margin-bottom: 1rem;">Barra de clientes</h2>
+        <p class="mb-4" style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+          En CREA hemos colaborado con clientes de toda la República Mexicana en grandes proyectos inmobiliarios como aeropuertos, centros comerciales, residenciales, entre otros.
+        </p>
+        <div class="logo-carousel">
+          <div class="logo-item"><img src="./img/logos-clientes/logo-01.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-02.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-03.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-04.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-05.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-06.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-07.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-08.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-09.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-11.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-12.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-13.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-14.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-15.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-16.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-17.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-18.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-19.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-20.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-21.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-22.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-23.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-24.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-25.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-26.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-27.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-28.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-29.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-30.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-31.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-32.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-33.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-34.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-35.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-36.webp" alt="Client"></div>
+          <div class="logo-item"><img src="./img/logos-clientes/logo-37.webp" alt="Client"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer bg-black text-white section-pad">
+    <div class="container footer-grid">
+      <!-- COL 1 -->
+      <div class="footer-brand">
+        <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA" style="filter: brightness(0) invert(1); width: 140px; margin-bottom: 20px;">
+        <p>Inteligencia Inmobiliaria Premium para tomadores de decisión institucionales.</p>
+        <h4 class="mt-4 mb-1" style="font-size: 1rem; color: var(--brand-cyan);">Redes Sociales</h4>
+        <div class="social-icons">
+          <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="#"><i class="ph ph-x-logo"></i></a>
+          <a href="#"><i class="ph ph-instagram-logo"></i></a>
+        </div>
+      </div>
+      <!-- COL 2 -->
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="index.html#services">Servicios Base</a></li>
+          <li><a href="index.html#ecosystem">SmartScan</a></li>
+          <li><a href="index.html#portfolio">Casos Reales</a></li>
+          <li><a href="index.html#faqs">Preguntas</a></li>
+        </ul>
+      </div>
+      <!-- COL 3 -->
+      <div class="footer-info">
+        <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Información de Contacto</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.6); line-height: 1.5; font-size: 0.9rem;">
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-clock" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Horario de Atención:</strong>
+            <span style="display: block; padding-left: 28px;">Lunes a viernes de 9 am a 6 pm.</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-phone" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Teléfonos:</strong>
+            <span style="display: block; padding-left: 28px;">+52 55 4597 3919 | +52 55 5277 8044 | +52 55 5276 9531</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-envelope-simple" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Correo:</strong>
+            <span style="display: block; padding-left: 28px;">info@creasoluciones.com.mx</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Ciudad de México:</strong>
+            <span style="display: block; padding-left: 28px;">Av. Coyoacán 1622 Edif. 4 Piso 2 Of. "A", Del Valle, Benito Juárez, C.P. 03100</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Guadalajara:</strong>
+            <span style="display: block; padding-left: 28px;">Herrera y Cairo 2835 Cuarto Piso Fracc. Terranova 44689, Jalisco, México</span>
+          </li>
+          <li style="margin-bottom: 2rem;">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Monterrey:</strong>
+            <span style="display: block; padding-left: 28px;">José Clemente Orozco 335 Desp. 304, Torre Novo, Valle Oriente 66269, N.L.</span>
+          </li>
+        </ul>
+      </div>
+      <!-- COL 4 -->
+      <div class="footer-contact-form">
+        <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Contáctanos</h4>
+        <form class="minimal-form">
+          <input type="text" name="name" placeholder="Nombre Completo*" required>
+          <input type="email" name="email" placeholder="Correo electrónico*" required>
+          <input type="tel" name="phone" pattern="[0-9]*" placeholder="Teléfono*" required>
+          <select name="service" required>
+            <option value="" disabled selected>Servicio a contratar*</option>
+            <option value="estudio-mercado">Estudio de Mercado</option>
+            <option value="estudio-financiero">Estudio Financiero</option>
+            <option value="reposicionamiento">Estudio de Reposicionamiento</option>
+            <option value="geomarketing">Geomarketing</option>
+            <option value="avaluo">Avalúo</option>
+            <option value="reporte">Reporte</option>
+            <option value="otros">Otros</option>
+          </select>
+          <select name="stage" required>
+            <option value="" disabled selected>Etapa del proyecto*</option>
+            <option value="idea">Idea del Proyecto</option>
+            <option value="estudios">Estudios de Mercado y Financiero</option>
+            <option value="anteproyecto">Anteproyecto Arquitectónico</option>
+            <option value="comercializacion">Comercialización</option>
+            <option value="expansion">Expansión</option>
+            <option value="otra">Otra</option>
+          </select>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Solicitar Información</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom text-center mt-5" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+      <p>&copy; 2026 CREA Soluciones. Todos los derechos reservados. | <a href="#" style="color: inherit; text-decoration: underline;">Políticas de Privacidad</a> | <a href="#" style="color: inherit; text-decoration: underline;">Términos y Condiciones</a></p>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  <!-- Main JS -->
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -69,9 +69,13 @@ El Header de navegación inicia transparente (con textos e iconos blancos). El s
 ---
 ---
 
-## Preguntas e Inquietudes Pendientes (Para el Desarrollador Principal):
-Para iniciar eficientemente las próximas vistas interiores, pregunto lo siguiente:
+## Reglas Definidas para Vistas Interiores (Aprobadas)
 
-1. **Jerarquía Tipográfica en Interiores:** La variable *Noto Serif* aporta un toque súper editorial al Home. Cuando lleguemos a las interfaces "Puras" (por ejemplo, tableros llenos de datos del *SmartScan* o de investigación analítica compleja), ¿Prefieres que reduzcamos al máximo la *Noto Serif* y expresemos la data puramente con *Barlow/Roboto* para asemejarlo al 100% a un software, o mantenemos el espíritu de revista inmobilaria mezclando Serif?
-2. **Cabeceras de Páginas Interiores:** ¿Las páginas como "Servicios de Modelos Financieros" van a tener su propio bloque fotográfico obscuro gigante (Hero Layout) en la cima como el Home, o serán fondos sólidos minimalistas (Negros/Blancos)?
-3. **Botones e Inputs Base de Datos:** Ahora que el Footer tiene bordes que brillan en azul y sombras suaves (Efecto Neon Tech), ¿Libras ese estilo universal para todos los formularios grandes que construiremos dentro de las herramientas de Reportes, o solo es exclusivo para el contacto en Home?
+Para mantener la continuidad y responder a las necesidades estéticas de la plataforma, se definen los siguientes estándares operativos para la creación de nuevas páginas:
+
+1. **Jerarquía Tipográfica en Interiores (SaaS Look):** Las vistas interiores puras emplearán mayoritariamente *Barlow* y *Roboto* para títulos (siempre en negrita media/alta) e interfaces. Sin embargo, la redacción descriptiva más extensa o de cuerpo de texto en tarjetas usará **Noto Serif** garantizando una postura de informe analítico formal. Color de los títulos dentro de sub-bloques siempre `#0e1111`.
+2. **Cabeceras (Headers) Interiores:** Emplean el contenedor `.hero-interior` con una de fondo fotográfica acompañada obligatoriamente de una superposición oscura (`.dark-layer`). Incluyen embebidos el H1 (Blanco pleno) y debajo la breve descripción principal (Blanco a 80% opacidad, centrado). No deben existir bloques introductorios flotantes en la zona blanca por debajo del Header.
+3. **Estética Plana (Flat Design) en Tarjetería:** Las tarjetas (`.saas-card`) son brutalistas. **No emplean sombras** (`box-shadow: none`) en ningún momento. Tienen un marco perimetral fino color `#0e1111` y su alineación es **estrictamente a la izquierda**. Durante el evento Hover, el borde muda inmediatamente a color cyán de marca.
+4. **Iconografía Sin Resplandor:** Uso de Phosphor Icons planos (`2.5rem`, color cyán base). Se evitan explícitamente resplandores o efectos tipo neón en cualquier contenedor de página interior.
+5. **Listas Editoriales (en lugar de Acordeones):** La enumeración de virtudes o beneficios se hace como información abierta en viñetas ordenadas. Se respaldan visualmente con una mínima línea vertical divisoria izquierda (`border-left: 1px solid var(--black)`) para un look estético similar a una cita textual, y viñetas circulares cyán.
+6. **Navegación Intocable:** Todo el marco base, Menú Principal y Footer oscuro gigantesco, es un pilar global; copia estricta de `index.html`.

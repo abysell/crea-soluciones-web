@@ -1329,3 +1329,181 @@ a {
 @media (max-width: 480px) {
   .logo-carousel { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
+
+/* =========================================================================
+   XX. MODELOS FINANCIEROS (INTERIOR COMPONENTS)
+   ========================================================================= */
+
+/* Hero Interior */
+.hero-interior {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Accordion SaaS */
+.saas-accordion {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.saas-accordion:hover {
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+}
+
+.saas-accordion-header {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none; /* Hide default arrow */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background-color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--neutral-dark);
+}
+
+.saas-accordion-header::-webkit-details-marker {
+  display: none; /* Hide default arrow webkit */
+}
+
+.saas-accordion-header .accordion-caret {
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+details[open] .saas-accordion-header .accordion-caret {
+  transform: rotate(180deg);
+}
+
+.saas-accordion-content {
+  padding: 24px;
+  background-color: #FAFAFA;
+}
+
+.saas-accordion-content ul {
+  list-style-type: none;
+}
+
+.saas-accordion-content ul li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.saas-accordion-content ul li::before {
+  content: "•";
+  color: var(--brand-cyan);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* SaaS Cards Grid */
+.saas-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.saas-card {
+  background: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: none;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.saas-card:hover {
+  box-shadow: none;
+  border-color: var(--brand-cyan);
+}
+
+.saas-card h4 {
+  font-size: 1.35rem;
+  font-family: var(--font-display);
+  color: #0e1111;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.saas-card p {
+  font-size: 1.05rem;
+  color: var(--neutral-dark);
+  margin: 0;
+  font-family: 'Noto Serif', serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* --- INTERACTIVE TABS --- */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  border-bottom: none;
+  margin-bottom: 50px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--neutral-semi);
+  transition: var(--transition);
+  margin-bottom: -1px; /* Overlap border */
+}
+
+.tab-btn i {
+  font-size: 2rem;
+}
+
+.tab-btn:hover {
+  color: var(--neutral-dark);
+}
+
+.tab-btn.active {
+  color: var(--brand-cyan);
+  border-bottom-color: var(--brand-cyan);
+}
+
+.tab-pane {
+  display: none;
+  animation: tabFadeIn 0.4s ease forwards;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .saas-cards-grid,
+  .split-layout.align-start {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
