@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Fit Arquitectónico | CREA Soluciones</title>
-  <meta name="description" content="Servicio de anteproyecto arquitectónico y diseño de layouts para desarrollos viables.">
+  <title>CREA Soluciones | Consultoría Inmobiliaria de Alto Nivel</title>
+  <meta name="description" content="Consultoría inmobiliaria basada en datos reales, Big Data e Inteligencia Artificial. Bright Solutions, Profitable Results.">
   
   <!-- Fonts: Barlow and Noto Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,12 @@
   <!-- ======================== HEADER ======================== -->
   <header id="main-header" class="header">
     <div class="header-container">
-      <a href="index.html" class="logo">
+      <a href="#" class="logo">
         <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA Soluciones Logo" style="filter: brightness(0) invert(1);" id="brand-logo">
       </a>
       <nav class="nav-links">
         <div class="dropdown">
-          <a href="index.html#services" class="dropbtn">Servicios <i class="ph ph-caret-down"></i></a>
+          <a href="#services" class="dropbtn">Servicios <i class="ph ph-caret-down"></i></a>
           <div class="dropdown-content">
             <div class="sub-dropdown">
               <a href="#" class="sub-dropbtn">Inteligencia de mercado inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
@@ -51,7 +51,7 @@
         </div>
         
         <div class="dropdown">
-          <a href="index.html#ecosystem" class="dropbtn">Sectores <i class="ph ph-caret-down"></i></a>
+          <a href="#ecosystem" class="dropbtn">Sectores <i class="ph ph-caret-down"></i></a>
           <div class="dropdown-content">
             <a href="#">Centros Comerciales</a>
             <a href="#">Vivienda</a>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="dropdown">
-          <a href="index.html#resources" class="dropbtn">Reportes <i class="ph ph-caret-down"></i></a>
+          <a href="#resources" class="dropbtn">Reportes <i class="ph ph-caret-down"></i></a>
           <div class="dropdown-content">
             <div class="sub-dropdown">
               <a href="#" class="sub-dropbtn">SmartScan Inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <a href="index.html#portfolio">Casos de Éxito</a>
+        <a href="#portfolio">Casos de Éxito</a>
         <a href="contacto.html">Contacto</a>
       </nav>
       <div class="header-actions">
@@ -98,86 +98,50 @@
     </div>
   </header>
 
+  <!-- ======================== MODAL (LEAD MAGNET) ======================== -->
+  <dialog id="lead-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal"><i class="ph ph-x"></i></button>
+      <div class="modal-body">
+        <h3 class="modal-title">Descarga el Recurso Estratégico</h3>
+        <p class="modal-desc">Déjanos tus datos para enviarte el reporte detallado directamente a tu correo corporativo.</p>
+        <form class="lead-form">
+          <div class="form-group">
+            <input type="text" placeholder="Nombre completo" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Correo electrónico corporativo" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Empresa" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Recibir Informe <i class="ph ph-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
   <main>
     <!-- CABECERA SAAS (Interior) -->
-    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/test_fit_hero.webp'); background-size: cover; background-position: center; padding-top: 180px; padding-bottom: 120px; text-align: center; z-index: 1;">
+    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/contacto_hero.png'); background-size: cover; background-position: center; padding-top: 180px; padding-bottom: 120px; text-align: center; z-index: 1;">
       <div class="container" style="position: relative; z-index: 2;">
-        <span class="cintillo gsap-fade-up">Servicios de Arquitectura</span>
-        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">Test Fit Arquitectónico</h1>
+        <span class="cintillo gsap-fade-up">CREA Soluciones</span>
+        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">¡Mensaje enviado con éxito!</h1>
+        <p class="gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: rgba(255,255,255,0.8); max-width: 850px; margin: 0 auto; line-height: 1.6;">Hemos recibido tu solicitud. Un consultor estratégico analizará tu perfil y se pondrá en contacto contigo a la brevedad.</p>
       </div>
     </section>
 
-    <!-- SECCIÓN 1: BÚSQUEDA DE ALTERNATIVAS -->
-    <section class="section-pad">
-      <div class="container">
-        
-        <!-- TEXTO CENTRAL (Imagen 1) -->
-        <div class="text-center gsap-fade-up" style="max-width: 900px; margin: 0 auto; margin-bottom: 5rem;">
-          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--neutral-dark); font-size: 2.2rem; margin-bottom: 2rem;">Test Fit Arquitectónico</h2>
-          
-          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.6; margin: 0;">El anteproyecto arquitectónico es una fase clave en el desarrollo inmobiliario, ya que nos permite validar que las recomendaciones del estudio de mercado y el modelo financiero se ajusten al terreno, usos de suelo y segmentación recomendada. El Test Fit Arquitectónico es la primera representación tangible de tu visión, traduciendo datos y análisis en un diseño funcional y atractivo, listo para ser presentado a comités para la autorización de financiamiento.</p>
-        </div>
-
-        <!-- CONTENEDORES CON ESTILO SMARTSCAN (Imágenes 2 y 3) -->
-        <div class="tech-grid gsap-fade-up" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-          
-          <!-- Contenedor 1 -->
-          <div class="tech-item gsap-fade-up">
-            <i class="ph-fill ph-pen-nib"></i>
-            <h4 style="font-size: 1.4rem; padding-bottom: 0; margin-bottom: 0;">Anteproyecto Arquitectónico</h4>
-            <div style="flex-grow: 1; padding-top: 1.5rem;">
-              <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--neutral-dark); margin-bottom: 1rem; line-height: 1.4;">¿Cómo transformar los datos y análisis en un diseño que valide la viabilidad de tu proyecto y capte la aprobación de inversionistas?</p>
-              <ul style="list-style-type: none; margin: 0; padding-left: 0; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-semi); line-height: 1.6;">
-                <li style="position: relative; padding-left: 20px; margin-bottom: 12px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Definición de Espacios:</strong> Establecemos layouts estratégicos basados en las recomendaciones del estudio de mercado.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 12px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Visualización 3D:</strong> Generamos representaciones volumétricas para prever y ajustar el diseño antes de la construcción.
-                </li>
-                <li style="position: relative; padding-left: 20px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Optimización de Diseño:</strong> Integramos análisis de factibilidad para perfeccionar cada detalle y asegurar la funcionalidad del proyecto.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Contenedor 2 -->
-          <div class="tech-item gsap-fade-up" style="transition-delay: 0.1s;">
-            <i class="ph-fill ph-blueprint"></i>
-            <h4 style="font-size: 1.4rem; padding-bottom: 0; margin-bottom: 0;">Beneficios del Test Fit Arquitectónico</h4>
-            <div style="flex-grow: 1; padding-top: 1.5rem;">
-              <ul style="list-style-type: none; margin: 0 0 1.5rem 0; padding-left: 0; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-semi); line-height: 1.6;">
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Conocemos</strong> a fondo las características únicas de tu terreno y sus posibilidades, para adaptar el diseño a la realidad del espacio.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Establecemos</strong> layouts estratégicos que maximizan la funcionalidad y el potencial del proyecto, integrando datos de mercado y análisis financiero.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Recomendamos</strong> soluciones de diseño que facilitan la aprobación por comités de financiamiento, demostrando la viabilidad de tu desarrollo.
-                </li>
-                <li style="position: relative; padding-left: 20px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Presentamos</strong> una visualización 3D clara y tangible que permite a los inversionistas comprender y valorar tu propuesta desde el primer momento.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
+    
+    <section class="section-pad text-center" style="background-color: #F8F9FA; min-height: 40vh; display: flex; align-items: center; justify-content: center;">
+      <div class="container" style="padding: 60px 0;">
+         <i class="ph-fill ph-check-circle" style="font-size: 5rem; color: var(--brand-cyan); margin-bottom: 20px;"></i>
+         <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--black); margin-bottom: 20px;">Recepción Exitosa</h2>
+         <p style="font-size: 1.1rem; color: var(--neutral-dark); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Nuestro equipo se comunicará contigo a los datos de contacto proporcionados en un plazo menor a 24 horas hábiles.</p>
+         <a href="index.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 30px;">Volver al Inicio</a>
       </div>
     </section>
-
-
 
   </main>
-
   <footer id="footer" class="footer bg-black text-white section-pad">
     <div class="container footer-grid">
       <!-- COL 1 -->
@@ -191,17 +155,17 @@
           <a href="#"><i class="ph ph-instagram-logo"></i></a>
         </div>
       </div>
-      <!-- COL 2 -->
+      <!-- COL 2 (Swapped with COL 3) -->
       <div class="footer-links">
         <h4>Enlaces Rápidos</h4>
         <ul>
-          <li><a href="index.html#services">Servicios Base</a></li>
-          <li><a href="index.html#ecosystem">SmartScan</a></li>
-          <li><a href="index.html#portfolio">Casos Reales</a></li>
-          <li><a href="index.html#faqs">Preguntas</a></li>
+          <li><a href="#services">Servicios Base</a></li>
+          <li><a href="#ecosystem">SmartScan</a></li>
+          <li><a href="#portfolio">Casos Reales</a></li>
+          <li><a href="#faqs">Preguntas</a></li>
         </ul>
       </div>
-      <!-- COL 3 -->
+      <!-- COL 3 (Swapped with COL 2) -->
       <div class="footer-info">
         <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Información de Contacto</h4>
         <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.6); line-height: 1.5; font-size: 0.9rem;">
@@ -282,5 +246,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
   <!-- Main JS -->
   <script src="./js/main.js"></script>
+  
 </body>
 </html>

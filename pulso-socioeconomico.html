@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Fit Arquitectónico | CREA Soluciones</title>
-  <meta name="description" content="Servicio de anteproyecto arquitectónico y diseño de layouts para desarrollos viables.">
+  <title>Pulso Socioeconómico | CREA Soluciones</title>
+  <meta name="description" content="Identifica rápidamente zonas y predios específicos que presenten características ideales para distintos tipos de desarrollo inmobiliario.">
   
   <!-- Fonts: Barlow and Noto Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,82 +100,247 @@
 
   <main>
     <!-- CABECERA SAAS (Interior) -->
-    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/test_fit_hero.webp'); background-size: cover; background-position: center; padding-top: 180px; padding-bottom: 120px; text-align: center; z-index: 1;">
+    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/pulso-hero.webp'); background-size: cover; background-position: center; padding-top: 200px; padding-bottom: 140px; text-align: center; z-index: 1;">
       <div class="container" style="position: relative; z-index: 2;">
-        <span class="cintillo gsap-fade-up">Servicios de Arquitectura</span>
-        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">Test Fit Arquitectónico</h1>
+        <span class="cintillo gsap-fade-up">SmartScan Inmobiliario</span>
+        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.8rem); margin-bottom: 20px; font-weight: 700; letter-spacing: -1px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.2;">
+          Reporte de niveles socioeconómicos por zona (NSE)
+        </h1>
+        <p class="text-white gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9;">
+            Pulso Socioeconómico: Define a tu cliente ideal
+        </p>
       </div>
     </section>
 
-    <!-- SECCIÓN 1: BÚSQUEDA DE ALTERNATIVAS -->
-    <section class="section-pad">
+    <!-- SECCIÓN 1: INTRODUCCIÓN CENTRADA -->
+    <section class="section-pad" style="text-align: center; background-color: #ffffff;">
+      <div class="container gsap-fade-up" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
+          Propósito
+        </h2>
+        <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin-bottom: 1.5rem;">
+          Ofrecer una comprensión profunda del perfil demográfico y de consumo de una zona, crucial para el desarrollo de proyectos inmobiliarios dirigidos al segmento de mercado adecuado.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ESTILOS TABS (Heredados) -->
+    <style>
+      .report-tabs-section {
+        background-color: #F8F9FA;
+        padding: 50px 0 80px 0;
+      }
+      .tabs-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+        padding-bottom: 10px;
+        justify-content: center;
+      }
+      .tab-button {
+        background: transparent;
+        border: none;
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--neutral-dark);
+        padding: 12px 24px;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .tab-button::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--brand-cyan);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      .tab-button:hover {
+        color: var(--black);
+      }
+      .tab-button.active {
+        color: var(--black);
+      }
+      .tab-button.active::after {
+        transform: scaleX(1);
+      }
+      
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .tab-pane-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--black);
+        margin-bottom: 1.5rem;
+      }
+      .tab-pane-text {
+        font-family: 'Noto Serif', serif;
+        font-size: 1rem;
+        color: var(--neutral-dark);
+        line-height: 1.8;
+      }
+      .tab-pane-text li::marker {
+        color: var(--brand-cyan);
+      }
+    </style>
+
+    <!-- TABS CONTENIDO -->
+    <section class="report-tabs-section">
       <div class="container">
-        
-        <!-- TEXTO CENTRAL (Imagen 1) -->
-        <div class="text-center gsap-fade-up" style="max-width: 900px; margin: 0 auto; margin-bottom: 5rem;">
-          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--neutral-dark); font-size: 2.2rem; margin-bottom: 2rem;">Test Fit Arquitectónico</h2>
-          
-          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.6; margin: 0;">El anteproyecto arquitectónico es una fase clave en el desarrollo inmobiliario, ya que nos permite validar que las recomendaciones del estudio de mercado y el modelo financiero se ajusten al terreno, usos de suelo y segmentación recomendada. El Test Fit Arquitectónico es la primera representación tangible de tu visión, traduciendo datos y análisis en un diseño funcional y atractivo, listo para ser presentado a comités para la autorización de financiamiento.</p>
+        <!-- Tabs Header -->
+        <div class="tabs-container gsap-fade-up">
+          <button class="tab-button active" onclick="openTab(event, 'tab1')">1. Resumen Ejecutivo</button>
+          <button class="tab-button" onclick="openTab(event, 'tab2')">2. Metodología</button>
+          <button class="tab-button" onclick="openTab(event, 'tab3')">3. Análisis NSE</button>
+          <button class="tab-button" onclick="openTab(event, 'tab4')">4. Infraestructura y Servicios</button>
+          <button class="tab-button" onclick="openTab(event, 'tab5')">5. Implicaciones de Desarrollo</button>
+          <button class="tab-button" onclick="openTab(event, 'tab6')">6. Conclusiones y Aplicaciones</button>
         </div>
 
-        <!-- CONTENEDORES CON ESTILO SMARTSCAN (Imágenes 2 y 3) -->
-        <div class="tech-grid gsap-fade-up" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+        <!-- Tabs Content -->
+        <div class="tabs-content-wrapper gsap-fade-up" style="background: var(--white); padding: 50px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
           
-          <!-- Contenedor 1 -->
-          <div class="tech-item gsap-fade-up">
-            <i class="ph-fill ph-pen-nib"></i>
-            <h4 style="font-size: 1.4rem; padding-bottom: 0; margin-bottom: 0;">Anteproyecto Arquitectónico</h4>
-            <div style="flex-grow: 1; padding-top: 1.5rem;">
-              <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--neutral-dark); margin-bottom: 1rem; line-height: 1.4;">¿Cómo transformar los datos y análisis en un diseño que valide la viabilidad de tu proyecto y capte la aprobación de inversionistas?</p>
-              <ul style="list-style-type: none; margin: 0; padding-left: 0; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-semi); line-height: 1.6;">
-                <li style="position: relative; padding-left: 20px; margin-bottom: 12px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Definición de Espacios:</strong> Establecemos layouts estratégicos basados en las recomendaciones del estudio de mercado.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 12px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Visualización 3D:</strong> Generamos representaciones volumétricas para prever y ajustar el diseño antes de la construcción.
-                </li>
-                <li style="position: relative; padding-left: 20px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Optimización de Diseño:</strong> Integramos análisis de factibilidad para perfeccionar cada detalle y asegurar la funcionalidad del proyecto.
-                </li>
-              </ul>
+          <div id="tab1" class="tab-content active">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">1. Resumen Ejecutivo</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;">Visión general de la distribución de NSE y su implicación para el tipo de desarrollo inmobiliario más viable.</li>
+                  <li style="margin-bottom: 12px;">Oportunidades de nicho basadas en la concentración de ciertos NSE.</li>
+                  <li>Recomendación estratégica de CREA para el posicionamiento del proyecto.</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-Pulso-Socioeconomico/analisis-demografico-768x526.jpg" alt="Resumen Ejecutivo" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
             </div>
           </div>
 
-          <!-- Contenedor 2 -->
-          <div class="tech-item gsap-fade-up" style="transition-delay: 0.1s;">
-            <i class="ph-fill ph-blueprint"></i>
-            <h4 style="font-size: 1.4rem; padding-bottom: 0; margin-bottom: 0;">Beneficios del Test Fit Arquitectónico</h4>
-            <div style="flex-grow: 1; padding-top: 1.5rem;">
-              <ul style="list-style-type: none; margin: 0 0 1.5rem 0; padding-left: 0; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-semi); line-height: 1.6;">
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Conocemos</strong> a fondo las características únicas de tu terreno y sus posibilidades, para adaptar el diseño a la realidad del espacio.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Establecemos</strong> layouts estratégicos que maximizan la funcionalidad y el potencial del proyecto, integrando datos de mercado y análisis financiero.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Recomendamos</strong> soluciones de diseño que facilitan la aprobación por comités de financiamiento, demostrando la viabilidad de tu desarrollo.
-                </li>
-                <li style="position: relative; padding-left: 20px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Presentamos</strong> una visualización 3D clara y tangible que permite a los inversionistas comprender y valorar tu propuesta desde el primer momento.
-                </li>
-              </ul>
+          <div id="tab2" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">2. Metodología y Alcance del Análisis</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Explicación:</strong> De la fuente y la clasificación de NSE utilizada (INEGI, AMAI, etc.)</li>
+                  <li><strong>Cobertura:</strong> Geográfica del reporte (México, Guatemala, El Salvador)</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-Pulso-Socioeconomico/videoframe_27592-768x432.png" alt="Metodología" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab3" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">3. Análisis Detallado de NSE por Zona</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Mapa Principal: Concentración de NSE:</strong> Visualización cartográfica detallada de la distribución de los diferentes NSE por colonia/municipio en la zona de estudio (tu cartografía interna).</li>
+                  <li style="margin-bottom: 12px;"><strong>Composición de NSE:</strong> Porcentajes y número de hogares por cada nivel socioeconómico.</li>
+                  <li style="margin-bottom: 12px;"><strong>Características Clave por NSE:</strong> Breve descripción de los hábitos de consumo, preferencias de vivienda y nivel de ingresos asociados a cada NSE predominante.</li>
+                  <li><strong>Densidad de Población y NSE:</strong> Correlación entre densidad poblacional y los NSE presentes.</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-Pulso-Socioeconomico/analisis-zona-768x411.png" alt="Análisis Detallado NSE" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab4" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start;">
+               <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">4. Infraestructura y Servicios en Relación a NSE</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Vialidades:</strong> Mapa de vialidades y su relación con la accesibilidad a zonas de diferentes NSE.</li>
+                  <li style="margin-bottom: 12px;"><strong>Servicios Básicos:</strong> Calidad y disponibilidad de servicios públicos por NSE (inferencia).</li>
+                  <li><strong>Unidades Económicas:</strong> Distribución de unidades económicas (datos internos) y su correspondencia con la ubicación de los diferentes NSE.</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-Pulso-Socioeconomico/analisis-infraestructura-768x452.png" alt="Infraestructura y Servicios" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab5" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">5. Implicaciones para el Desarrollo Inmobiliario</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Residencial:</strong> Tipologías de vivienda, rangos de precio, amenidades y acabados adecuados para cada NSE.</li>
+                  <li style="margin-bottom: 12px;"><strong>Comercial:</strong> Formatos de tiendas, tipos de productos y estrategias de precios que resuenan con los NSE dominantes.</li>
+                  <li><strong>Otras Oportunidades:</strong> Potencial para servicios específicos (educación, salud, entretenimiento) basados en el perfil de NSE.</li>
+                </ul>
+              </div>
+               <div style="text-align: center;">
+                <img src="./img/reporte-Pulso-Socioeconomico/oferta-vivienda-rango-superficies-768x438.png" alt="Implicaciones de Desarrollo" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab6" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">6. Conclusiones y Aplicaciones Estratégicas</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;">Cómo el entendimiento de los NSE puede optimizar la propuesta de valor de un proyecto.</li>
+                  <li>Sugerencias para estudios de mercado y demanda específicos.</li>
+                </ul>
+              </div>
+               <div style="text-align: center;">
+                <img src="./img/reporte-Pulso-Socioeconomico/conclusiones-reportes-768x536.jpg" alt="Conclusiones GeoVentas" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
             </div>
           </div>
 
         </div>
       </div>
+
     </section>
 
-
-
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+          tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+        
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+        }
+      }
+    </script>
   </main>
 
   <footer id="footer" class="footer bg-black text-white section-pad">

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Fit Arquitectónico | CREA Soluciones</title>
-  <meta name="description" content="Servicio de anteproyecto arquitectónico y diseño de layouts para desarrollos viables.">
+  <title>Reposicionamiento Inmobiliario | CREA Soluciones</title>
+  <meta name="description" content="¿Tu propiedad no rinde como debería? Nosotros la transformamos. Análisis y rediseño estratégico para maximizar valor.">
   
   <!-- Fonts: Barlow and Noto Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,81 +100,174 @@
 
   <main>
     <!-- CABECERA SAAS (Interior) -->
-    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/test_fit_hero.webp'); background-size: cover; background-position: center; padding-top: 180px; padding-bottom: 120px; text-align: center; z-index: 1;">
+    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/reposicionamiento-hero.jpg'); background-size: cover; background-position: center; padding-top: 200px; padding-bottom: 140px; text-align: center; z-index: 1;">
       <div class="container" style="position: relative; z-index: 2;">
-        <span class="cintillo gsap-fade-up">Servicios de Arquitectura</span>
-        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">Test Fit Arquitectónico</h1>
+        <span class="cintillo gsap-fade-up">Inteligencia de Mercado Inmobiliario</span>
+        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.8rem); margin-bottom: 1rem; font-weight: 700; letter-spacing: -1px;">Reposicionamiento Inmobiliario</h1>
+        <p class="gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.25rem; color: rgba(255,255,255,0.9); max-width: 800px; margin: 0 auto; line-height: 1.6;">¿Tu propiedad no rinde como debería? Nosotros la transformamos.</p>
       </div>
     </section>
 
-    <!-- SECCIÓN 1: BÚSQUEDA DE ALTERNATIVAS -->
+    <!-- SECCIÓN 1: INTRODUCCIÓN 2 COLUMNAS -->
+    <style>
+      .repo-intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 60px;
+        align-items: stretch;
+      }
+      .repo-intro-left {
+        padding-right: 40px;
+        border-right: 1px solid var(--black);
+      }
+      .repo-intro-right ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .repo-intro-right li {
+        font-family: 'Noto Serif', serif;
+        font-size: 1.1rem;
+        color: var(--neutral-dark);
+        line-height: 1.6;
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 24px;
+      }
+      .repo-intro-right li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--brand-cyan);
+      }
+      .repo-intro-right li:last-child {
+        margin-bottom: 0;
+      }
+      @media (max-width: 900px) {
+        .repo-intro-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .repo-intro-left {
+          padding-right: 0;
+          border-right: none;
+          border-bottom: 1px solid rgba(0,0,0,0.2);
+          padding-bottom: 40px;
+        }
+      }
+    </style>
     <section class="section-pad">
       <div class="container">
-        
-        <!-- TEXTO CENTRAL (Imagen 1) -->
-        <div class="text-center gsap-fade-up" style="max-width: 900px; margin: 0 auto; margin-bottom: 5rem;">
-          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--neutral-dark); font-size: 2.2rem; margin-bottom: 2rem;">Test Fit Arquitectónico</h2>
+        <div class="repo-intro-grid gsap-fade-up">
           
-          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.6; margin: 0;">El anteproyecto arquitectónico es una fase clave en el desarrollo inmobiliario, ya que nos permite validar que las recomendaciones del estudio de mercado y el modelo financiero se ajusten al terreno, usos de suelo y segmentación recomendada. El Test Fit Arquitectónico es la primera representación tangible de tu visión, traduciendo datos y análisis en un diseño funcional y atractivo, listo para ser presentado a comités para la autorización de financiamiento.</p>
-        </div>
-
-        <!-- CONTENEDORES CON ESTILO SMARTSCAN (Imágenes 2 y 3) -->
-        <div class="tech-grid gsap-fade-up" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-          
-          <!-- Contenedor 1 -->
-          <div class="tech-item gsap-fade-up">
-            <i class="ph-fill ph-pen-nib"></i>
-            <h4 style="font-size: 1.4rem; padding-bottom: 0; margin-bottom: 0;">Anteproyecto Arquitectónico</h4>
-            <div style="flex-grow: 1; padding-top: 1.5rem;">
-              <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--neutral-dark); margin-bottom: 1rem; line-height: 1.4;">¿Cómo transformar los datos y análisis en un diseño que valide la viabilidad de tu proyecto y capte la aprobación de inversionistas?</p>
-              <ul style="list-style-type: none; margin: 0; padding-left: 0; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-semi); line-height: 1.6;">
-                <li style="position: relative; padding-left: 20px; margin-bottom: 12px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Definición de Espacios:</strong> Establecemos layouts estratégicos basados en las recomendaciones del estudio de mercado.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 12px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Visualización 3D:</strong> Generamos representaciones volumétricas para prever y ajustar el diseño antes de la construcción.
-                </li>
-                <li style="position: relative; padding-left: 20px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Optimización de Diseño:</strong> Integramos análisis de factibilidad para perfeccionar cada detalle y asegurar la funcionalidad del proyecto.
-                </li>
-              </ul>
-            </div>
+          <div class="repo-intro-left">
+            <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
+              ¡Incrementa tus ganancias en cuestión de semanas!
+            </h2>
+            <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">
+              Es el momento de que tu empresa retome la curva de crecimiento. Ya sea un centro comercial, oficinas, hotel o cualquier tipo de desarrollo, reposicionamos tu inmueble para maximizar su valor y rentabilidad.
+            </p>
           </div>
 
-          <!-- Contenedor 2 -->
-          <div class="tech-item gsap-fade-up" style="transition-delay: 0.1s;">
-            <i class="ph-fill ph-blueprint"></i>
-            <h4 style="font-size: 1.4rem; padding-bottom: 0; margin-bottom: 0;">Beneficios del Test Fit Arquitectónico</h4>
-            <div style="flex-grow: 1; padding-top: 1.5rem;">
-              <ul style="list-style-type: none; margin: 0 0 1.5rem 0; padding-left: 0; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-semi); line-height: 1.6;">
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Conocemos</strong> a fondo las características únicas de tu terreno y sus posibilidades, para adaptar el diseño a la realidad del espacio.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Establecemos</strong> layouts estratégicos que maximizan la funcionalidad y el potencial del proyecto, integrando datos de mercado y análisis financiero.
-                </li>
-                <li style="position: relative; padding-left: 20px; margin-bottom: 8px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Recomendamos</strong> soluciones de diseño que facilitan la aprobación por comités de financiamiento, demostrando la viabilidad de tu desarrollo.
-                </li>
-                <li style="position: relative; padding-left: 20px;">
-                  <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span>
-                  <strong style="color: var(--neutral-dark); font-family: var(--font-display);">Presentamos</strong> una visualización 3D clara y tangible que permite a los inversionistas comprender y valorar tu propuesta desde el primer momento.
-                </li>
-              </ul>
-            </div>
+          <div class="repo-intro-right">
+            <ul>
+              <li><strong>Líneas de acción estratégicas:</strong> Mejoramos las condiciones del mercado actual para que tu proyecto tenga un mayor desempeño.</li>
+              <li><strong>Aumento de ocupación:</strong> Impulsamos la ocupación del inmueble comercial atrayendo marcas clave.</li>
+              <li><strong>Identificación de marcas preferidas:</strong> Detectamos las marcas, tiendas y servicios más valorados por los clientes.</li>
+              <li><strong>Reconocimiento de marcas no atendidas:</strong> Aprovechamos oportunidades detectando marcas que aún no están presentes en tu desarrollo.</li>
+              <li><strong>Incremento de rentabilidad:</strong> Creamos estrategias para elevar el rendimiento de tu centro comercial.</li>
+              <li><strong>Oportunidades de reconversión:</strong> Analizamos opciones como cambio de uso, renovación o comercialización del espacio.</li>
+            </ul>
           </div>
 
         </div>
       </div>
     </section>
 
+    <!-- SECCIÓN 2: 3 FASES (ESTILO SECCIÓN 4 M&M USO) -->
+    <style>
+      .white-hover-card {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .white-hover-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--brand-cyan) !important;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.08) !important;
+      }
+      .phase-list {
+        list-style: disc;
+        padding-left: 20px;
+        margin: 0;
+      }
+      .phase-list li {
+        font-family: 'Noto Serif', serif;
+        font-size: 1rem;
+        color: var(--neutral-dark);
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+      .phase-list li:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+    <section class="section-pad" style="background-color: #F5F5F5;">
+      <div class="container">
+        
+        <!-- Título y Texto -->
+        <div class="text-center gsap-fade-up" style="margin-bottom: 4rem;">
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); max-width: 900px; margin: 0 auto 1.5rem auto;">
+            Nuestro servicio de reposicionamiento de desarrollos inmobiliarios
+          </h2>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; max-width: 1000px; margin: 0 auto;">
+            No dejes que tu propiedad comercial se quede atrás en un entorno competitivo. Un estudio de reposicionamiento es una inversión estratégica para garantizar el crecimiento y rentabilidad de tu negocio. <strong>Reposicionamos tu inmueble para maximizar su valor y rentabilidad.</strong> ¡Contáctanos hoy mismo y da el siguiente paso hacia el éxito!
+          </p>
+        </div>
 
+        <!-- 3 Columnas -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+          
+          <!-- FASE I -->
+          <div class="gsap-fade-up white-hover-card" style="background: #FFFFFF; border: 1px solid var(--neutral-dark); border-radius: 8px; padding: 40px; box-shadow: none;">
+            <i class="ph ph-magnifying-glass" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 20px; display: inline-block;"></i>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--black); margin-bottom: 1.5rem; line-height: 1.4;">FASE I: Evaluación del Mercado</h4>
+            <ul class="phase-list">
+              <li>Identificamos el tamaño del mercado, analizando tanto la demanda potencial como las condiciones de la oferta existente.</li>
+              <li>Comprendemos las tendencias del mercado inmobiliario, así como las necesidades y preferencias de los posibles compradores o arrendatarios.</li>
+              <li>Realizamos entrevistas cualitativas con stakeholders clave del desarrollo.</li>
+              <li>Empleamos herramientas de escucha en redes sociales para comprender las percepciones del mercado sobre el desarrollo.</li>
+              <li>Analizamos el posicionamiento y las estrategias de la competencia en la zona.</li>
+            </ul>
+          </div>
+
+          <!-- FASE II -->
+          <div class="gsap-fade-up white-hover-card" style="transition-delay: 0.1s; background: #FFFFFF; border: 1px solid var(--neutral-dark); border-radius: 8px; padding: 40px; box-shadow: none;">
+            <i class="ph ph-target" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 20px; display: inline-block;"></i>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--black); margin-bottom: 1.5rem; line-height: 1.4;">FASE II: Identificación de Oportunidades</h4>
+            <ul class="phase-list">
+              <li>Exploramos otras posibles oportunidades de desarrollo inmobiliario que puedan complementar el proyecto principal.</li>
+              <li>Identificación de nichos con oportunidades específicas dentro del mercado donde el reposicionamiento pueda tener un impacto positivo y generar demanda.</li>
+            </ul>
+          </div>
+
+          <!-- FASE III -->
+          <div class="gsap-fade-up white-hover-card" style="transition-delay: 0.2s; background: #FFFFFF; border: 1px solid var(--neutral-dark); border-radius: 8px; padding: 40px; box-shadow: none;">
+            <i class="ph ph-strategy" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 20px; display: inline-block;"></i>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--black); margin-bottom: 0.5rem; line-height: 1.4;">FASE III: Plan o estrategia única de valor</h4>
+            <p style="font-family: 'Noto Serif', serif; font-size: 1rem; color: var(--neutral-dark); line-height: 1.6; margin-bottom: 1.5rem; margin-top: 0;">que diferencie el proyecto de la competencia y atraiga a los clientes objetivo.</p>
+            <ul class="phase-list">
+              <li>Definimos medidas para cambiar la percepción, el enfoque o la dirección, como: renovaciones de propiedades, reajustes de precios, campañas de marketing, entre otras.</li>
+              <li>Gestión del cambio: Gestionar eficazmente el cambio dentro de la organización, los clientes y partes interesadas para garantizar una transición suave hacia el nuevo posicionamiento.</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
   </main>
 

@@ -185,5 +185,61 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, 5000); // Cambia cada 5 segundos
   });
+  // 7. FOOTER FORM VALIDATION
+  const footerForm = document.getElementById("form-footer");
+  if (footerForm) {
+    footerForm.addEventListener("submit", function(e) {
+      let isValid = true;
+      
+      const fields = [
+        { id: "form-name-footer", errorId: "error-name-footer" },
+        { id: "form-phone-footer", errorId: "error-phone-footer" },
+        { id: "form-service-footer", errorId: "error-service-footer" },
+        { id: "form-stage-footer", errorId: "error-stage-footer" }
+      ];
+
+      fields.forEach(field => {
+        const input = document.getElementById(field.id);
+        const error = document.getElementById(field.errorId);
+        if (input && error) {
+            if (!input.value || input.value.trim() === "") {
+              isValid = false;
+              input.style.borderColor = "#ff6b6b";
+              error.style.display = "block";
+            } else {
+              input.style.borderColor = "rgba(255,255,255,0.2)";
+              error.style.display = "none";
+            }
+        }
+      });
+
+      const email = document.getElementById("form-email-footer");
+      const emailError = document.getElementById("error-email-footer");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && emailError) {
+          if (!email.value || !emailRegex.test(email.value)) {
+            isValid = false;
+            email.style.borderColor = "#ff6b6b";
+            emailError.style.display = "block";
+          } else {
+            email.style.borderColor = "rgba(255,255,255,0.2)";
+            emailError.style.display = "none";
+          }
+      }
+
+      if (!isValid) {
+        e.preventDefault();
+      }
+    });
+
+    const allFooterInputs = footerForm.querySelectorAll("input, select");
+    allFooterInputs.forEach(input => {
+      input.addEventListener("input", () => {
+        input.style.borderColor = "rgba(255,255,255,0.2)";
+        const error = document.getElementById("error-" + input.name + "-footer");
+        if(error) error.style.display = "none";
+      });
+    });
+  }
 
 });

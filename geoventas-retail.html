@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geoventas Retail | Análisis de Geomarketing | CREA Soluciones</title>
+  <meta name="description" content="Identifica rápidamente zonas y predios específicos que presenten características ideales para distintos tipos de desarrollo inmobiliario.">
+  
+  <!-- Fonts: Barlow and Noto Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Icons: Phosphor -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- ======================== HEADER ======================== -->
+  <header id="main-header" class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA Soluciones Logo" style="filter: brightness(0) invert(1);" id="brand-logo">
+      </a>
+      <nav class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#services" class="dropbtn">Servicios <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">Inteligencia de mercado inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="estudios-mercado-inmobiliario.html">Estudios de mercado inmobiliario</a>
+                <a href="mayor-mejor-uso.html">Estudio de mayor y mejor uso de la tierra</a>
+                <a href="reposicionamiento-inmobiliario.html">Reposicionamiento/ reconversión inmobiliaria</a>
+              </div>
+            </div>
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">Análisis financiero <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="modelos-financieros.html">Modelos financieros</a>
+                <a href="avaluos-inmobiliarios.html">Avalúos inmobiliarios</a>
+              </div>
+            </div>
+            <!-- <a href="#">CREA SOLUCIONES 360°</a> -->
+            <a href="financiamiento.html">Financiamiento</a>
+            <a href="test-fit-arquitectonico.html">Test Fit Arquitectónico</a>
+          </div>
+        </div>
+        
+        <div class="dropdown">
+          <a href="index.html#ecosystem" class="dropbtn">Sectores <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Centros Comerciales</a>
+            <a href="#">Vivienda</a>
+            <a href="#">Hospitality/ Hoteles/ Branded Residences/ Wellness</a>
+            <a href="#">Macroproyectos/ Master Plan</a>
+            <a href="#">Usos Mixtos</a>
+            <a href="#">Parques industriales</a>
+            <a href="#">Senior Living</a>
+            <a href="#">Hospitales y Clínicas</a>
+            <a href="#">Educación</a>
+            <a href="#">Oficinas</a>
+            <a href="#">Gobierno</a>
+            <a href="#">Desarrollos Orientados al Transporte</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="index.html#resources" class="dropbtn">Reportes <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">SmartScan Inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="#">Potencial de mi predio</a>
+                <a href="donde-desarrollar.html">¿Dónde desarrollar en x ciudad?</a>
+                <a href="geoventas-retail.html">Geoventas Retail</a>
+                <a href="pulso-socioeconomico.html">Pulso Socioeconómico</a>
+                <a href="reporte-ciudades-con-potencial.html">Ciudades con potencial de desarrollo de Centro Comerciales</a>
+                <a href="reporte-servicios-de-salud.html">Ciudades con potencial de desarrollo de proyectos de salud</a>
+                <a href="reporte-senior-living-en-mexico.html">Ciudades con potencial de desarrollo de Senior Living en México</a>
+              </div>
+            </div>
+            <a href="reporte-centros-comerciales.html">Reporte de Centros Comerciales</a>
+            <a href="#">Reporte Parques Industriales</a>
+            <a href="#">Reporte Vivienda Institucional en Renta</a>
+          </div>
+        </div>
+
+        <a href="index.html#portfolio">Casos de Éxito</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#footer" class="btn btn-outline-light">Agendar Consultoría</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- CABECERA SAAS (Interior) -->
+    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/geoventas-hero.webp'); background-size: cover; background-position: center; padding-top: 200px; padding-bottom: 140px; text-align: center; z-index: 1;">
+      <div class="container" style="position: relative; z-index: 2;">
+        <span class="cintillo gsap-fade-up">SmartScan Inmobiliario</span>
+        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.8rem); margin-bottom: 20px; font-weight: 700; letter-spacing: -1px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.2;">
+          Análisis de Geomarketing para expansión geográfica
+        </h1>
+        <p class="text-white gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9;">
+            Impulsa tu estrategia de expansión geográfica con decisiones basadas en datos, no suposiciones.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: INTRODUCCIÓN CENTRADA -->
+    <section class="section-pad" style="text-align: center; background-color: #ffffff;">
+      <div class="container gsap-fade-up" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
+          ¿Sabes dónde está tu próximo cliente?
+        </h2>
+        <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin-bottom: 1.5rem;">
+          No adivines. Con nuestro análisis de <strong>Geomarketing</strong> te damos las coordenadas exactas para abrir tu próxima sucursal. Analizamos la <strong>población, accesibilidad, gasto por hogar y zonas de alta energía comercial</strong> para que estimes tus ventas potenciales y tu expansión sea un éxito.
+        </p>
+        <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--black); line-height: 1.8; margin: 0;">
+          <strong>¡Descubre el lugar perfecto con datos, no con suposiciones!</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ESTILOS TABS (Heredados) -->
+    <style>
+      .report-tabs-section {
+        background-color: #F8F9FA;
+        padding: 50px 0 80px 0;
+      }
+      .tabs-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+        padding-bottom: 10px;
+        justify-content: center;
+      }
+      .tab-button {
+        background: transparent;
+        border: none;
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--neutral-dark);
+        padding: 12px 24px;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .tab-button::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--brand-cyan);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      .tab-button:hover {
+        color: var(--black);
+      }
+      .tab-button.active {
+        color: var(--black);
+      }
+      .tab-button.active::after {
+        transform: scaleX(1);
+      }
+      
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .tab-pane-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--black);
+        margin-bottom: 1.5rem;
+      }
+      .tab-pane-text {
+        font-family: 'Noto Serif', serif;
+        font-size: 1rem;
+        color: var(--neutral-dark);
+        line-height: 1.8;
+      }
+      .tab-pane-text li::marker {
+        color: var(--brand-cyan);
+      }
+    </style>
+
+    <!-- TABS CONTENIDO -->
+    <section class="report-tabs-section">
+      <div class="container">
+        <!-- Tabs Header -->
+        <div class="tabs-container gsap-fade-up">
+          <button class="tab-button active" onclick="openTab(event, 'tab1')">1. Resumen ejecutivo</button>
+          <button class="tab-button" onclick="openTab(event, 'tab2')">2. Contexto de la zona</button>
+          <button class="tab-button" onclick="openTab(event, 'tab3')">3. Oferta comercial</button>
+          <button class="tab-button" onclick="openTab(event, 'tab4')">4. Mapas de calor</button>
+          <button class="tab-button" onclick="openTab(event, 'tab5')">5. Oportunidades y recomendaciones</button>
+          <button class="tab-button" onclick="openTab(event, 'tab6')">6. Conclusiones y siguientes pasos</button>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="tabs-content-wrapper gsap-fade-up" style="background: var(--white); padding: 50px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          
+          <div id="tab1" class="tab-content active">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">1. Resumen ejecutivo</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;">Principales "puntos calientes" de venta identificados y su potencial de atracción para nuevos desarrollos.</li>
+                  <li style="margin-bottom: 12px;">Síntesis de las oportunidades de inversión en el segmento comercial en la zona.</li>
+                  <li>Recomendación clave de CREA para maximizar el retorno en esta área.</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-geoventas/variables-resultados.png" alt="Variables y Resultados" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab2" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">2. Contexto socioeconómico y demográfico de la zona</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Población:</strong> Datos actuales y proyecciones de crecimiento (5-10 años).</li>
+                  <li style="margin-bottom: 12px;"><strong>Mapa de Calor de NSE:</strong> Distribución de Niveles Socioeconómicos por colonia/municipio.</li>
+                  <li><strong>Poder Adquisitivo:</strong> Ingreso promedio por hogar y patrón de gasto en bienes de consumo básico.</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-geoventas/analisis-demografico-768x526.jpg" alt="Análisis Demográfico" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab3" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">3. Análisis de la oferta comercial actual</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Inventario:</strong> Conteo de tiendas de autoservicio y otras anclas comerciales (departamentales, cines) existentes en la zona.</li>
+                  <li style="margin-bottom: 12px;"><strong>Distribución:</strong> Mapa de ubicación de la competencia y anclas (tus datos internos).</li>
+                  <li><strong>Accesibilidad:</strong> Proximidad a vías principales y nodos de transporte.</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-geoventas/geomarketing-donde-poner-sucursales-ejemplo-e1754343672710-768x445.jpg" alt="Oferta Comercial" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab4" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start;">
+               <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">4. Mapas de calor de venta y análisis de potencial</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Mapa Principal (Densidad de Ventas de Autoservicio):</strong> Visualización cartográfica de las áreas con mayor concentración de ventas históricas por m2 (tus datos internos).</li>
+                  <li style="margin-bottom: 12px;"><strong>Análisis de "Puntos Calientes":</strong> Descripción detallada de por qué estas zonas son atractivas (demografía, vialidades, unidades económicas cercanas).</li>
+                  <li style="margin-bottom: 12px;"><strong>Corredores Comerciales Activos:</strong> Identificación de las vialidades con mayor flujo comercial.</li>
+                  <li><strong>Brechas y Zonas Subatendidas:</strong> Áreas con potencial de demanda no cubierta por la oferta actual.</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="./img/reporte-geoventas/analisis-zona.png" alt="Mapa de Calor y Potencial" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab5" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">5. Oportunidades de desarrollo y recomendaciones</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;"><strong>Tipo de Desarrollo Recomendado:</strong> ¿Qué tipo de proyecto comercial o de uso mixto es más viable (strip mall, centro comercial vecinal, área comercial en desarrollo residencial)?</li>
+                  <li style="margin-bottom: 12px;"><strong>Localización Estratégica:</strong> Sugerencias de micro-zonas con mayor potencial de éxito.</li>
+                  <li><strong>Impacto de Factores Externos:</strong> Breve mención de cómo la inflación, tasas de interés o políticas locales podrían influir en el desarrollo comercial de la zona.</li>
+                </ul>
+              </div>
+               <div style="text-align: center;">
+                <img src="./img/reporte-geoventas/eleccion-predios.png" alt="Oportunidades de Desarrollo" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+          <div id="tab6" class="tab-content">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+              <div>
+                <h3 class="tab-pane-title" style="margin-bottom: 20px;">6. Conclusiones y siguientes pasos</h3>
+                <ul class="tab-pane-text" style="padding-left: 20px;">
+                  <li style="margin-bottom: 12px;">Resumen de las principales oportunidades.</li>
+                  <li>Invitación a un estudio de factibilidad más profundo.</li>
+                </ul>
+              </div>
+               <div style="text-align: center;">
+                <img src="./img/reporte-geoventas/conclusiones-reportes-768x536.jpg" alt="Conclusiones GeoVentas" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+          tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+        
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+        }
+      }
+    </script>
+  </main>
+
+  <footer id="footer" class="footer bg-black text-white section-pad">
+    <div class="container footer-grid">
+      <!-- COL 1 -->
+      <div class="footer-brand">
+        <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA" style="filter: brightness(0) invert(1); width: 140px; margin-bottom: 20px;">
+        <p>Inteligencia Inmobiliaria Premium para tomadores de decisión institucionales.</p>
+        <h4 class="mt-4 mb-1" style="font-size: 1rem; color: var(--brand-cyan);">Redes Sociales</h4>
+        <div class="social-icons">
+          <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="#"><i class="ph ph-x-logo"></i></a>
+          <a href="#"><i class="ph ph-instagram-logo"></i></a>
+        </div>
+      </div>
+      <!-- COL 2 -->
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="index.html#services">Servicios Base</a></li>
+          <li><a href="index.html#ecosystem">SmartScan</a></li>
+          <li><a href="index.html#portfolio">Casos Reales</a></li>
+          <li><a href="index.html#faqs">Preguntas</a></li>
+        </ul>
+      </div>
+      <!-- COL 3 -->
+      <div class="footer-info">
+        <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Información de Contacto</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.6); line-height: 1.5; font-size: 0.9rem;">
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-clock" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Horario de Atención:</strong>
+            <span style="display: block; padding-left: 28px;">Lunes a viernes de 9 am a 6 pm.</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-phone" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Teléfonos:</strong>
+            <span style="display: block; padding-left: 28px;">+52 55 4597 3919 | +52 55 5277 8044 | +52 55 5276 9531</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-envelope-simple" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Correo:</strong>
+            <span style="display: block; padding-left: 28px;">info@creasoluciones.com.mx</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Ciudad de México:</strong>
+            <span style="display: block; padding-left: 28px;">Av. Coyoacán 1622 Edif. 4 Piso 2 Of. "A", Del Valle, Benito Juárez, C.P. 03100</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Guadalajara:</strong>
+            <span style="display: block; padding-left: 28px;">Herrera y Cairo 2835 Cuarto Piso Fracc. Terranova 44689, Jalisco, México</span>
+          </li>
+          <li style="margin-bottom: 2rem;">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Monterrey:</strong>
+            <span style="display: block; padding-left: 28px;">José Clemente Orozco 335 Desp. 304, Torre Novo, Valle Oriente 66269, N.L.</span>
+          </li>
+        </ul>
+      </div>
+      <!-- COL 4 -->
+      <div class="footer-contact-form">
+        <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Contáctanos</h4>
+        <form id="form-footer" action="procesar_contacto.php" method="POST" class="minimal-form" novalidate>
+          <input id="form-name-footer" type="text" name="name" placeholder="Nombre Completo*" required>
+          <span class="error-message" id="error-name-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+          
+          <input id="form-email-footer" type="email" name="email" placeholder="Correo electrónico*" required>
+          <span class="error-message" id="error-email-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Ingresa un correo electrónico válido</span>
+          
+          <input id="form-phone-footer" type="tel" name="phone" pattern="[0-9]*" placeholder="Teléfono*" required>
+          <span class="error-message" id="error-phone-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+          
+          <select id="form-service-footer" name="service" required>
+            <option value="" disabled selected>Servicio a contratar*</option>
+            <option value="estudio-mercado">Estudio de Mercado</option>
+            <option value="estudio-financiero">Estudio Financiero</option>
+            <option value="reposicionamiento">Estudio de Reposicionamiento</option>
+            <option value="geomarketing">Geomarketing</option>
+            <option value="avaluo">Avalúo</option>
+            <option value="reporte">Reporte</option>
+            <option value="otros">Otros</option>
+          </select>
+          <span class="error-message" id="error-service-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+
+          <select id="form-stage-footer" name="stage" required>
+            <option value="" disabled selected>Etapa del proyecto*</option>
+            <option value="idea">Idea del Proyecto</option>
+            <option value="estudios">Estudios de Mercado y Financiero</option>
+            <option value="anteproyecto">Anteproyecto Arquitectónico</option>
+            <option value="comercializacion">Comercialización</option>
+            <option value="expansion">Expansión</option>
+            <option value="otra">Otra</option>
+          </select>
+          <span class="error-message" id="error-stage-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Solicitar Información <i class="ph ph-paper-plane-tilt"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom text-center mt-5" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+      <p>&copy; 2026 CREA Soluciones. Todos los derechos reservados. | <a href="#" style="color: inherit; text-decoration: underline;">Políticas de Privacidad</a> | <a href="#" style="color: inherit; text-decoration: underline;">Términos y Condiciones</a></p>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  <!-- Main JS -->
+  <script src="./js/main.js"></script>
+</body>
+</html>

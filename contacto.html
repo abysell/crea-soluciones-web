@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CREA Soluciones | Consultoría Inmobiliaria de Alto Nivel</title>
+  <meta name="description" content="Consultoría inmobiliaria basada en datos reales, Big Data e Inteligencia Artificial. Bright Solutions, Profitable Results.">
+  
+  <!-- Fonts: Barlow and Noto Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Icons: Phosphor -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- ======================== HEADER ======================== -->
+  <header id="main-header" class="header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA Soluciones Logo" style="filter: brightness(0) invert(1);" id="brand-logo">
+      </a>
+      <nav class="nav-links">
+        <div class="dropdown">
+          <a href="#services" class="dropbtn">Servicios <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">Inteligencia de mercado inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="estudios-mercado-inmobiliario.html">Estudios de mercado inmobiliario</a>
+                <a href="mayor-mejor-uso.html">Estudio de mayor y mejor uso de la tierra</a>
+                <a href="reposicionamiento-inmobiliario.html">Reposicionamiento/ reconversión inmobiliaria</a>
+              </div>
+            </div>
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">Análisis financiero <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="modelos-financieros.html">Modelos financieros</a>
+                <a href="avaluos-inmobiliarios.html">Avalúos inmobiliarios</a>
+              </div>
+            </div>
+            <!-- <a href="#">CREA SOLUCIONES 360°</a> -->
+            <a href="financiamiento.html">Financiamiento</a>
+            <a href="test-fit-arquitectonico.html">Test Fit Arquitectónico</a>
+          </div>
+        </div>
+        
+        <div class="dropdown">
+          <a href="#ecosystem" class="dropbtn">Sectores <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Centros Comerciales</a>
+            <a href="#">Vivienda</a>
+            <a href="#">Hospitality/ Hoteles/ Branded Residences/ Wellness</a>
+            <a href="#">Macroproyectos/ Master Plan</a>
+            <a href="#">Usos Mixtos</a>
+            <a href="#">Parques industriales</a>
+            <a href="#">Senior Living</a>
+            <a href="#">Hospitales y Clínicas</a>
+            <a href="#">Educación</a>
+            <a href="#">Oficinas</a>
+            <a href="#">Gobierno</a>
+            <a href="#">Desarrollos Orientados al Transporte</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="#resources" class="dropbtn">Reportes <i class="ph ph-caret-down"></i></a>
+          <div class="dropdown-content">
+            <div class="sub-dropdown">
+              <a href="#" class="sub-dropbtn">SmartScan Inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
+              <div class="sub-dropdown-content">
+                <a href="#">Potencial de mi predio</a>
+                <a href="donde-desarrollar.html">¿Dónde desarrollar en x ciudad?</a>
+                <a href="geoventas-retail.html">Geoventas Retail</a>
+                <a href="pulso-socioeconomico.html">Pulso Socioeconómico</a>
+                <a href="reporte-ciudades-con-potencial.html">Ciudades con potencial de desarrollo de Centro Comerciales</a>
+                <a href="reporte-servicios-de-salud.html">Ciudades con potencial de desarrollo de proyectos de salud</a>
+                <a href="reporte-senior-living-en-mexico.html">Ciudades con potencial de desarrollo de Senior Living en México</a>
+              </div>
+            </div>
+            <a href="reporte-centros-comerciales.html">Reporte de Centros Comerciales</a>
+            <a href="#">Reporte Parques Industriales</a>
+            <a href="#">Reporte Vivienda Institucional en Renta</a>
+          </div>
+        </div>
+
+        <a href="#portfolio">Casos de Éxito</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#footer" class="btn btn-outline-light">Agendar Consultoría</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================== MODAL (LEAD MAGNET) ======================== -->
+  <dialog id="lead-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal"><i class="ph ph-x"></i></button>
+      <div class="modal-body">
+        <h3 class="modal-title">Descarga el Recurso Estratégico</h3>
+        <p class="modal-desc">Déjanos tus datos para enviarte el reporte detallado directamente a tu correo corporativo.</p>
+        <form class="lead-form">
+          <div class="form-group">
+            <input type="text" placeholder="Nombre completo" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Correo electrónico corporativo" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Empresa" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Recibir Informe <i class="ph ph-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <main>
+    <!-- CABECERA SAAS (Interior) -->
+    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/contacto_hero.png'); background-size: cover; background-position: center; padding-top: 180px; padding-bottom: 120px; text-align: center; z-index: 1;">
+      <div class="container" style="position: relative; z-index: 2;">
+        <span class="cintillo gsap-fade-up">CREA Soluciones</span>
+        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">Comunícate con nosotros</h1>
+        <p class="gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: rgba(255,255,255,0.8); max-width: 850px; margin: 0 auto; line-height: 1.6;">Estamos listos para transformar la inteligencia del mercado en resultados rentables para tu proyecto.</p>
+      </div>
+    </section>
+
+    <section class="contact-page-section section-pad" style="background-color: #F8F9FA;">
+      <div class="container">
+        <div class="split-layout-tech" style="align-items: flex-start;">
+          <!-- Left: Info -->
+          <div class="contact-info gsap-fade-up">
+            <h2 class="section-title mb-4">Información de Contacto</h2>
+            <p style="font-size: 1.1rem; color: var(--neutral-dark); margin-bottom: 2rem;">¿Tienes un proyecto en mente o necesitas consultoría experta? Nuestro equipo está preparado para brindarte la mejor atención. Contáctanos por cualquiera de nuestros canales.</p>
+            <ul style="list-style: none; padding: 0; margin: 0; color: var(--neutral-dark); line-height: 1.6; font-size: 1.05rem;">
+              <li style="margin-bottom: 24px;">
+                <strong style="display: flex; align-items: center; gap: 8px; color: var(--black);"><i class="ph ph-clock" style="color: var(--brand-cyan); font-size: 1.4rem;"></i> Horario de Atención:</strong>
+                <span style="display: block; padding-left: 32px; padding-top: 4px;">Lunes a viernes de 9:00 am a 6:00 pm.</span>
+              </li>
+              <li style="margin-bottom: 24px;">
+                <strong style="display: flex; align-items: center; gap: 8px; color: var(--black);"><i class="ph ph-phone" style="color: var(--brand-cyan); font-size: 1.4rem;"></i> Teléfonos:</strong>
+                <span style="display: block; padding-left: 32px; padding-top: 4px;">+52 55 4597 3919 | +52 55 5277 8044 | +52 55 5276 9531</span>
+              </li>
+              <li style="margin-bottom: 24px;">
+                <strong style="display: flex; align-items: center; gap: 8px; color: var(--black);"><i class="ph ph-envelope-simple" style="color: var(--brand-cyan); font-size: 1.4rem;"></i> Correo Electrónico:</strong>
+                <span style="display: block; padding-left: 32px; padding-top: 4px;"><a href="mailto:info@creasoluciones.com.mx" style="color: inherit; text-decoration: none;">info@creasoluciones.com.mx</a></span>
+              </li>
+              <li style="margin-bottom: 24px;">
+                <strong style="display: flex; align-items: center; gap: 8px; color: var(--black);"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.4rem;"></i> Oficinas Principales:</strong>
+                <span style="display: block; padding-left: 32px; margin-top: 8px; line-height: 1.8;">
+                  <strong style="color: var(--black);">Ciudad de México:</strong> Av. Coyoacán 1622 Edif. 4 Piso 2 Of. "A", Del Valle, C.P. 03100<br>
+                  <strong style="color: var(--black);">Guadalajara:</strong> Herrera y Cairo 2835 Cuarto Piso Fracc. Terranova 44689<br>
+                  <strong style="color: var(--black);">Monterrey:</strong> José Clemente Orozco 335 Desp. 304, Torre Novo, Valle Oriente 66269
+                </span>
+              </li>
+            </ul>
+          </div>
+          <!-- Right: Form -->
+          <div class="contact-form-container gsap-fade-up" style="background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); width: 100%;">
+            <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 24px; color: var(--black);">Déjanos un mensaje</h3>
+            <form id="form-contacto" action="procesar_contacto.php" method="POST" class="minimal-form contact-page-form" novalidate>
+              <input id="form-name" type="text" name="name" placeholder="Nombre Completo*" required style="width: 100%; padding: 15px; margin-bottom: 5px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-family: var(--font-body); outline: none;">
+              <span class="error-message" id="error-name" style="color: red; font-size: 0.85rem; display: none; margin-bottom: 15px;">Este campo es obligatorio</span>
+              
+              <input id="form-email" type="email" name="email" placeholder="Correo electrónico*" required style="width: 100%; padding: 15px; margin-bottom: 5px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-family: var(--font-body); outline: none;">
+              <span class="error-message" id="error-email" style="color: red; font-size: 0.85rem; display: none; margin-bottom: 15px;">Ingresa un correo electrónico válido</span>
+
+              <input id="form-phone" type="tel" name="phone" pattern="[0-9]*" placeholder="Teléfono*" required style="width: 100%; padding: 15px; margin-bottom: 5px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-family: var(--font-body); outline: none;">
+              <span class="error-message" id="error-phone" style="color: red; font-size: 0.85rem; display: none; margin-bottom: 15px;">Este campo es obligatorio</span>
+
+              <select id="form-service" name="service" required style="width: 100%; padding: 15px; margin-bottom: 5px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-family: var(--font-body); color: var(--neutral-dark); outline: none;">
+                <option value="" disabled selected>Solución de interés*</option>
+                <option value="estudio-mercado">Estudio de Mercado</option>
+                <option value="mayor-uso">Estudio de Mayor y Mejor Uso</option>
+                <option value="reposicionamiento">Reposicionamiento / Reconversión</option>
+                <option value="test-fit">Test Fit Arquitectónico</option>
+                <option value="avaluo">Avalúo Inmobiliario</option>
+                <option value="otros">Otra Solución</option>
+              </select>
+              <span class="error-message" id="error-service" style="color: red; font-size: 0.85rem; display: none; margin-bottom: 15px;">Selecciona una opción</span>
+
+              <select id="form-stage" name="stage" required style="width: 100%; padding: 15px; margin-bottom: 5px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-family: var(--font-body); color: var(--neutral-dark); outline: none;">
+                <option value="" disabled selected>Etapa del proyecto*</option>
+                <option value="idea">Idea del Proyecto</option>
+                <option value="estudios">Estudios de Mercado y Financiero</option>
+                <option value="anteproyecto">Anteproyecto Arquitectónico</option>
+                <option value="comercializacion">Comercialización</option>
+                <option value="expansion">Expansión</option>
+                <option value="otra">Otra</option>
+              </select>
+              <span class="error-message" id="error-stage" style="color: red; font-size: 0.85rem; display: none; margin-bottom: 15px;">Selecciona una opción</span>
+
+              <textarea id="form-message" name="message" placeholder="Compártenos de forma breve los objetivos de tu proyecto... (opcional)" style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-family: var(--font-body); height: 120px; resize: vertical; outline: none;"></textarea>
+              <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px 0;">Enviar Mensaje <i class="ph ph-paper-plane-tilt"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="footer" class="footer bg-black text-white section-pad">
+    <div class="container footer-grid">
+      <!-- COL 1 -->
+      <div class="footer-brand">
+        <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA" style="filter: brightness(0) invert(1); width: 140px; margin-bottom: 20px;">
+        <p>Inteligencia Inmobiliaria Premium para tomadores de decisión institucionales.</p>
+        <h4 class="mt-4 mb-1" style="font-size: 1rem; color: var(--brand-cyan);">Redes Sociales</h4>
+        <div class="social-icons">
+          <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="#"><i class="ph ph-x-logo"></i></a>
+          <a href="#"><i class="ph ph-instagram-logo"></i></a>
+        </div>
+      </div>
+      <!-- COL 2 (Swapped with COL 3) -->
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="#services">Servicios Base</a></li>
+          <li><a href="#ecosystem">SmartScan</a></li>
+          <li><a href="#portfolio">Casos Reales</a></li>
+          <li><a href="#faqs">Preguntas</a></li>
+        </ul>
+      </div>
+      <!-- COL 3 (Swapped with COL 2) -->
+      <div class="footer-info">
+        <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Información de Contacto</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.6); line-height: 1.5; font-size: 0.9rem;">
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-clock" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Horario de Atención:</strong>
+            <span style="display: block; padding-left: 28px;">Lunes a viernes de 9 am a 6 pm.</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-phone" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Teléfonos:</strong>
+            <span style="display: block; padding-left: 28px;">+52 55 4597 3919 | +52 55 5277 8044 | +52 55 5276 9531</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-envelope-simple" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Correo:</strong>
+            <span style="display: block; padding-left: 28px;">info@creasoluciones.com.mx</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Ciudad de México:</strong>
+            <span style="display: block; padding-left: 28px;">Av. Coyoacán 1622 Edif. 4 Piso 2 Of. "A", Del Valle, Benito Juárez, C.P. 03100</span>
+          </li>
+          <li class="mb-3">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Guadalajara:</strong>
+            <span style="display: block; padding-left: 28px;">Herrera y Cairo 2835 Cuarto Piso Fracc. Terranova 44689, Jalisco, México</span>
+          </li>
+          <li style="margin-bottom: 2rem;">
+            <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Monterrey:</strong>
+            <span style="display: block; padding-left: 28px;">José Clemente Orozco 335 Desp. 304, Torre Novo, Valle Oriente 66269, N.L.</span>
+          </li>
+        </ul>
+      </div>
+      <!-- COL 4 -->
+      <div class="footer-contact-form">
+        <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Contáctanos</h4>
+        <form id="form-footer" action="procesar_contacto.php" method="POST" class="minimal-form" novalidate>
+          <input id="form-name-footer" type="text" name="name" placeholder="Nombre Completo*" required>
+          <span class="error-message" id="error-name-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+          
+          <input id="form-email-footer" type="email" name="email" placeholder="Correo electrónico*" required>
+          <span class="error-message" id="error-email-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Ingresa un correo electrónico válido</span>
+          
+          <input id="form-phone-footer" type="tel" name="phone" pattern="[0-9]*" placeholder="Teléfono*" required>
+          <span class="error-message" id="error-phone-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+          
+          <select id="form-service-footer" name="service" required>
+            <option value="" disabled selected>Servicio a contratar*</option>
+            <option value="estudio-mercado">Estudio de Mercado</option>
+            <option value="estudio-financiero">Estudio Financiero</option>
+            <option value="reposicionamiento">Estudio de Reposicionamiento</option>
+            <option value="geomarketing">Geomarketing</option>
+            <option value="avaluo">Avalúo</option>
+            <option value="reporte">Reporte</option>
+            <option value="otros">Otros</option>
+          </select>
+          <span class="error-message" id="error-service-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+
+          <select id="form-stage-footer" name="stage" required>
+            <option value="" disabled selected>Etapa del proyecto*</option>
+            <option value="idea">Idea del Proyecto</option>
+            <option value="estudios">Estudios de Mercado y Financiero</option>
+            <option value="anteproyecto">Anteproyecto Arquitectónico</option>
+            <option value="comercializacion">Comercialización</option>
+            <option value="expansion">Expansión</option>
+            <option value="otra">Otra</option>
+          </select>
+          <span class="error-message" id="error-stage-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Solicitar Información <i class="ph ph-paper-plane-tilt"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom text-center mt-5" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+      <p>&copy; 2026 CREA Soluciones. Todos los derechos reservados. | <a href="#" style="color: inherit; text-decoration: underline;">Políticas de Privacidad</a> | <a href="#" style="color: inherit; text-decoration: underline;">Términos y Condiciones</a></p>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  <!-- Main JS -->
+  <script src="./js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("form-contacto");
+      if (form) {
+        form.addEventListener("submit", function(e) {
+          let isValid = true;
+          
+          const fields = [
+            { id: "form-name", errorId: "error-name" },
+            { id: "form-phone", errorId: "error-phone" },
+            { id: "form-service", errorId: "error-service" },
+            { id: "form-stage", errorId: "error-stage" }
+          ];
+
+          // Check text fields and selects
+          fields.forEach(field => {
+            const input = document.getElementById(field.id);
+            const error = document.getElementById(field.errorId);
+            if (!input.value || input.value.trim() === "") {
+              isValid = false;
+              input.style.borderColor = "red";
+              error.style.display = "block";
+            } else {
+              input.style.borderColor = "rgba(0,0,0,0.1)";
+              error.style.display = "none";
+            }
+          });
+
+          // Check email separately for format
+          const email = document.getElementById("form-email");
+          const emailError = document.getElementById("error-email");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!email.value || !emailRegex.test(email.value)) {
+            isValid = false;
+            email.style.borderColor = "red";
+            emailError.style.display = "block";
+          } else {
+            email.style.borderColor = "rgba(0,0,0,0.1)";
+            emailError.style.display = "none";
+          }
+
+          if (!isValid) {
+            e.preventDefault(); // Stop submission
+          }
+        });
+
+        // Hide error on typing/changing
+        const allInputs = form.querySelectorAll("input, select");
+        allInputs.forEach(input => {
+          input.addEventListener("input", () => {
+            input.style.borderColor = "rgba(0,0,0,0.1)";
+            const error = document.getElementById("error-" + input.name);
+            if(error) error.style.display = "none";
+            
+            // map ids since names might differ or have prefixes
+            if(input.id === "form-name") { document.getElementById("error-name").style.display = "none"; }
+            if(input.id === "form-phone") { document.getElementById("error-phone").style.display = "none"; }
+            if(input.id === "form-email") { document.getElementById("error-email").style.display = "none"; }
+            if(input.id === "form-service") { document.getElementById("error-service").style.display = "none"; }
+            if(input.id === "form-stage") { document.getElementById("error-stage").style.display = "none"; }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
