@@ -1507,3 +1507,106 @@ details[open] .saas-accordion-header .accordion-caret {
     gap: 30px;
   }
 }
+
+/* =========================================================================
+   11. SECTORES MENU LIST
+   ========================================================================= */
+.sector-menu-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+@media(max-width: 768px) {
+  .sector-menu-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.sector-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sector-list-item:first-child {
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.sector-list-item:hover,
+.sector-list-item.active-sector {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.sector-list-item i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  color: inherit;
+}
+
+.sector-list-item:hover i,
+.sector-list-item.active-sector i {
+  transform: translateX(5px);
+}
+
+/* =========================================================================
+   12. SECTOR DETAILS LAYOUT (70/30)
+   ========================================================================= */
+.split-70-30 {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 80px;
+}
+
+@media(max-width: 991px) {
+  .split-70-30 {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.key-detail-item {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.key-detail-item::before {
+  content: "•";
+  color: var(--brand-cyan);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+}
+
+.key-detail-item strong {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.15rem;
+}
+
+.sector-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--brand-cyan);
+  transition: color 0.3s ease;
+  min-width: 30px;
+}
+.sector-list-item:hover .sector-num,
+.sector-list-item.active-sector .sector-num {
+  color: var(--white);
+}

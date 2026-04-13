@@ -16,6 +16,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="https://creasoluciones.com.mx/wp-content/uploads/2023/11/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://creasoluciones.com.mx/wp-content/uploads/2023/11/favicon.png">
 </head>
 <body>
 
@@ -51,8 +54,8 @@
         </div>
         
         <div class="dropdown">
-          <a href="index.html#ecosystem" class="dropbtn">Sectores <i class="ph ph-caret-down"></i></a>
-          <div class="dropdown-content">
+          <a href="sectores.html" class="dropbtn">Sectores</a>
+          <!-- <div class="dropdown-content">
             <a href="#">Centros Comerciales</a>
             <a href="#">Vivienda</a>
             <a href="#">Hospitality/ Hoteles/ Branded Residences/ Wellness</a>
@@ -65,7 +68,7 @@
             <a href="#">Oficinas</a>
             <a href="#">Gobierno</a>
             <a href="#">Desarrollos Orientados al Transporte</a>
-          </div>
+          </div> -->
         </div>
 
         <div class="dropdown">
@@ -74,7 +77,7 @@
             <div class="sub-dropdown">
               <a href="#" class="sub-dropbtn">SmartScan Inmobiliario <i class="ph ph-caret-right" style="float: right; margin-top: 3px;"></i></a>
               <div class="sub-dropdown-content">
-                <a href="#">Potencial de mi predio</a>
+                <!-- <a href="#">Potencial de mi predio</a> -->
                 <a href="donde-desarrollar.html">¿Dónde desarrollar en x ciudad?</a>
                 <a href="geoventas-retail.html">Geoventas Retail</a>
                 <a href="pulso-socioeconomico.html">Pulso Socioeconómico</a>
@@ -84,12 +87,12 @@
               </div>
             </div>
             <a href="reporte-centros-comerciales.html">Reporte de Centros Comerciales</a>
-            <a href="#">Reporte Parques Industriales</a>
-            <a href="#">Reporte Vivienda Institucional en Renta</a>
+            <a href="reporte-parques-industriales.html">Reporte Parques Industriales</a>
+            <a href="reporte-vivienda-institucional-mexico.html">Reporte Vivienda Institucional en Renta</a>
           </div>
         </div>
 
-        <a href="index.html#portfolio">Casos de Éxito</a>
+        <a href="casos-de-exito.html">Casos de Éxito</a>
         <a href="contacto.html">Contacto</a>
       </nav>
       <div class="header-actions">
@@ -108,82 +111,58 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 1: INTRODUCCIÓN 2 COLUMNAS -->
-    <style>
-      .repo-intro-grid {
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 60px;
-        align-items: stretch;
-      }
-      .repo-intro-left {
-        padding-right: 40px;
-        border-right: 1px solid var(--black);
-      }
-      .repo-intro-right ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .repo-intro-right li {
-        font-family: 'Noto Serif', serif;
-        font-size: 1.1rem;
-        color: var(--neutral-dark);
-        line-height: 1.6;
-        margin-bottom: 24px;
-        position: relative;
-        padding-left: 24px;
-      }
-      .repo-intro-right li::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 10px;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: var(--brand-cyan);
-      }
-      .repo-intro-right li:last-child {
-        margin-bottom: 0;
-      }
-      @media (max-width: 900px) {
-        .repo-intro-grid {
-          grid-template-columns: 1fr;
-          gap: 40px;
-        }
-        .repo-intro-left {
-          padding-right: 0;
-          border-right: none;
-          border-bottom: 1px solid rgba(0,0,0,0.2);
-          padding-bottom: 40px;
-        }
-      }
-    </style>
+    <!-- SECCIÓN 1: INTRODUCCIÓN 1 COLUMNA -->
     <section class="section-pad">
-      <div class="container">
-        <div class="repo-intro-grid gsap-fade-up">
-          
-          <div class="repo-intro-left">
-            <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
-              ¡Incrementa tus ganancias en cuestión de semanas!
-            </h2>
-            <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">
-              Es el momento de que tu empresa retome la curva de crecimiento. Ya sea un centro comercial, oficinas, hotel o cualquier tipo de desarrollo, reposicionamos tu inmueble para maximizar su valor y rentabilidad.
-            </p>
-          </div>
+      <div class="container gsap-fade-up">
+        
+        <div style="max-width: 1100px; margin: 0 auto; text-align: center; margin-bottom: 3.5rem;">
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
+            ¡Incrementa tus ganancias en cuestión de semanas!
+          </h2>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">
+            Es el momento de que tu empresa retome la curva de crecimiento. Ya sea un centro comercial, oficinas, hotel o cualquier tipo de desarrollo, reposicionamos tu inmueble para maximizar su valor y rentabilidad.
+          </p>
+        </div>
 
-          <div class="repo-intro-right">
-            <ul>
-              <li><strong>Líneas de acción estratégicas:</strong> Mejoramos las condiciones del mercado actual para que tu proyecto tenga un mayor desempeño.</li>
-              <li><strong>Aumento de ocupación:</strong> Impulsamos la ocupación del inmueble comercial atrayendo marcas clave.</li>
-              <li><strong>Identificación de marcas preferidas:</strong> Detectamos las marcas, tiendas y servicios más valorados por los clientes.</li>
-              <li><strong>Reconocimiento de marcas no atendidas:</strong> Aprovechamos oportunidades detectando marcas que aún no están presentes en tu desarrollo.</li>
-              <li><strong>Incremento de rentabilidad:</strong> Creamos estrategias para elevar el rendimiento de tu centro comercial.</li>
-              <li><strong>Oportunidades de reconversión:</strong> Analizamos opciones como cambio de uso, renovación o comercialización del espacio.</li>
-            </ul>
-          </div>
-
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                <strong>Líneas de acción estratégicas:</strong> Mejoramos las condiciones del mercado actual para que tu proyecto tenga un mayor desempeño.
+              </span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                <strong>Aumento de ocupación:</strong> Impulsamos la ocupación del inmueble comercial atrayendo marcas clave.
+              </span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                <strong>Identificación de marcas preferidas:</strong> Detectamos las marcas, tiendas y servicios más valorados por los clientes.
+              </span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                <strong>Reconocimiento de marcas no atendidas:</strong> Aprovechamos oportunidades detectando marcas que aún no están presentes en tu desarrollo.
+              </span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                <strong>Incremento de rentabilidad:</strong> Creamos estrategias para elevar el rendimiento de tu centro comercial.
+              </span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
+                <strong>Oportunidades de reconversión:</strong> Analizamos opciones como cambio de uso, renovación o comercialización del espacio.
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -275,7 +254,7 @@
     <div class="container footer-grid">
       <!-- COL 1 -->
       <div class="footer-brand">
-        <img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA" style="filter: brightness(0) invert(1); width: 140px; margin-bottom: 20px;">
+        <a href="index.html"><img src="https://creasoluciones.com.mx/wp-content/uploads/2024/12/logo-crea-soluciones.webp" alt="CREA" style="filter: brightness(0) invert(1); width: 140px; margin-bottom: 20px;"></a>
         <p>Inteligencia Inmobiliaria Premium para tomadores de decisión institucionales.</p>
         <h4 class="mt-4 mb-1" style="font-size: 1rem; color: var(--brand-cyan);">Redes Sociales</h4>
         <div class="social-icons">

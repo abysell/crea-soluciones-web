@@ -242,4 +242,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 8. INFORMES FORM VALIDATION
+  const informeForm = document.getElementById("form-informes");
+  if (informeForm) {
+    informeForm.addEventListener("submit", function(e) {
+      let isValid = true;
+      
+      const fields = [
+        { id: "form-name-informe", errorId: "error-name-informe" },
+        { id: "form-company-informe", errorId: "error-company-informe" }
+      ];
+
+      fields.forEach(field => {
+        const input = document.getElementById(field.id);
+        const error = document.getElementById(field.errorId);
+        if (input && error) {
+            if (!input.value || input.value.trim() === "") {
+              isValid = false;
+              input.style.borderColor = "#ff6b6b";
+              error.style.display = "block";
+            } else {
+              input.style.borderColor = "rgba(0,0,0,0.1)"; 
+              error.style.display = "none";
+            }
+        }
+      });
+
+      const email = document.getElementById("form-email-informe");
+      const emailError = document.getElementById("error-email-informe");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && emailError) {
+          if (!email.value || !emailRegex.test(email.value)) {
+            isValid = false;
+            email.style.borderColor = "#ff6b6b";
+            emailError.style.display = "block";
+          } else {
+            email.style.borderColor = "rgba(0,0,0,0.1)";
+            emailError.style.display = "none";
+          }
+      }
+
+      if (!isValid) {
+        e.preventDefault();
+      }
+    });
+
+    const allInformeInputs = informeForm.querySelectorAll("input");
+    allInformeInputs.forEach(input => {
+      input.addEventListener("input", () => {
+        input.style.borderColor = "rgba(0,0,0,0.1)";
+        const error = document.getElementById("error-" + input.name + "-informe");
+        if(error) error.style.display = "none";
+      });
+    });
+  }
+
 });
