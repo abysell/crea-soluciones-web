@@ -14,6 +14,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // 2.5 MOBILE MENU LOGIC
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (mobileToggle && navLinks) {
+    // Dropdowns logic in mobile
+    const dropdowns = navLinks.querySelectorAll('.dropdown, .sub-dropdown');
+    dropdowns.forEach(dropdown => {
+      const btn = dropdown.querySelector('.dropbtn, .sub-dropbtn');
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          }
+        });
+      }
+    });
+
+    // Clone header action buttons into mobile menu
+    const headerActions = document.querySelector('.header-actions');
+    if (headerActions) {
+      const mobileActionsContainer = document.createElement('div');
+      mobileActionsContainer.className = 'mobile-header-btn-container';
+      mobileActionsContainer.innerHTML = headerActions.innerHTML;
+      navLinks.appendChild(mobileActionsContainer);
+    }
+
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      if (icon) {
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('ph-list');
+          icon.classList.add('ph-x');
+        } else {
+          icon.classList.remove('ph-x');
+          icon.classList.add('ph-list');
+        }
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active') && !e.target.closest('.header-container')) {
+        navLinks.classList.remove('active');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) {
+          icon.classList.remove('ph-x');
+          icon.classList.add('ph-list');
+        }
+      }
+    });
+    
+    // Close mobile menu when clicking on a standard link
+    const regularLinks = navLinks.querySelectorAll('a:not(.dropbtn):not(.sub-dropbtn)');
+    regularLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
+          navLinks.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('ph-x');
+            icon.classList.add('ph-list');
+          }
+        }
+      });
+    });
+  }
+
   // 3. GSAP ANIMATIONS
   const fadeUpElements = document.querySelectorAll('.gsap-fade-up');
 
