@@ -1575,6 +1575,11 @@ details[open] .saas-accordion-header .accordion-caret {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+
+  .tab-content > div[style*="display: grid"],
+  .tab-pane > div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* =========================================================================
