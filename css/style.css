@@ -1708,3 +1708,7 @@ details[open] .saas-accordion-header .accordion-caret {
 .sector-list-item.active-sector .sector-num {
   color: var(--white);
 }
+
+html {
+  scroll-padding-top: 100px;
+}

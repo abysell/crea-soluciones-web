@@ -367,4 +367,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 9. SMOOTH SCROLL & HASH HANDLING WITH HEADER OFFSET
+  const handleAnchorScroll = (hash) => {
+    const target = document.querySelector(hash);
+    if (target) {
+      const headerOffset = document.getElementById('main-header')?.offsetHeight || 80;
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: targetPosition - headerOffset,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handle cross-page hash on load
+  if (window.location.hash) {
+    // Timeout to allow GSAP and page rendering to settle
+    setTimeout(() => {
+      handleAnchorScroll(window.location.hash);
+    }, 400);
+  }
+
+  // Handle in-page anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          handleAnchorScroll(href);
+          history.pushState(null, null, href);
+          
+          // Close mobile menu if open
+          const navLinks = document.querySelector('.nav-links');
+          const mobileToggle = document.getElementById('mobile-toggle');
+          if (navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('ph-x');
+              icon.classList.add('ph-list');
+            }
+          }
+        }
+      }
+    });
+  });
+
 });
