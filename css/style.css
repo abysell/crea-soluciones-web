@@ -611,9 +611,18 @@ a {
 /* Core Services (Tech Premium) */
 .services-premium-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 30px;
   margin-top: 40px;
+}
+
+.service-premium-card:nth-child(1),
+.service-premium-card:nth-child(2) {
+  grid-column: span 3;
+}
+
+.service-premium-card:nth-child(n+3) {
+  grid-column: span 2;
 }
 
 .service-premium-card {
@@ -1314,6 +1323,7 @@ a {
   .split-layout.reverse .content { order: unset; }
   .split-layout.reverse .image-wrapper { order: unset; }
   .services-premium-grid { grid-template-columns: 1fr; }
+  .service-premium-card:nth-child(n) { grid-column: span 1; }
   .resource-grid { grid-template-columns: 1fr; }
   .metrics-editorial-grid { 
     grid-template-columns: repeat(2, 1fr);
