@@ -10,8 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    //$recipient = "info@creasoluciones.com.mx";
-    $recipient = "selene.briones@kodex.mx";
+    $recipient = "info@creasoluciones.com.mx";
     $subject = "Solicitud de Informe Estratégico Web: $name";
 
     $email_content = "Se ha solicitado la descarga de un Informe Estratégico desde la página web.\n\n";
