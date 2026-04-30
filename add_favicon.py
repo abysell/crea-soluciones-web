@@ -5,8 +5,8 @@ directory = "/Users/selene/Documents/crea-soluciones-web"
 html_files = glob.glob(os.path.join(directory, "*.html"))
 
 favicon_code = """  <!-- Favicon -->
-  <link rel="icon" href="https://creasoluciones.com.mx/wp-content/uploads/2023/11/favicon.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="https://creasoluciones.com.mx/wp-content/uploads/2023/11/favicon.png">
+  <link rel="icon" href="img/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/favicon.png">
 </head>"""
 
 count = 0
