@@ -347,7 +347,63 @@
 
   </main>
 
-  <footer id="footer" class="footer bg-black text-white section-pad">
+    <section id="footer" class="footer-cta-section section-pad">
+    <div class="container footer-cta-grid">
+      <div class="footer-cta-copy">
+        <h2 class="section-title" style="color: #0e1111; margin-bottom: 1.5rem;">Contáctanos</h2>
+        <p style="font-size: 1.1rem; color: rgba(14,17,17,0.65);">Solicita información sobre nuestros servicios y un especialista te contactará a la brevedad.</p>
+      </div>
+      <div class="footer-contact-form" style="background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); width: 100%;">
+        <form id="form-footer" action="procesar_contacto.php" method="POST" class="minimal-form" novalidate>
+          <input id="form-name-footer" type="text" name="name" placeholder="Nombre Completo*" required>
+          <span class="error-message" id="error-name-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+              <input id="form-email-footer" type="email" name="email" placeholder="Correo electrónico*" required>
+          <span class="error-message" id="error-email-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Ingresa un correo electrónico válido</span>
+            </div>
+            <div>
+              <input id="form-phone-footer" type="tel" name="phone" pattern="[0-9]*" placeholder="Teléfono*" required>
+          <span class="error-message" id="error-phone-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+              <select id="form-service-footer" name="service" required>
+            <option value="" disabled selected>Servicio a contratar*</option>
+            <option value="estudio-mercado">Estudio de Mercado</option>
+            <option value="estudio-financiero">Estudio Financiero</option>
+            <option value="reposicionamiento">Estudio de Reposicionamiento</option>
+            <option value="geomarketing">Geomarketing</option>
+            <option value="avaluo">Avalúo</option>
+            <option value="reporte">Reporte</option>
+            <option value="otros">Otros</option>
+          </select>
+          <span class="error-message" id="error-service-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+            </div>
+            <div>
+              <select id="form-stage-footer" name="stage" required>
+            <option value="" disabled selected>Etapa del proyecto*</option>
+            <option value="idea">Idea del Proyecto</option>
+            <option value="estudios">Estudios de Mercado y Financiero</option>
+            <option value="anteproyecto">Anteproyecto Arquitectónico</option>
+            <option value="comercializacion">Comercialización</option>
+            <option value="expansion">Expansión</option>
+            <option value="otra">Otra</option>
+          </select>
+          <span class="error-message" id="error-stage-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Solicitar Información <i class="ph ph-paper-plane-tilt"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer bg-black text-white section-pad" style="padding-bottom: 58px;">
     <div class="container footer-grid">
       <!-- COL 1 -->
       <div class="footer-brand">
@@ -390,7 +446,7 @@
           </li>
           <li class="mb-3">
             <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Ciudad de México:</strong>
-            <span style="display: block; padding-left: 28px;">Av. Coyoacán 1622 Edif. 4 Piso 2 Of. "A", Del Valle, Benito Juárez, C.P. 03100</span>
+            <span style="display: block; padding-left: 28px;">Av. Coyoacán 1622 Edif. 4 Piso 2 Of. "A", Del Valle, Benito Juárez, C.P. 03104</span>
           </li>
           <li class="mb-3">
             <strong style="color: var(--white); display: flex; align-items: center; gap: 8px;"><i class="ph ph-map-pin" style="color: var(--brand-cyan); font-size: 1.2rem;"></i> Guadalajara:</strong>
@@ -402,48 +458,10 @@
           </li>
         </ul>
       </div>
-      <!-- COL 4 -->
-      <div class="footer-contact-form">
-        <h4 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-light);">Contáctanos</h4>
-        <form id="form-footer" action="procesar_contacto.php" method="POST" class="minimal-form" novalidate>
-          <input id="form-name-footer" type="text" name="name" placeholder="Nombre Completo*" required>
-          <span class="error-message" id="error-name-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
-          
-          <input id="form-email-footer" type="email" name="email" placeholder="Correo electrónico*" required>
-          <span class="error-message" id="error-email-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Ingresa un correo electrónico válido</span>
-          
-          <input id="form-phone-footer" type="tel" name="phone" pattern="[0-9]*" placeholder="Teléfono*" required>
-          <span class="error-message" id="error-phone-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
-          
-          <select id="form-service-footer" name="service" required>
-            <option value="" disabled selected>Servicio a contratar*</option>
-            <option value="estudio-mercado">Estudio de Mercado</option>
-            <option value="estudio-financiero">Estudio Financiero</option>
-            <option value="reposicionamiento">Estudio de Reposicionamiento</option>
-            <option value="geomarketing">Geomarketing</option>
-            <option value="avaluo">Avalúo</option>
-            <option value="reporte">Reporte</option>
-            <option value="otros">Otros</option>
-          </select>
-          <span class="error-message" id="error-service-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
-
-          <select id="form-stage-footer" name="stage" required>
-            <option value="" disabled selected>Etapa del proyecto*</option>
-            <option value="idea">Idea del Proyecto</option>
-            <option value="estudios">Estudios de Mercado y Financiero</option>
-            <option value="anteproyecto">Anteproyecto Arquitectónico</option>
-            <option value="comercializacion">Comercialización</option>
-            <option value="expansion">Expansión</option>
-            <option value="otra">Otra</option>
-          </select>
-          <span class="error-message" id="error-stage-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
-
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Solicitar Información <i class="ph ph-paper-plane-tilt"></i></button>
-        </form>
-      </div>
+      
     </div>
     <div class="container footer-bottom text-center mt-5" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
-      <p>&copy; 2026 CREA Soluciones. Todos los derechos reservados. | <a href="#" style="color: inherit; text-decoration: underline;">Políticas de Privacidad</a> | <a href="#" style="color: inherit; text-decoration: underline;">Términos y Condiciones</a></p>
+      <p>&copy; 2026 CREA Soluciones. Todos los derechos reservados. | <a href="aviso-privacidad.html" style="color: inherit; text-decoration: underline;">Políticas de Privacidad</a></p>
     </div>
   </footer>
 
@@ -453,5 +471,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
   <!-- Main JS -->
   <script src="./js/main.js"></script>
+  <a href="https://api.whatsapp.com/send/?phone=5215645913900" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg class="whatsapp-svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.001 3C9.11 3 3.5 8.611 3.5 15.5c0 2.316.63 4.484 1.727 6.35L3 29l7.335-2.187A12.43 12.43 0 0 0 16 28.999C22.89 29 28.5 23.39 28.5 16.5 28.5 9.611 22.89 3 16.001 3Zm0 22.7a10.16 10.16 0 0 1-5.19-1.424l-.372-.222-4.353 1.297 1.313-4.238-.242-.388a10.16 10.16 0 0 1-1.557-5.425c0-5.632 4.583-10.215 10.215-10.215 5.632 0 10.214 4.583 10.214 10.215 0 5.632-4.582 10.4-10.028 10.4Zm5.605-7.646c-.307-.154-1.812-.894-2.093-.996-.281-.103-.485-.154-.69.153-.204.307-.79.996-.968 1.2-.179.205-.358.23-.664.077-.307-.154-1.297-.478-2.47-1.524-.913-.814-1.53-1.82-1.708-2.127-.179-.307-.019-.473.135-.626.138-.138.307-.358.46-.537.154-.18.205-.307.307-.512.103-.205.052-.384-.026-.537-.077-.154-.69-1.662-.945-2.277-.249-.598-.502-.517-.69-.527-.179-.008-.384-.01-.588-.01-.205 0-.537.077-.818.384-.281.307-1.073 1.049-1.073 2.559 0 1.51 1.098 2.968 1.251 3.173.154.205 2.16 3.298 5.234 4.626.731.316 1.301.505 1.746.646.734.233 1.402.2 1.93.121.589-.088 1.812-.741 2.068-1.457.256-.716.256-1.33.179-1.457-.077-.128-.281-.205-.588-.358Z"/></svg>
+  </a>
 </body>
 </html>

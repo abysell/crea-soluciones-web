@@ -391,6 +391,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle in-page anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+      // On mobile, dropdown/sub-dropdown toggles just expand their submenu;
+      // they shouldn't also scroll and close the mobile menu.
+      if (window.innerWidth <= 1024 && this.matches('.dropbtn, .sub-dropbtn')) {
+        return;
+      }
+
       const href = this.getAttribute('href');
       if (href !== '#') {
         const target = document.querySelector(href);
