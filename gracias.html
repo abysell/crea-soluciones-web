@@ -111,6 +111,12 @@
         <h3 class="modal-title">Descarga el Recurso Estratégico</h3>
         <p class="modal-desc">Déjanos tus datos para enviarte el reporte detallado directamente a tu correo corporativo.</p>
         <form id="form-informes" class="lead-form" action="procesar_informe.php" method="POST" novalidate>
+          <!-- honeypot -->
+          <div class="form-extra-field" aria-hidden="true">
+            <label for="form-informes-website">No llenar este campo</label>
+            <input type="text" id="form-informes-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="form-group">
             <input id="form-name-informe" type="text" name="name" placeholder="Nombre completo" required>
             <span class="error-message" id="error-name-informe" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-top: 4px;">Este campo es obligatorio</span>
@@ -158,6 +164,12 @@
       </div>
       <div class="footer-contact-form" style="background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); width: 100%;">
         <form id="form-footer" action="procesar_contacto.php" method="POST" class="minimal-form" novalidate>
+          <!-- honeypot -->
+          <div class="form-extra-field" aria-hidden="true">
+            <label for="form-footer-website">No llenar este campo</label>
+            <input type="text" id="form-footer-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <input id="form-name-footer" type="text" name="name" placeholder="Nombre Completo*" required>
           <span class="error-message" id="error-name-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
 

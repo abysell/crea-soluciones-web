@@ -1858,3 +1858,27 @@ html {
     height: 1.7rem;
   }
 }
+
+/* =========================================================
+   CAMPO SEÑUELO (HONEYPOT)
+   Invisible para personas, visible para bots que leen el HTML.
+   Se saca del flujo sin usar display:none ni visibility:hidden,
+   porque los bots modernos descartan esas dos reglas.
+   ========================================================= */
+.form-extra-field {
+  position: absolute !important;
+  left: -9999px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* El distintivo de reCAPTCHA se ancla abajo a la derecha
+   para no encimarse con el botón flotante de WhatsApp. */
+.grecaptcha-badge {
+  bottom: 90px !important;
+  z-index: 90 !important;
+}

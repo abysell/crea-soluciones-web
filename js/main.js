@@ -1,7 +1,136 @@
+/* ============================================================
+   SEGURIDAD DE FORMULARIOS — reCAPTCHA v3 + trampa de tiempo
+   ------------------------------------------------------------
+   Pega aquí la SITE KEY (llave pública) de reCAPTCHA v3.
+   La SECRET KEY va en config.php, nunca en este archivo.
+   Mientras el valor siga en PENDIENTE_SITE_KEY, reCAPTCHA no
+   se carga y los formularios funcionan con honeypot y filtros.
+   ============================================================ */
+const RECAPTCHA_SITE_KEY = "PENDIENTE_SITE_KEY";
+
+// Momento en que se cargó la página, para medir cuánto tardó el llenado.
+const CS_INICIO_PAGINA = Date.now();
+
+const csRecaptchaConfigurado = () =>
+  typeof RECAPTCHA_SITE_KEY === "string" &&
+  RECAPTCHA_SITE_KEY.length > 0 &&
+  RECAPTCHA_SITE_KEY.indexOf("PENDIENTE") === -1;
+
+/** Inserta el script de reCAPTCHA una sola vez y solo si hay formularios en la página. */
+function csCargarRecaptcha() {
+  if (!csRecaptchaConfigurado()) return;
+  if (document.querySelector('script[src*="recaptcha/api.js"]')) return;
+
+  const script = document.createElement("script");
+  script.src = "https://www.google.com/recaptcha/api.js?render=" + RECAPTCHA_SITE_KEY;
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
+/** Crea o actualiza un input oculto dentro del formulario. */
+function csCampoOculto(form, nombre, valor) {
+  let campo = form.querySelector('input[name="' + nombre + '"][type="hidden"]');
+  if (!campo) {
+    campo = document.createElement("input");
+    campo.type = "hidden";
+    campo.name = nombre;
+    form.appendChild(campo);
+  }
+  campo.value = valor;
+}
+
+/**
+ * Devuelve los botones de envío a su estado normal.
+ *
+ * Hace falta porque al enviar se deshabilita el botón y se le pone
+ * "Enviando...". Si el servidor rechaza el envío y la persona vuelve atrás,
+ * el navegador restaura la página desde el bfcache tal como quedó: con el
+ * botón deshabilitado para siempre. Este evento la devuelve a su estado útil.
+ */
+function csRestaurarBotones() {
+  document.querySelectorAll("[data-cs-texto-original]").forEach((boton) => {
+    boton.innerHTML = boton.dataset.csTextoOriginal;
+    boton.disabled = false;
+    delete boton.dataset.csTextoOriginal;
+  });
+}
+
+// pageshow cubre tanto la carga normal como la restauración desde bfcache
+// (a diferencia de DOMContentLoaded, que no se dispara al volver atrás).
+window.addEventListener("pageshow", csRestaurarBotones);
+
+/**
+ * Adjunta los datos de seguridad y envía el formulario.
+ * Se llama solo cuando la validación en pantalla ya pasó.
+ *
+ * @param {HTMLFormElement} form
+ * @param {string} accion  "contacto" | "informe" (debe coincidir con el PHP)
+ */
+function csEnviarConRecaptcha(form, accion) {
+  const boton = form.querySelector('button[type="submit"], input[type="submit"]');
+
+  const enviar = (token) => {
+    csCampoOculto(form, "cs_elapsed", String((Date.now() - CS_INICIO_PAGINA) / 1000));
+    csCampoOculto(form, "recaptcha_token", token || "");
+    // form.submit() no vuelve a disparar el evento submit: no hay bucle.
+    form.submit();
+  };
+
+  if (boton) {
+    // El texto se guarda en el DOM, no en una variable: al volver atrás el
+    // navegador restaura la página desde el bfcache y las variables de esta
+    // función ya no existen, pero el atributo sí. Ver csRestaurarBotones().
+    boton.dataset.csTextoOriginal = boton.innerHTML;
+    boton.disabled = true;
+    boton.innerHTML = "Enviando...";
+  }
+
+  const restaurarBoton = () => csRestaurarBotones();
+
+  if (!csRecaptchaConfigurado() || typeof grecaptcha === "undefined") {
+    enviar("");
+    return;
+  }
+
+  // Red de seguridad: si Google no responde en 8 s, se envía sin token
+  // y el servidor decide según CS_RECAPTCHA_FAIL_OPEN.
+  let resuelto = false;
+  const respaldo = setTimeout(() => {
+    if (!resuelto) {
+      resuelto = true;
+      enviar("");
+    }
+  }, 8000);
+
+  grecaptcha.ready(() => {
+    grecaptcha
+      .execute(RECAPTCHA_SITE_KEY, { action: accion })
+      .then((token) => {
+        if (resuelto) return;
+        resuelto = true;
+        clearTimeout(respaldo);
+        enviar(token);
+      })
+      .catch(() => {
+        if (resuelto) return;
+        resuelto = true;
+        clearTimeout(respaldo);
+        restaurarBoton();
+        enviar("");
+      });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // 1. GSAP & SCROLLTRIGGER REGISTRATION
   gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+  // 1.5 CARGA DE RECAPTCHA (solo si la página tiene formularios)
+  if (document.querySelector("#form-footer, #form-contacto, #form-informes")) {
+    csCargarRecaptcha();
+  }
 
   // 2. HEADER SCROLL STATE
   const header = document.getElementById('main-header');
@@ -297,8 +426,11 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       }
 
-      if (!isValid) {
-        e.preventDefault();
+      // El envío siempre se detiene aquí: reCAPTCHA v3 necesita generar el
+      // token antes de mandar el POST. csEnviarConRecaptcha() lo reanuda.
+      e.preventDefault();
+      if (isValid) {
+        csEnviarConRecaptcha(footerForm, "contacto");
       }
     });
 
@@ -308,6 +440,65 @@ document.addEventListener('DOMContentLoaded', () => {
         input.style.borderColor = "rgba(255,255,255,0.2)";
         const error = document.getElementById("error-" + input.name + "-footer");
         if(error) error.style.display = "none";
+      });
+    });
+  }
+
+  // 7.5 CONTACT PAGE FORM VALIDATION (contacto.html y sectores.html)
+  // Este formulario no tenía validación propia: se enviaba sin revisar nada.
+  const contactoForm = document.getElementById("form-contacto");
+  if (contactoForm) {
+    contactoForm.addEventListener("submit", function(e) {
+      let isValid = true;
+
+      const fields = [
+        { id: "form-name", errorId: "error-name" },
+        { id: "form-phone", errorId: "error-phone" },
+        { id: "form-service", errorId: "error-service" },
+        { id: "form-stage", errorId: "error-stage" }
+      ];
+
+      fields.forEach(field => {
+        const input = document.getElementById(field.id);
+        const error = document.getElementById(field.errorId);
+        if (input && error) {
+          if (!input.value || input.value.trim() === "") {
+            isValid = false;
+            input.style.borderColor = "#ff6b6b";
+            error.style.display = "block";
+          } else {
+            input.style.borderColor = "rgba(0,0,0,0.1)";
+            error.style.display = "none";
+          }
+        }
+      });
+
+      const email = document.getElementById("form-email");
+      const emailError = document.getElementById("error-email");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && emailError) {
+        if (!email.value || !emailRegex.test(email.value)) {
+          isValid = false;
+          email.style.borderColor = "#ff6b6b";
+          emailError.style.display = "block";
+        } else {
+          email.style.borderColor = "rgba(0,0,0,0.1)";
+          emailError.style.display = "none";
+        }
+      }
+
+      e.preventDefault();
+      if (isValid) {
+        csEnviarConRecaptcha(contactoForm, "contacto");
+      }
+    });
+
+    const allContactoInputs = contactoForm.querySelectorAll("input, select, textarea");
+    allContactoInputs.forEach(input => {
+      input.addEventListener("input", () => {
+        input.style.borderColor = "rgba(0,0,0,0.1)";
+        const error = document.getElementById("error-" + input.name);
+        if (error) error.style.display = "none";
       });
     });
   }
@@ -352,8 +543,11 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       }
 
-      if (!isValid) {
-        e.preventDefault();
+      // Mismo motivo que en el formulario del footer: se detiene el envío
+      // para adjuntar el token de reCAPTCHA v3.
+      e.preventDefault();
+      if (isValid) {
+        csEnviarConRecaptcha(informeForm, "informe");
       }
     });
 

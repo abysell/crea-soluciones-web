@@ -123,6 +123,12 @@
         <p class="modal-desc">Déjanos tus datos para enviarte el reporte detallado directamente a tu correo corporativo.
         </p>
         <form id="form-informes" class="lead-form" action="procesar_informe.php" method="POST" novalidate>
+          <!-- honeypot -->
+          <div class="form-extra-field" aria-hidden="true">
+            <label for="form-informes-website">No llenar este campo</label>
+            <input type="text" id="form-informes-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="form-group">
             <input id="form-name-informe" type="text" name="name" placeholder="Nombre completo" required>
             <span class="error-message" id="error-name-informe"
