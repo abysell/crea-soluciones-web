@@ -33,6 +33,23 @@ $name    = cs_sanitizar_encabezado($_POST["name"] ?? "", 120);
 $email   = filter_var(trim($_POST["email"] ?? ""), FILTER_SANITIZE_EMAIL);
 $company = cs_sanitizar($_POST["company"] ?? "", 120);
 
+// Informe solicitado: llega como clave desde el campo oculto del modal.
+// El título que se imprime en el correo sale del catálogo, nunca del POST,
+// así que este campo no puede usarse para inyectar texto.
+$clave_informe = cs_sanitizar($_POST["informe"] ?? "", 60);
+$catalogo      = cs_catalogo_informes();
+
+if ($clave_informe !== "" && !isset($catalogo[$clave_informe])) {
+    // Clave desconocida: o se agregó un botón sin actualizar el catálogo,
+    // o alguien manipuló el campo. Se registra y se sigue: el lead es válido.
+    cs_registrar("informe", "clave fuera de catálogo: " . $clave_informe);
+    $clave_informe = "";
+}
+
+$informe = $clave_informe !== ""
+    ? $catalogo[$clave_informe]
+    : "No especificado (solicitud genérica)";
+
 // --- 4. Validación de obligatorios ------------------------------------------
 if ($name === "" || $email === "" || $company === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     cs_rechazar("campos");
@@ -49,6 +66,10 @@ if (cs_algun_campo_con_enlace(array($name, $company))) {
 $asunto = cs_asunto("Solicitud de Informe Estratégico Web: " . $name);
 
 $cuerpo  = "Se ha solicitado la descarga de un Informe Estratégico desde la página web.\n\n";
+$cuerpo .= "RECURSO SOLICITADO:\n";
+$cuerpo .= "----------------------------------------\n";
+$cuerpo .= "$informe\n\n";
+
 $cuerpo .= "DATOS DEL SOLICITANTE:\n";
 $cuerpo .= "----------------------------------------\n";
 $cuerpo .= "Nombre Completo: $name\n";

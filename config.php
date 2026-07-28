@@ -15,6 +15,24 @@ define("CS_PAGINA_EXITO", "gracias.html");
 define("CS_PAGINA_INICIO", "index.html");
 
 // ---------------------------------------------------------------------------
+// Catálogo de informes descargables
+// ---------------------------------------------------------------------------
+// Relaciona la clave que manda el formulario con el título que aparece en el
+// correo. El formulario solo envía la clave: el texto sale de aquí, así nadie
+// puede inyectar contenido arbitrario en el correo manipulando el campo oculto.
+//
+// Las claves deben coincidir con los atributos data-informe de los botones
+// .toggle-modal en index.html. Al agregar un informe nuevo, súmalo en ambos
+// lados; si no, llegará como "No especificado".
+function cs_catalogo_informes()
+{
+    return array(
+        "demanda-inmobiliaria" => "Informe Especial: Dónde se está creando demanda inmobiliaria en México y América",
+        "invertir-2026"        => "Guía Estratégica: Cómo invertir en bienes raíces en 2026 sin sobredimensionar el riesgo",
+    );
+}
+
+// ---------------------------------------------------------------------------
 // reCAPTCHA v3  (https://www.google.com/recaptcha/admin)
 // ---------------------------------------------------------------------------
 define("CS_RECAPTCHA_ACTIVO",  true);

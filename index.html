@@ -109,7 +109,7 @@
       </nav>
       <button class="mobile-toggle" id="mobile-toggle"><i class="ph ph-list"></i></button>
       <div class="header-actions">
-        <a href="#footer" class="btn btn-outline-light">Agendar Consultoría</a>
+        <a href="contacto.html#footer" class="btn btn-outline-light">Agendar Consultoría</a>
       </div>
     </div>
   </header>
@@ -128,6 +128,11 @@
             <label for="form-informes-website">No llenar este campo</label>
             <input type="text" id="form-informes-website" name="website" tabindex="-1" autocomplete="off">
           </div>
+
+          <!-- Informe solicitado. Lo escribe js/main.js al abrir el modal, a
+               partir del data-informe del botón que lo disparó. El valor es una
+               clave del catálogo de config.php, no el título. -->
+          <input type="hidden" id="form-informe-tipo" name="informe" value="">
 
           <div class="form-group">
             <input id="form-name-informe" type="text" name="name" placeholder="Nombre completo" required>
@@ -164,7 +169,7 @@
         <h1 class="gsap-fade-up" style="text-wrap: balance;">La inteligencia del mercado inmobiliario al servicio de tu proyecto.</h1>
         <p class="subtitle gsap-fade-up">Consultoría inmobiliaria con datos vigentes y reales recopilados en sitio, Big Data e Inteligencia Artificial.</p>
         <div class="hero-actions gsap-fade-up">
-          <a href="#footer" class="btn btn-primary">Agendar Consultoría</a>
+          <a href="contacto.html#footer" class="btn btn-primary">Agendar Consultoría</a>
           <a href="#portfolio" class="btn btn-outline-light">Ver Casos de Éxito</a>
         </div>
       </div>
@@ -323,7 +328,7 @@
             <div class="resource-content">
               <span>Informe Especial</span>
               <h3>Dónde se está creando demanda inmobiliaria en México y América.</h3>
-              <button class="btn btn-outline-light toggle-modal">Descargar Informe</button>
+              <button class="btn btn-outline-light toggle-modal" data-informe="demanda-inmobiliaria">Descargar Informe</button>
             </div>
           </div>
           <!-- Resource B -->
@@ -332,7 +337,7 @@
             <div class="resource-content">
               <span>Guía Estratégica</span>
               <h3>Cómo invertir en bienes raíces en 2026 sin sobredimensionar el riesgo.</h3>
-              <button class="btn btn-outline-light toggle-modal">Descargar Guía</button>
+              <button class="btn btn-outline-light toggle-modal" data-informe="invertir-2026">Descargar Guía</button>
             </div>
           </div>
         </div>

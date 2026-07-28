@@ -104,37 +104,6 @@
   </header>
 
   <!-- ======================== MODAL (LEAD MAGNET) ======================== -->
-  <dialog id="lead-modal" class="modal">
-    <div class="modal-content">
-      <button class="modal-close" id="close-modal"><i class="ph ph-x"></i></button>
-      <div class="modal-body">
-        <h3 class="modal-title">Descarga el Recurso Estratégico</h3>
-        <p class="modal-desc">Déjanos tus datos para enviarte el reporte detallado directamente a tu correo corporativo.</p>
-        <form id="form-informes" class="lead-form" action="procesar_informe.php" method="POST" novalidate>
-          <!-- honeypot -->
-          <div class="form-extra-field" aria-hidden="true">
-            <label for="form-informes-website">No llenar este campo</label>
-            <input type="text" id="form-informes-website" name="website" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="form-group">
-            <input id="form-name-informe" type="text" name="name" placeholder="Nombre completo" required>
-            <span class="error-message" id="error-name-informe" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-top: 4px;">Este campo es obligatorio</span>
-          </div>
-          <div class="form-group">
-            <input id="form-email-informe" type="email" name="email" placeholder="Correo electrónico corporativo" required>
-            <span class="error-message" id="error-email-informe" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-top: 4px;">Ingresa un correo corporativo válido</span>
-          </div>
-          <div class="form-group">
-            <input id="form-company-informe" type="text" name="company" placeholder="Empresa" required>
-            <span class="error-message" id="error-company-informe" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-top: 4px;">Este campo es obligatorio</span>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">Recibir Informe <i class="ph ph-arrow-right"></i></button>
-        </form>
-      </div>
-    </div>
-  </dialog>
-
   <main>
     <!-- ======================== HERO SECTION ======================== -->
     <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/hero_sectores.webp'); background-size: cover; background-position: center; padding-top: 180px; padding-bottom: 120px; text-align: center; z-index: 1;">

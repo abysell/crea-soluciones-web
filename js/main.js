@@ -276,6 +276,16 @@ document.addEventListener('DOMContentLoaded', () => {
   openModalBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+
+      // Los dos recursos comparten el mismo modal, así que hay que registrar
+      // cuál se pidió. El botón lo declara en data-informe y aquí viaja al
+      // campo oculto del formulario. Solo se manda la clave: el título para el
+      // correo lo resuelve el servidor con el catálogo de config.php.
+      const campoInforme = document.getElementById('form-informe-tipo');
+      if (campoInforme) {
+        campoInforme.value = btn.dataset.informe || '';
+      }
+
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
