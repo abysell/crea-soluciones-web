@@ -141,6 +141,65 @@ function cs_algun_campo_con_enlace(array $campos)
 }
 
 // ---------------------------------------------------------------------------
+// 2.b Atribución de campaña
+// ---------------------------------------------------------------------------
+
+/**
+ * Recoge y limpia los parámetros de campaña que envió el navegador.
+ *
+ * Estos valores salen de la URL de aterrizaje, así que son de lo más expuesto
+ * que recibe el formulario: cualquiera puede repartir un enlace con
+ * ?utm_source=<lo que sea> y ese texto acabaría en el correo y en el CRM.
+ *
+ * Por eso se limitan a un juego de caracteres conservador. Y si uno trae un
+ * enlace, se descarta ESE campo en lugar de rechazar el envío: perder un lead
+ * legítimo por una etiqueta de campaña mal formada sería mucho peor que
+ * quedarse sin saber de qué anuncio vino.
+ *
+ * @return array claves utm_source, utm_medium, utm_campaign, utm_term,
+ *               utm_content y gclid, siempre presentes (cadena vacía si no hay)
+ */
+function cs_atribucion_recibida()
+{
+    $claves = array(
+        "utm_source", "utm_medium", "utm_campaign",
+        "utm_term", "utm_content", "gclid",
+    );
+
+    $limpios = array();
+
+    foreach ($claves as $clave) {
+        $valor = cs_sanitizar($_POST[$clave] ?? "", 200);
+
+        // Los identificadores de campaña son alfanuméricos con separadores
+        // simples. Todo lo demás se elimina.
+        $valor = preg_replace('/[^\p{L}\p{N} ._\-\+\|:@\/]/u', "", $valor);
+        $valor = trim(preg_replace('/\s+/', " ", $valor));
+
+        if ($valor !== "" && cs_contiene_enlaces($valor)) {
+            cs_registrar("atribucion", "enlace descartado en " . $clave . ": " . substr($valor, 0, 60));
+            $valor = "";
+        }
+
+        $limpios[$clave] = $valor;
+    }
+
+    return $limpios;
+}
+
+/** true si al menos un parámetro de campaña trae valor. */
+function cs_hay_atribucion(array $atribucion)
+{
+    foreach ($atribucion as $valor) {
+        if ($valor !== "") {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+// ---------------------------------------------------------------------------
 // 3. Honeypot y trampa de tiempo
 // ---------------------------------------------------------------------------
 

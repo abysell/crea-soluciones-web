@@ -2,5 +2,12 @@
 logs/*.log
 logs/*.log.php
 
+# Claves reales de reCAPTCHA y Zoho. La plantilla sin valores
+# (config.local.example.php) sí se versiona.
+config.local.php
+
+# Formulario generado por Zoho: trae las claves de la cuenta
+formulario.txt
+
 # Sistema
 .DS_Store

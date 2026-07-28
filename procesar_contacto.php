@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . "/seguridad.php";
+require_once __DIR__ . "/zoho.php";
 
 // Las peticiones GET muestran la página de error del redirect, o van al inicio.
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -40,6 +41,9 @@ $message = cs_sanitizar($_POST["message"] ?? "", 2000);
 // El teléfono solo conserva dígitos y separadores habituales.
 $phone = preg_replace('/[^0-9+()\-\s]/', "", $phone);
 $phone = trim(preg_replace('/\s+/', " ", $phone));
+
+// Campaña de origen (UTMs y clic de Google Ads), capturada por js/main.js.
+$atribucion = cs_atribucion_recibida();
 
 // --- 4. Validación de obligatorios ------------------------------------------
 if ($name === "" || $email === "" || $phone === "" || $service === "" || $stage === ""
@@ -87,13 +91,41 @@ $cuerpo .= "MENSAJE / OBJETIVOS:\n";
 $cuerpo .= "----------------------------------------\n";
 $cuerpo .= ($message !== "" ? $message : "Sin mensaje proporcionado.") . "\n";
 
+// La sección de campaña solo aparece si hay algo que mostrar: en el tráfico
+// directo estaría siempre vacía y solo estorbaría al leer el correo.
+if (cs_hay_atribucion($atribucion)) {
+    $cuerpo .= "\nCAMPAÑA DE ORIGEN:\n";
+    $cuerpo .= "----------------------------------------\n";
+    foreach ($atribucion as $clave => $valor) {
+        if ($valor !== "") {
+            $cuerpo .= $clave . ": " . $valor . "\n";
+        }
+    }
+}
+
 $encabezados  = "From: " . CS_REMITENTE . "\r\n";
 $encabezados .= "Reply-To: " . $email . "\r\n";
 $encabezados .= "MIME-Version: 1.0\r\n";
 $encabezados .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $encabezados .= "Content-Transfer-Encoding: 8bit\r\n";
 
-if (mail(CS_DESTINATARIO, $asunto, $cuerpo, $encabezados)) {
+$correo_enviado = mail(CS_DESTINATARIO, $asunto, $cuerpo, $encabezados);
+
+// --- 7. Zoho CRM -------------------------------------------------------------
+// Va después del correo a propósito: el correo es la fuente de verdad de cada
+// lead, así que se asegura primero. Un fallo aquí se registra pero no cambia
+// lo que ve el visitante ni tumba el envío; el dato ya está en la bandeja.
+cs_enviar_a_zoho(array(
+    "nombre"     => $name,
+    "correo"     => $email,
+    "telefono"   => $phone,
+    "servicio"   => $service,
+    "etapa"      => $stage,
+    "mensaje"    => $message,
+    "atribucion" => $atribucion,
+));
+
+if ($correo_enviado) {
     header("Location: " . CS_PAGINA_EXITO);
     exit;
 }

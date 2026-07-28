@@ -40,6 +40,97 @@ function csCampoOculto(form, nombre, valor) {
   campo.value = valor;
 }
 
+/* ============================================================
+   ATRIBUCIÓN DE CAMPAÑA (UTMs + Google Ads)
+   ------------------------------------------------------------
+   Los parámetros solo existen en la URL de aterrizaje: en cuanto
+   la persona navega a otra página, se pierden. Por eso se guardan
+   al llegar y se recuperan al enviar el formulario, que suele
+   ocurrir varias páginas después.
+
+   Se usa sessionStorage y no localStorage: el dato vive solo
+   mientras la pestaña siga abierta y se borra al cerrarla. No
+   queda nada almacenado en el equipo del visitante entre visitas.
+   ============================================================ */
+
+const CS_ATRIBUCION_CLAVES = [
+  "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"
+];
+
+const CS_ATRIBUCION_ALMACEN = "cs_atribucion";
+
+/**
+ * Lee los parámetros de la URL actual y los guarda si hay alguno.
+ *
+ * Gana la última campaña: si alguien llega por un anuncio nuevo, ese clic
+ * describe mejor su intención actual que uno anterior.
+ */
+function csCapturarAtribucion() {
+  let params;
+  try {
+    params = new URLSearchParams(window.location.search);
+  } catch (e) {
+    return;
+  }
+
+  const encontrados = {};
+
+  CS_ATRIBUCION_CLAVES.forEach((clave) => {
+    const valor = params.get(clave);
+    if (valor) {
+      encontrados[clave] = valor.slice(0, 200);
+    }
+  });
+
+  // wbraid y gbraid sustituyen al gclid cuando el clic viene de campañas
+  // afectadas por las restricciones de privacidad de iOS.
+  if (!encontrados.gclid) {
+    ["wbraid", "gbraid"].forEach((clave) => {
+      const valor = params.get(clave);
+      if (valor && !encontrados.gclid) {
+        encontrados.gclid = valor.slice(0, 200);
+      }
+    });
+  }
+
+  if (Object.keys(encontrados).length === 0) {
+    return;
+  }
+
+  try {
+    sessionStorage.setItem(CS_ATRIBUCION_ALMACEN, JSON.stringify(encontrados));
+  } catch (e) {
+    // Navegación privada o almacenamiento bloqueado: se sigue sin atribución.
+  }
+}
+
+/**
+ * Devuelve la atribución de esta pestaña, o un objeto vacío si no hay.
+ *
+ * No hace falta comprobar caducidad: sessionStorage se vacía solo al cerrar
+ * la pestaña, así que el dato nunca sobrevive a la visita.
+ */
+function csAtribucionGuardada() {
+  try {
+    const crudo = sessionStorage.getItem(CS_ATRIBUCION_ALMACEN);
+    return crudo ? (JSON.parse(crudo) || {}) : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+/** Adjunta la atribución al formulario como campos ocultos. */
+function csAdjuntarAtribucion(form) {
+  const datos = csAtribucionGuardada();
+  CS_ATRIBUCION_CLAVES.forEach((clave) => {
+    csCampoOculto(form, clave, datos[clave] || "");
+  });
+}
+
+// Se ejecuta de inmediato, sin esperar a DOMContentLoaded: cuanto antes se
+// capture, menor el riesgo de perder el dato por una redirección temprana.
+csCapturarAtribucion();
+
 /**
  * Devuelve los botones de envío a su estado normal.
  *
@@ -73,6 +164,7 @@ function csEnviarConRecaptcha(form, accion) {
   const enviar = (token) => {
     csCampoOculto(form, "cs_elapsed", String((Date.now() - CS_INICIO_PAGINA) / 1000));
     csCampoOculto(form, "recaptcha_token", token || "");
+    csAdjuntarAtribucion(form);
     // form.submit() no vuelve a disparar el evento submit: no hay bucle.
     form.submit();
   };
