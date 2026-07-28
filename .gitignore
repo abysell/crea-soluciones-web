@@ -1,5 +1,6 @@
 # Registros de formularios: contienen IPs y correos de prospectos
 logs/*.log
+logs/*.log.php
 
 # Sistema
 .DS_Store

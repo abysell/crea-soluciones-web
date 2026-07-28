@@ -43,5 +43,20 @@ define("CS_SEGUNDOS_MINIMOS", 3);
 // ---------------------------------------------------------------------------
 // Registro de bloqueos
 // ---------------------------------------------------------------------------
+// El registro contiene IPs y correos de prospectos: nunca debe poder leerse
+// desde el navegador. Hay dos protecciones y conviene entender ambas.
+//
+// 1. La extensión .php. Si alguien pide /logs/formularios.log.php, el servidor
+//    ejecuta el archivo en vez de mostrarlo, y su primera línea es un exit().
+//    No se revela nada. Funciona igual en Apache, Nginx y LiteSpeed, porque no
+//    depende de .htaccess (que Nginx ignora por completo).
+//
+// 2. logs/.htaccess, que niega el acceso a la carpeta. Solo aplica en Apache;
+//    se conserva como refuerzo.
+//
+// Si prefieres sacar el registro del directorio público, cambia la ruta por
+// algo como dirname(__DIR__) . "/logs-crea/formularios.log". Ten en cuenta
+// que el usuario de PHP debe poder escribir ahí: si no puede, seguridad.php
+// vuelve automáticamente a la ruta interna para no quedarse sin registro.
 define("CS_LOG_ACTIVO", true);
-define("CS_LOG_ARCHIVO", __DIR__ . "/logs/formularios.log");
+define("CS_LOG_ARCHIVO", __DIR__ . "/logs/formularios.log.php");

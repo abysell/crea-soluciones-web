@@ -330,7 +330,71 @@ function cs_ip_cliente()
 }
 
 /**
- * Registra un bloqueo en logs/formularios.log. Nunca interrumpe el flujo.
+ * Primera línea del registro.
+ *
+ * Si alguien pide el archivo por el navegador, el servidor lo ejecuta como PHP
+ * y este exit() corta todo antes de imprimir una sola línea del contenido. Es
+ * lo que protege el registro en Nginx y LiteSpeed, donde .htaccess no existe.
+ */
+function cs_guarda_log()
+{
+    return "<?php exit('Acceso denegado.'); ?>" . PHP_EOL;
+}
+
+/**
+ * Resuelve a qué archivo se escribe el registro.
+ *
+ * Intenta primero la ruta de config.php y, si no puede escribir ahí (típico al
+ * moverla fuera del directorio público sin dar permisos al usuario de PHP),
+ * cae a la ruta interna. Así un problema de permisos degrada el registro en
+ * lugar de dejarnos sin ninguno.
+ *
+ * @return string|false ruta utilizable, o false si ninguna lo es
+ */
+function cs_archivo_log()
+{
+    static $resuelto = null;
+
+    if ($resuelto !== null) {
+        return $resuelto;
+    }
+
+    $candidatos = array_unique(array(
+        CS_LOG_ARCHIVO,
+        __DIR__ . "/logs/formularios.log.php",
+    ));
+
+    foreach ($candidatos as $ruta) {
+        $carpeta = dirname($ruta);
+
+        if (!is_dir($carpeta)) {
+            @mkdir($carpeta, 0755, true);
+        }
+
+        if (!is_dir($carpeta) || !is_writable($carpeta)) {
+            continue;
+        }
+
+        if (!file_exists($ruta)) {
+            if (@file_put_contents($ruta, cs_guarda_log(), LOCK_EX) === false) {
+                continue;
+            }
+            @chmod($ruta, 0640);
+        }
+
+        if (is_writable($ruta)) {
+            $resuelto = $ruta;
+            return $resuelto;
+        }
+    }
+
+    $resuelto = false;
+    return $resuelto;
+}
+
+/**
+ * Registra un bloqueo. Nunca interrumpe el flujo del formulario:
+ * si el registro falla, el envío sigue su curso normal.
  */
 function cs_registrar($tipo, $detalle)
 {
@@ -338,9 +402,9 @@ function cs_registrar($tipo, $detalle)
         return;
     }
 
-    $carpeta = dirname(CS_LOG_ARCHIVO);
-    if (!is_dir($carpeta)) {
-        @mkdir($carpeta, 0755, true);
+    $archivo = cs_archivo_log();
+    if ($archivo === false) {
+        return;
     }
 
     $linea = sprintf(
@@ -352,7 +416,7 @@ function cs_registrar($tipo, $detalle)
         PHP_EOL
     );
 
-    @file_put_contents(CS_LOG_ARCHIVO, $linea, FILE_APPEND | LOCK_EX);
+    @file_put_contents($archivo, $linea, FILE_APPEND | LOCK_EX);
 }
 
 /**
