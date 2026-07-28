@@ -82,10 +82,16 @@ $cuerpo .= "Nombre Completo: $name\n";
 $cuerpo .= "Correo electrónico: $email\n";
 $cuerpo .= "Teléfono: $phone\n\n";
 
+// Se usan las mismas etiquetas legibles que se mandan a Zoho: quien lee el
+// correo debe ver "Estudio de Mayor y Mejor Uso", no "mayor-uso".
+$etiquetas = cs_etiquetas_sitio();
+$servicio_legible = isset($etiquetas[$service]) ? $etiquetas[$service] : $service;
+$etapa_legible    = isset($etiquetas[$stage]) ? $etiquetas[$stage] : $stage;
+
 $cuerpo .= "DETALLES DEL PROYECTO:\n";
 $cuerpo .= "----------------------------------------\n";
-$cuerpo .= "Solución de interés: $service\n";
-$cuerpo .= "Etapa del proyecto: $stage\n\n";
+$cuerpo .= "Solución de interés: $servicio_legible\n";
+$cuerpo .= "Etapa del proyecto: $etapa_legible\n\n";
 
 $cuerpo .= "MENSAJE / OBJETIVOS:\n";
 $cuerpo .= "----------------------------------------\n";

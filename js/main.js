@@ -6,7 +6,7 @@
    Mientras el valor siga en PENDIENTE_SITE_KEY, reCAPTCHA no
    se carga y los formularios funcionan con honeypot y filtros.
    ============================================================ */
-const RECAPTCHA_SITE_KEY = "PENDIENTE_SITE_KEY";
+const RECAPTCHA_SITE_KEY = "6Ld3NGotAAAAAK_wTjmoPIMEX8D749YzHHiNgvnf";
 
 // Momento en que se cargó la página, para medir cuánto tardó el llenado.
 const CS_INICIO_PAGINA = Date.now();
