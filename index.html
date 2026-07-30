@@ -109,7 +109,7 @@
       </nav>
       <button class="mobile-toggle" id="mobile-toggle"><i class="ph ph-list"></i></button>
       <div class="header-actions">
-        <a href="contacto.html#footer" class="btn btn-outline-light">Agendar Consultoría</a>
+        <a href="#footer" class="btn btn-outline-light">Agendar Consultoría</a>
       </div>
     </div>
   </header>
@@ -169,7 +169,7 @@
         <h1 class="gsap-fade-up" style="text-wrap: balance;">La inteligencia del mercado inmobiliario al servicio de tu proyecto.</h1>
         <p class="subtitle gsap-fade-up">Consultoría inmobiliaria con datos vigentes y reales recopilados en sitio, Big Data e Inteligencia Artificial.</p>
         <div class="hero-actions gsap-fade-up">
-          <a href="contacto.html#footer" class="btn btn-primary">Agendar Consultoría</a>
+          <a href="#footer" class="btn btn-primary">Agendar Consultoría</a>
           <a href="#portfolio" class="btn btn-outline-light">Ver Casos de Éxito</a>
         </div>
       </div>
@@ -632,9 +632,72 @@
         </div>
       </div>
     </section>
+
+    <!-- ======================== CONTACTO (CTA DE CIERRE) ======================== -->
+    <section id="footer" class="footer-cta-section section-pad">
+    <div class="container footer-cta-grid">
+      <div class="footer-cta-copy">
+        <h2 class="section-title" style="color: #0e1111; margin-bottom: 1.5rem;">Contáctanos</h2>
+        <p style="font-size: 1.1rem; color: rgba(14,17,17,0.65);">Solicita información sobre nuestros servicios y un especialista te contactará a la brevedad.</p>
+      </div>
+      <div class="footer-contact-form" style="background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); width: 100%;">
+        <form id="form-footer" action="procesar_contacto.php" method="POST" class="minimal-form" novalidate>
+          <!-- honeypot -->
+          <div class="form-extra-field" aria-hidden="true">
+            <label for="form-footer-website">No llenar este campo</label>
+            <input type="text" id="form-footer-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <input id="form-name-footer" type="text" name="name" placeholder="Nombre Completo*" required>
+          <span class="error-message" id="error-name-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+              <input id="form-email-footer" type="email" name="email" placeholder="Correo electrónico*" required>
+          <span class="error-message" id="error-email-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Ingresa un correo electrónico válido</span>
+            </div>
+            <div>
+              <input id="form-phone-footer" type="tel" name="phone" pattern="[0-9]*" placeholder="Teléfono*" required>
+          <span class="error-message" id="error-phone-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es obligatorio</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+              <select id="form-service-footer" name="service" required>
+            <option value="" disabled selected>Servicio a contratar*</option>
+            <option value="estudio-mercado">Estudio de Mercado</option>
+            <option value="estudio-financiero">Estudio Financiero</option>
+            <option value="reposicionamiento">Estudio de Reposicionamiento</option>
+            <option value="geomarketing">Geomarketing</option>
+            <option value="avaluo">Avalúo</option>
+            <option value="reporte">Reporte</option>
+            <option value="otros">Otros</option>
+          </select>
+          <span class="error-message" id="error-service-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+            </div>
+            <div>
+              <select id="form-stage-footer" name="stage" required>
+            <option value="" disabled selected>Etapa del proyecto*</option>
+            <option value="idea">Idea del Proyecto</option>
+            <option value="estudios">Estudios de Mercado y Financiero</option>
+            <option value="anteproyecto">Anteproyecto Arquitectónico</option>
+            <option value="comercializacion">Comercialización</option>
+            <option value="expansion">Expansión</option>
+            <option value="otra">Otra</option>
+          </select>
+          <span class="error-message" id="error-stage-footer" style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Selecciona una opción</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Solicitar Información <i class="ph ph-paper-plane-tilt"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
   </main>
 
-<footer id="footer" class="footer bg-black text-white section-pad" style="padding-bottom: 58px;">
+<footer class="footer bg-black text-white section-pad" style="padding-bottom: 58px;">
     <div class="container footer-grid">
       <!-- COL 1 -->
       <div class="footer-brand">
