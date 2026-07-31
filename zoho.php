@@ -17,10 +17,14 @@ require_once __DIR__ . "/seguridad.php";
 /**
  * Manda un lead a Zoho CRM.
  *
- * @param array $datos claves: nombre, correo, telefono, servicio, etapa, mensaje
+ * Los dos formularios del sitio usan el mismo formulario Web to Lead: cambia
+ * la información que se envía, no el destino.
+ *
+ * @param array  $datos datos ya sanitizados del formulario
+ * @param string $tipo  "contacto" | "informe"
  * @return bool true si Zoho acepto el envio
  */
-function cs_enviar_a_zoho(array $datos)
+function cs_enviar_a_zoho(array $datos, $tipo = "contacto")
 {
     if (!CS_ZOHO_ACTIVO) {
         return false;
@@ -52,9 +56,12 @@ function cs_enviar_a_zoho(array $datos)
         "aG9uZXlwb3Q" => "",
     );
 
-    // Campos del lead. Se limpian de saltos de línea en los valores cortos para
-    // que un dato raro no descoloque el formulario que interpreta Zoho.
-    foreach (cs_zoho_campos($datos) as $nombre => $valor) {
+    // Campos del lead, distintos según el formulario de origen.
+    $del_lead = ($tipo === "informe")
+        ? cs_zoho_campos_informe($datos)
+        : cs_zoho_campos($datos);
+
+    foreach ($del_lead as $nombre => $valor) {
         $campos[$nombre] = is_string($valor) ? $valor : (string) $valor;
     }
 

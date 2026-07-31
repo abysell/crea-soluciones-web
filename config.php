@@ -195,8 +195,21 @@ function cs_zoho_campos(array $d)
         $campos["Company"] = CS_ZOHO_EMPRESA_POR_DEFECTO;
     }
 
-    // Campaña de origen. Los nombres LEADCF corresponden a los campos que ya
-    // existen en el CRM; los tomamos del formulario generado por Zoho.
+    return cs_zoho_agregar_atribucion($campos, $d);
+}
+
+/**
+ * Añade los campos de campaña al lead. Lo comparten los dos formularios.
+ *
+ * Los nombres LEADCF corresponden a los campos que ya existen en el CRM;
+ * se tomaron del formulario que generó Zoho.
+ *
+ * @param array $campos campos del lead ya armados
+ * @param array $d      datos del formulario, con la clave "atribucion"
+ * @return array
+ */
+function cs_zoho_agregar_atribucion(array $campos, array $d)
+{
     $atribucion = isset($d["atribucion"]) && is_array($d["atribucion"]) ? $d["atribucion"] : array();
 
     $mapa_atribucion = array(
@@ -227,9 +240,12 @@ function cs_zoho_campos(array $d)
 // ---------------------------------------------------------------------------
 // Catálogo de informes descargables
 // ---------------------------------------------------------------------------
-// Relaciona la clave que manda el formulario con el título que aparece en el
-// correo. El formulario solo envía la clave: el texto sale de aquí, así nadie
-// puede inyectar contenido arbitrario en el correo manipulando el campo oculto.
+// Relaciona la clave que manda el formulario con dos textos: el título que
+// aparece en el correo y en la descripción del lead, y el nombre de formulario
+// que se registra en Zoho para distinguir de cuál de los dos recursos vino.
+//
+// El formulario solo envía la clave: los textos salen de aquí, así nadie puede
+// inyectar contenido arbitrario manipulando el campo oculto.
 //
 // Las claves deben coincidir con los atributos data-informe de los botones
 // .toggle-modal en index.html. Al agregar un informe nuevo, súmalo en ambos
@@ -237,9 +253,58 @@ function cs_zoho_campos(array $d)
 function cs_catalogo_informes()
 {
     return array(
-        "demanda-inmobiliaria" => "Informe Especial: Dónde se está creando demanda inmobiliaria en México y América",
-        "invertir-2026"        => "Guía Estratégica: Cómo invertir en bienes raíces en 2026 sin sobredimensionar el riesgo",
+        "demanda-inmobiliaria" => array(
+            "titulo"     => "Informe Especial: Dónde se está creando demanda inmobiliaria en México y América",
+            "formulario" => "Formulario Web - Informe Especial",
+        ),
+        "invertir-2026" => array(
+            "titulo"     => "Guía Estratégica: Cómo invertir en bienes raíces en 2026 sin sobredimensionar el riesgo",
+            "formulario" => "Formulario Web - Guía Estratégica",
+        ),
     );
+}
+
+// Valores cuando el recurso no se pudo identificar: o se agregó un botón sin
+// actualizar el catálogo, o alguien manipuló el campo oculto.
+define("CS_INFORME_SIN_IDENTIFICAR", "No especificado (solicitud genérica)");
+define("CS_ZOHO_FORMULARIO_INFORME", "Formulario Web - Informe");
+
+/**
+ * Arma los campos del lead para el formulario de descarga de informes.
+ *
+ * Se manda al mismo formulario Web to Lead que el de contacto; lo que cambia
+ * es la información:
+ *
+ *   - "Servicio a contratar" es siempre "Reporte", que es lo que en el fondo
+ *     está pidiendo quien descarga uno de estos documentos.
+ *   - "Nombre_formulario" distingue cuál de los dos recursos solicitó.
+ *   - La descripción reproduce el bloque del correo, para que quien lea la
+ *     ficha vea lo mismo que quien lee la bandeja.
+ *
+ * Este formulario sí pide la empresa, así que "Company" llega con un valor
+ * real y no con el marcador del formulario de contacto.
+ *
+ * @param array $d claves: nombre, correo, empresa, informe, formulario, atribucion
+ * @return array
+ */
+function cs_zoho_campos_informe(array $d)
+{
+    $descripcion  = "RECURSO SOLICITADO:\n";
+    $descripcion .= "----------------------------------------\n";
+    $descripcion .= $d["informe"];
+
+    $campos = array(
+        "Last Name"   => $d["nombre"],
+        "Email"       => $d["correo"],
+        "Company"     => $d["empresa"],
+        "LEADCF11"    => "Reporte",                       // Servicio a contratar
+        "Lead Source" => CS_ZOHO_LEAD_SOURCE,
+        "Lead Status" => CS_ZOHO_LEAD_STATUS,
+        "LEADCF4"     => $d["formulario"],                // Nombre_formulario
+        "Description" => $descripcion,
+    );
+
+    return cs_zoho_agregar_atribucion($campos, $d);
 }
 
 // ---------------------------------------------------------------------------
