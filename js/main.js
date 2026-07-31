@@ -89,38 +89,70 @@ function csVigilarChatSalesIQ() {
   }, 500);
 }
 
+// Último correo declarado a SalesIQ, para no repetir la llamada en cada evento.
+let csCorreoDeclarado = "";
+
 /**
- * Asocia la sesión de navegación con la persona que envía el formulario.
+ * Asocia la sesión de navegación con una persona concreta.
  *
  * Sin esto, SalesIQ solo tiene una visita anónima y el lead que crea nuestro
- * PHP en Zoho llegaría con el "Resumen de visitas" vacío. Al declarar el
- * correo, Zoho puede emparejar ambos registros.
+ * PHP en Zoho llega con el "Resumen de visitas" vacío. Al declarar el correo,
+ * Zoho puede emparejar ambos registros.
  *
  * Todo va protegido: el widget es de un tercero y puede no haber cargado
  * (bloqueadores, red caída). Un fallo aquí NUNCA debe impedir el envío.
- *
- * @param {HTMLFormElement} form
  */
-function csIdentificarEnSalesIQ(form) {
+function csIdentificarEnSalesIQ(correo, nombre) {
   try {
+    if (!correo || correo === csCorreoDeclarado) return;
+
     const visitante = window.$zoho
       && window.$zoho.salesiq
       && window.$zoho.salesiq.visitor;
 
     if (!visitante) return;
 
-    const correo = form.querySelector('input[type="email"]');
-    const nombre = form.querySelector('input[name="name"]');
-
-    if (correo && correo.value && typeof visitante.email === "function") {
-      visitante.email(correo.value);
+    if (typeof visitante.email === "function") {
+      visitante.email(correo);
+      csCorreoDeclarado = correo;
     }
-    if (nombre && nombre.value && typeof visitante.name === "function") {
-      visitante.name(nombre.value);
+    if (nombre && typeof visitante.name === "function") {
+      visitante.name(nombre);
     }
   } catch (e) {
     // El rastreo es accesorio: si falla, el formulario sigue su curso.
   }
+}
+
+/**
+ * Declara el visitante en cuanto termina de escribir un correo válido.
+ *
+ * El primer intento hacía esto justo antes de form.submit() y no funcionaba:
+ * la llamada a SalesIQ viaja por red y el navegador la aborta al cambiar de
+ * página en el mismo instante. Comprobado en el inspector: no salía ninguna
+ * petición antes de navegar.
+ *
+ * Adelantándolo al momento en que la persona sale del campo de correo, la
+ * llamada dispone de todo el rato que tarde en terminar el formulario.
+ *
+ * @param {HTMLFormElement} form
+ */
+function csVigilarCorreoParaSalesIQ(form) {
+  const correo = form.querySelector('input[type="email"]');
+  if (!correo) return;
+
+  const nombre = form.querySelector('input[name="name"]');
+  const formatoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const declarar = () => {
+    const valor = correo.value.trim();
+    if (!formatoValido.test(valor)) return;
+    csIdentificarEnSalesIQ(valor, nombre ? nombre.value.trim() : "");
+  };
+
+  correo.addEventListener("change", declarar);
+  correo.addEventListener("blur", declarar);
+  if (nombre) nombre.addEventListener("change", declarar);
 }
 
 const csRecaptchaConfigurado = () =>
@@ -277,8 +309,19 @@ function csEnviarConRecaptcha(form, accion) {
     csCampoOculto(form, "cs_elapsed", String((Date.now() - CS_INICIO_PAGINA) / 1000));
     csCampoOculto(form, "recaptcha_token", token || "");
     csAdjuntarAtribucion(form);
-    // Se identifica antes de navegar: después la página ya no existe.
-    csIdentificarEnSalesIQ(form);
+
+    // Último recurso por si la persona nunca salió del campo de correo (por
+    // ejemplo, enviando con Enter). Lo normal es que ya se declarara al salir
+    // del campo, y entonces esta llamada no hace nada.
+    const campoCorreo = form.querySelector('input[type="email"]');
+    const campoNombre = form.querySelector('input[name="name"]');
+    if (campoCorreo) {
+      csIdentificarEnSalesIQ(
+        campoCorreo.value.trim(),
+        campoNombre ? campoNombre.value.trim() : ""
+      );
+    }
+
     // form.submit() no vuelve a disparar el evento submit: no hay bucle.
     form.submit();
   };
@@ -341,6 +384,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1.6 CARGA DE SALESIQ (en todas: el rastreo necesita ver el recorrido completo)
   csCargarSalesIQ();
   csVigilarChatSalesIQ();
+
+  // Declarar el visitante en cuanto escriba su correo, no al enviar: así la
+  // llamada a SalesIQ tiene tiempo de completarse antes de cambiar de página.
+  document
+    .querySelectorAll("#form-footer, #form-contacto, #form-informes")
+    .forEach(csVigilarCorreoParaSalesIQ);
 
   // 2. HEADER SCROLL STATE
   const header = document.getElementById('main-header');
