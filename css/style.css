@@ -1860,6 +1860,116 @@ html {
 }
 
 /* =========================================================
+   SLIDER DE ANÁLISIS GEOGRÁFICO
+   ---------------------------------------------------------
+   El markup del slider trae sus estilos en línea, de ahí los
+   !important: son la única forma de corregirlos desde aquí.
+
+   El problema que resuelve: el pie de texto estaba en position
+   absolute y la imagen reservaba su hueco con un padding-bottom
+   fijo de 100px. En cuanto el texto se partía en más líneas
+   —cosa que pasa siempre en móvil— el pie crecía por encima de
+   ese hueco, tapaba la imagen y dejaba la foto reducida a una
+   franja de unos 50px.
+
+   La solución no es otro número fijo: se saca el pie del
+   posicionamiento absoluto y se apila en columna, de modo que
+   ocupe su altura natural y la imagen se quede con el resto.
+   Así funciona con cualquier ancho y cualquier largo de texto.
+   ========================================================= */
+
+.map-slider > div {
+  display: flex;
+  flex-direction: column;
+  /* El height:100% en línea impedía que align-items:stretch igualara los
+     slides: un porcentaje contra un contenedor de altura automática se
+     resuelve como auto y cada uno acababa con la altura de su contenido.
+     Con auto sí se igualan todos al más alto del grupo. */
+  height: auto !important;
+}
+
+.map-slider > div > img {
+  flex: 1 1 auto;
+  height: auto !important;
+  min-height: 0;              /* deja que el flex encoja la imagen */
+  padding-bottom: 0 !important;
+  object-position: center !important;
+}
+
+/* El pie vuelve al flujo normal: su altura ya no hay que adivinarla. */
+.map-slider > div > div {
+  position: static !important;
+  flex: 0 0 auto;
+  width: auto !important;
+}
+
+/* La tarjeta traía aspect-ratio 16/10 con max-height 500px. Esa altura
+   impuesta era el segundo problema: obligaba a la imagen a encogerse
+   dentro de lo que sobrara tras el encabezado y el pie. Medido en un
+   barrido de anchos, la foto llegaba a ocupar solo el 29% del espacio
+   disponible alrededor de los 1000px, y ni en escritorio pasaba del 67%.
+
+   Se invierte la relación: manda la imagen y la tarjeta se adapta. Cada
+   foto se muestra con su proporción real y ocupa todo el ancho, sin
+   franjas vacías ni miniaturas, en cualquier resolución.
+
+   Aplica a todos los anchos a propósito: el defecto no era exclusivo de
+   móvil, ahí solo se notaba más. */
+.map-slider-card {
+  aspect-ratio: auto !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.map-slider > div > img {
+  flex: 0 0 auto;
+  height: auto !important;
+}
+
+/* Los slides se igualan al más alto. El pie absorbe el sobrante para que
+   no quede un hueco vacío bajo el texto en los más cortos; como comparte
+   el negro de la tarjeta, la diferencia no se percibe. */
+.map-slider > div > div {
+  flex: 1 1 auto;
+}
+
+/* En escritorio la columna de texto se ensancha y por tanto se acorta: a
+   1440px mide unos 330px. Si la tarjeta creciera libre para que la imagen
+   ocupase todo el ancho, llegaría a 625px y desequilibraría la pareja.
+
+   Este tope la devuelve a unos 400px, la altura que tenía originalmente,
+   a costa de unos márgenes laterales en la imagen. No se usa aspect-ratio
+   —que era lo que había— porque ata la altura al ancho: en pantallas de
+   unos 1000px la tarjeta se quedaba corta y ahí nacía la miniatura.
+
+   Por debajo de 900px no aplica: en móvil el ancho manda y la imagen
+   siempre cabe entera. */
+@media (min-width: 901px) {
+  .map-slider > div > img {
+    max-height: 260px;
+  }
+
+  /* Variante para sliders de imágenes panorámicas (reporte de senior
+     living: seis capturas de 1.67 a 1.80). Ahí la tarjeta queda más baja
+     que su columna de texto en casi todos los anchos, así que el tope no
+     evitaba ningún desequilibrio y solo dejaba franjas a los lados.
+     Con más margen, la imagen ocupa el ancho completo. */
+  .map-slider-card--panoramico .map-slider > div > img {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Flechas algo más pequeñas para que no invadan el mapa. */
+  .map-slider-card .slider-prev,
+  .map-slider-card .slider-next {
+    top: 40%;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================================
    CAMPO SEÑUELO (HONEYPOT)
    Invisible para personas, visible para bots que leen el HTML.
    Se saca del flujo sin usar display:none ni visibility:hidden,
