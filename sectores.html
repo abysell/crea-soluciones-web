@@ -1102,12 +1102,19 @@
             }
           });
 
-          // Scroll back up to the content area smoothly
-          const headersContainer = document.querySelector('.hero-internal.bg-black');
-          if(headersContainer) {
-            window.scrollTo({ top: headersContainer.offsetHeight, behavior: 'smooth' });
-          } else {
-             window.scrollTo({ top: 0, behavior: 'smooth' });
+          // Llevar la vista al contenido que se acaba de mostrar.
+          //
+          // Antes se buscaba '.hero-internal.bg-black', clase que no existe en
+          // esta página: la real es 'hero-interior'. Por esa errata el selector
+          // nunca encontraba nada y siempre se ejecutaba el caso alternativo,
+          // que desplazaba al inicio de la página. De ahí la sensación de que
+          // se recargaba.
+          const destino = sections.find(sec => sec.id === targetId);
+          if (destino) {
+            const cabecera = document.getElementById('main-header');
+            const alto = cabecera ? cabecera.offsetHeight : 0;
+            const posicion = destino.getBoundingClientRect().top + window.scrollY - alto;
+            window.scrollTo({ top: Math.max(0, posicion), behavior: 'smooth' });
           }
         });
       });
