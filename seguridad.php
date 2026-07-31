@@ -258,9 +258,21 @@ function cs_verificar_recaptcha($token, $accion)
 
     $token = is_string($token) ? trim($token) : "";
     if ($token === "") {
-        // Nuestro JavaScript siempre manda token: si falta, no pasó por el sitio.
-        cs_registrar("recaptcha", "token ausente");
-        return "bot";
+        // Token ausente NO significa bot. Cuando la ejecución llega hasta aquí,
+        // el envío ya superó el honeypot y la trampa de tiempo: un bot que no
+        // ejecuta nuestro JavaScript no manda cs_elapsed y se descarta antes.
+        //
+        // Nuestro propio JS manda el token vacío cuando grecaptcha no está
+        // definido (bloqueadores, extensiones de privacidad, redes que filtran
+        // a Google), cuando Google no responde en 8 segundos o cuando execute()
+        // falla. Tratarlo como bot hacía que esos visitantes vieran la página
+        // de gracias sin que se enviara el correo: el lead se perdía en
+        // silencio y sin sintoma visible.
+        //
+        // Manda CS_RECAPTCHA_FAIL_OPEN, igual que con los demás fallos ajenos
+        // al visitante.
+        cs_registrar("recaptcha", "token ausente; fail_open=" . (CS_RECAPTCHA_FAIL_OPEN ? "si" : "no"));
+        return CS_RECAPTCHA_FAIL_OPEN ? "ok" : "expirado";
     }
 
     $respuesta = cs_peticion_recaptcha(array(
@@ -292,16 +304,22 @@ function cs_verificar_recaptcha($token, $accion)
             return "expirado";
         }
 
-        // Fallos que NO son señal de bot: o está mal nuestra configuración, o el
-        // navegador del visitante no pudo completar la verificación (extensiones
-        // de privacidad, bloqueadores, redes corporativas que filtran a Google).
+        // Principio: en reCAPTCHA v3 quien decide si es un bot es el SCORE.
+        // Los códigos de error dicen "no se pudo verificar", que es otra cosa.
+        // Todos ellos apuntan a un problema nuestro o del navegador del
+        // visitante, así que manda CS_RECAPTCHA_FAIL_OPEN.
         //
-        // Tratarlos como bot sería el peor error posible: con una secret key mal
-        // escrita se descartarían todos los leads mostrando "gracias", sin que
-        // nadie lo note. Por eso aquí manda CS_RECAPTCHA_FAIL_OPEN.
+        // invalid-input-response es el más importante de la lista: aparece
+        // cuando la site key de js/main.js y la secret de config.local.php no
+        // pertenecen al mismo sitio de reCAPTCHA. Como son dos valores en dos
+        // archivos distintos, ese desajuste es fácil de provocar, y tratarlo
+        // como bot descartaría el 100% de los leads mostrando "gracias" sin
+        // ningún síntoma visible.
         $fallos_ajenos_al_visitante = array(
             "missing-input-secret",
             "invalid-input-secret",
+            "invalid-input-response",
+            "missing-input-response",
             "bad-request",
             "browser-error",
         );
@@ -310,9 +328,10 @@ function cs_verificar_recaptcha($token, $accion)
             return CS_RECAPTCHA_FAIL_OPEN ? "ok" : "expirado";
         }
 
-        // Queda invalid-input-response / missing-input-response: token ausente o
-        // falsificado. Nuestro JavaScript siempre manda uno válido, así que sí es bot.
-        return "bot";
+        // Código no contemplado. Se aplica el mismo criterio: sin score no hay
+        // evidencia de que sea un bot, y el honeypot ya filtró antes.
+        cs_registrar("recaptcha", "código no contemplado; se aplica fail_open");
+        return CS_RECAPTCHA_FAIL_OPEN ? "ok" : "expirado";
     }
 
     // La acción debe coincidir con la declarada en el frontend.
