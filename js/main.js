@@ -8,8 +8,120 @@
    ============================================================ */
 const RECAPTCHA_SITE_KEY = "6Ld3NGotAAAAAK_wTjmoPIMEX8D749YzHHiNgvnf";
 
+/* ============================================================
+   ZOHO SALESIQ — rastreo de navegación y chat en vivo
+   ------------------------------------------------------------
+   Registra qué páginas visita cada persona, cuánto tiempo pasa
+   y de dónde llegó. Ese historial aparece en el bloque "Resumen
+   de visitas" de la ficha del lead en Zoho CRM.
+
+   Se carga desde aquí y no con el <script> en cada página para
+   no repetirlo en los 22 archivos HTML. El código del widget
+   identifica el portal, no es un secreto: viaja en el HTML de
+   cualquier sitio que use SalesIQ.
+   ============================================================ */
+const SALESIQ_WIDGET_CODE =
+  "siqf64f674ddff7226a3ebe075ad4bd20bdf295bc974d8a1b83c95435c46a937e17d6d4c1bd133b9d248567e565875c7d50";
+
 // Momento en que se cargó la página, para medir cuánto tardó el llenado.
 const CS_INICIO_PAGINA = Date.now();
+
+/** Inserta el widget de SalesIQ una sola vez. */
+function csCargarSalesIQ() {
+  if (!SALESIQ_WIDGET_CODE || SALESIQ_WIDGET_CODE.indexOf("PENDIENTE") === 0) return;
+  if (document.getElementById("zsiqscript")) return;
+
+  window.$zoho = window.$zoho || {};
+  window.$zoho.salesiq = window.$zoho.salesiq || {
+    widgetcode: SALESIQ_WIDGET_CODE,
+    values: {},
+    ready: function () {}
+  };
+
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.id = "zsiqscript";
+  script.defer = true;
+  script.src = "https://salesiq.zohopublic.com/widget";
+  document.head.appendChild(script);
+}
+
+/**
+ * Sube el distintivo de reCAPTCHA si aparece el botón de chat de SalesIQ.
+ *
+ * Ambos se anclan abajo a la derecha y se encimarían. No se aplica un valor
+ * fijo porque el botón no siempre está: SalesIQ solo lo muestra en los
+ * dominios autorizados en su panel, así que en local o en un entorno de
+ * pruebas no existe y el distintivo debe quedarse a la altura del botón de
+ * WhatsApp. Marcando el <html> solo cuando el botón es visible, la hoja de
+ * estilos resuelve los dos casos.
+ *
+ * La detección no depende de un selector concreto de SalesIQ —que ellos
+ * pueden cambiar— sino de encontrar un elemento suyo visible y anclado
+ * abajo a la derecha.
+ */
+function csVigilarChatSalesIQ() {
+  let intentos = 0;
+
+  const revisar = () => {
+    const candidatos = document.querySelectorAll('[id*="zsiq"], [class*="zsiq"]');
+
+    for (const el of candidatos) {
+      const caja = el.getBoundingClientRect();
+      const abajo = window.innerHeight - caja.bottom;
+      const derecha = window.innerWidth - caja.right;
+
+      if (caja.width > 20 && caja.height > 20 && abajo < 200 && derecha < 200) {
+        document.documentElement.classList.add("cs-salesiq-visible");
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  if (revisar()) return;
+
+  const intervalo = setInterval(() => {
+    if (revisar() || ++intentos > 40) {   // deja de mirar a los ~20 s
+      clearInterval(intervalo);
+    }
+  }, 500);
+}
+
+/**
+ * Asocia la sesión de navegación con la persona que envía el formulario.
+ *
+ * Sin esto, SalesIQ solo tiene una visita anónima y el lead que crea nuestro
+ * PHP en Zoho llegaría con el "Resumen de visitas" vacío. Al declarar el
+ * correo, Zoho puede emparejar ambos registros.
+ *
+ * Todo va protegido: el widget es de un tercero y puede no haber cargado
+ * (bloqueadores, red caída). Un fallo aquí NUNCA debe impedir el envío.
+ *
+ * @param {HTMLFormElement} form
+ */
+function csIdentificarEnSalesIQ(form) {
+  try {
+    const visitante = window.$zoho
+      && window.$zoho.salesiq
+      && window.$zoho.salesiq.visitor;
+
+    if (!visitante) return;
+
+    const correo = form.querySelector('input[type="email"]');
+    const nombre = form.querySelector('input[name="name"]');
+
+    if (correo && correo.value && typeof visitante.email === "function") {
+      visitante.email(correo.value);
+    }
+    if (nombre && nombre.value && typeof visitante.name === "function") {
+      visitante.name(nombre.value);
+    }
+  } catch (e) {
+    // El rastreo es accesorio: si falla, el formulario sigue su curso.
+  }
+}
 
 const csRecaptchaConfigurado = () =>
   typeof RECAPTCHA_SITE_KEY === "string" &&
@@ -165,6 +277,8 @@ function csEnviarConRecaptcha(form, accion) {
     csCampoOculto(form, "cs_elapsed", String((Date.now() - CS_INICIO_PAGINA) / 1000));
     csCampoOculto(form, "recaptcha_token", token || "");
     csAdjuntarAtribucion(form);
+    // Se identifica antes de navegar: después la página ya no existe.
+    csIdentificarEnSalesIQ(form);
     // form.submit() no vuelve a disparar el evento submit: no hay bucle.
     form.submit();
   };
@@ -223,6 +337,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector("#form-footer, #form-contacto, #form-informes")) {
     csCargarRecaptcha();
   }
+
+  // 1.6 CARGA DE SALESIQ (en todas: el rastreo necesita ver el recorrido completo)
+  csCargarSalesIQ();
+  csVigilarChatSalesIQ();
 
   // 2. HEADER SCROLL STATE
   const header = document.getElementById('main-header');

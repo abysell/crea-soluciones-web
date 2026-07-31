@@ -2016,3 +2016,17 @@ html {
     bottom: 16px !important;
   }
 }
+
+/* Cuando el chat de SalesIQ está presente ocupa esa misma esquina, así que
+   el distintivo sube por encima. La clase la pone js/main.js solo si detecta
+   el botón: SalesIQ únicamente lo muestra en los dominios autorizados en su
+   panel, y donde no aparezca el distintivo se queda alineado con WhatsApp. */
+.cs-salesiq-visible .grecaptcha-badge {
+  bottom: 96px !important;
+}
+
+@media (max-width: 1024px) {
+  .cs-salesiq-visible .grecaptcha-badge {
+    bottom: 84px !important;
+  }
+}
