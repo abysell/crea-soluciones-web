@@ -494,6 +494,21 @@ a {
   gap: 20px;
 }
 
+/* Los dos botones del hero caben en una línea hasta los 640px. Por debajo
+   se parten: a 430px ocupan 2 líneas y a 390px llegan a 4, que es lo que
+   daba el aspecto amontonado. A partir de aquí van uno por fila. */
+@media (max-width: 639px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
+
 /* Authority Metrics (Editorial Minimalist) */
 .metrics-editorial {
   border-top: 1px solid rgba(0,0,0,0.08);
@@ -1986,9 +2001,18 @@ html {
   pointer-events: none !important;
 }
 
-/* El distintivo de reCAPTCHA se ancla abajo a la derecha
-   para no encimarse con el botón flotante de WhatsApp. */
+/* El distintivo de reCAPTCHA se alinea con el botón de WhatsApp.
+   Lo tenía subido a 90px por miedo a que se encimaran, pero no hacía
+   falta: Google ancla el distintivo a la derecha y el botón vive a la
+   izquierda, así que nunca coinciden. Los valores replican los del
+   botón para que ambos queden a la misma altura. */
 .grecaptcha-badge {
-  bottom: 90px !important;
+  bottom: 24px !important;
   z-index: 90 !important;
+}
+
+@media (max-width: 1024px) {
+  .grecaptcha-badge {
+    bottom: 16px !important;
+  }
 }
