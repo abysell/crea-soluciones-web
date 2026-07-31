@@ -306,7 +306,49 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. GSAP ANIMATIONS
-  const fadeUpElements = document.querySelectorAll('.gsap-fade-up');
+
+  /* Las rejillas de tarjetas se animan como grupo, no tarjeta por tarjeta.
+     Antes cada una llevaba su propio disparador con duración de 1s: la
+     última de la fila tardaba 1.25s en indicadores y 1.44s en SmartScan
+     desde que la sección entraba en pantalla, y de ahí la sensación de
+     lentitud. Con un solo disparador en el contenedor, medio segundo de
+     duración y un escalonado corto, la fila entera aparece en ~0.75s
+     manteniendo el efecto de cascada. */
+  const rejillas = document.querySelectorAll('.metrics-editorial-grid, .tech-grid');
+  const enRejilla = new Set();
+
+  rejillas.forEach(rejilla => {
+    const tarjetas = rejilla.querySelectorAll('.gsap-fade-up');
+    if (!tarjetas.length) return;
+
+    tarjetas.forEach(t => enRejilla.add(t));
+
+    /* fromTo y no from: con from, GSAP vuelve a aplicar el estado inicial
+       cada vez que ScrollTrigger se refresca —cosa que provocan las
+       imágenes y el iframe de reCAPTCHA al terminar de cargar—, y las
+       tarjetas que ya habían aparecido se quedaban congeladas en opacidad
+       cero. Declarando los dos extremos el resultado es inequívoco. */
+    gsap.fromTo(tarjetas,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.out',
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: rejilla,
+          start: 'top 90%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+  });
+
+  // El resto conserva la animación individual: el cliente no reportó
+  // problemas ahí y son elementos sueltos, no rejillas.
+  const fadeUpElements = [...document.querySelectorAll('.gsap-fade-up')]
+    .filter(element => !enRejilla.has(element));
 
   fadeUpElements.forEach(element => {
     gsap.from(element, {
