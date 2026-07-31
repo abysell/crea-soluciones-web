@@ -269,6 +269,21 @@ function cs_catalogo_informes()
 define("CS_INFORME_SIN_IDENTIFICAR", "No especificado (solicitud genérica)");
 define("CS_ZOHO_FORMULARIO_INFORME", "Formulario Web - Informe");
 
+// Valor de "Servicio a contratar" (LEADCF11) para las descargas de informes.
+//
+// Se usa "Otros" y no "Reporte" por lo que dice el nombre del campo: descargar
+// un informe gratuito no es querer contratar un reporte. Marcarlos como
+// "Reporte" mezclaría en una misma categoría a quien quiere encargar un estudio
+// y a quien solo bajó un PDF, e inflaría cualquier conteo por servicio.
+// "Otros" es un cajón de sastre, así que absorber esa ambigüedad es su función.
+//
+// No se pierde información: Nombre_formulario identifica de cuál de los dos
+// recursos vino cada lead.
+//
+// Si prefieres que estos leads no entren en ninguna categoría, deja la cadena
+// vacía y el campo no se enviará: aparecerá como "-None-" en la ficha.
+define("CS_ZOHO_SERVICIO_INFORME", "Otros");
+
 /**
  * Arma los campos del lead para el formulario de descarga de informes.
  *
@@ -297,12 +312,16 @@ function cs_zoho_campos_informe(array $d)
         "Last Name"   => $d["nombre"],
         "Email"       => $d["correo"],
         "Company"     => $d["empresa"],
-        "LEADCF11"    => "Reporte",                       // Servicio a contratar
         "Lead Source" => CS_ZOHO_LEAD_SOURCE,
         "Lead Status" => CS_ZOHO_LEAD_STATUS,
         "LEADCF4"     => $d["formulario"],                // Nombre_formulario
         "Description" => $descripcion,
     );
+
+    // Con la constante vacía el campo no se envía y queda como "-None-".
+    if (CS_ZOHO_SERVICIO_INFORME !== "") {
+        $campos["LEADCF11"] = CS_ZOHO_SERVICIO_INFORME;   // Servicio a contratar
+    }
 
     return cs_zoho_agregar_atribucion($campos, $d);
 }
