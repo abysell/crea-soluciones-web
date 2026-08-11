@@ -494,10 +494,44 @@ a {
   gap: 20px;
 }
 
-/* Los dos botones del hero caben en una línea hasta los 640px. Por debajo
-   se parten: a 430px ocupan 2 líneas y a 390px llegan a 4, que es lo que
-   daba el aspecto amontonado. A partir de aquí van uno por fila. */
+/* El hero en móvil se veía amontonado porque la escala tipográfica no bajaba
+   pareja: el h1 sí encoge con clamp() hasta 35px, pero el subtítulo se quedaba
+   clavado en 1.5rem (24px). La jerarquía pasaba de 2.67:1 en escritorio a
+   1.47:1 aquí, así que las cuatro piezas competían por la misma atención y el
+   bloque se leía como un solo párrafo denso que llenaba el 82% de la pantalla.
+   Se corrige la escala, no el contenido: baja el subtítulo y el cintillo, y el
+   h1 se queda grande porque es el mensaje de marca y no era el problema. */
 @media (max-width: 639px) {
+  .hero {
+    min-height: 600px; /* 700px obligaba al hero a pasarse del alto real de un SE */
+  }
+
+  .hero-content {
+    margin-top: 40px;
+  }
+
+  /* Con 0.2em de espaciado y 40px de sangría el cintillo pedía 393px contra
+     los 350px disponibles, y se partía en dos líneas. */
+  .hero .cintillo {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    padding-left: 28px;
+    margin-bottom: 16px;
+  }
+
+  .hero .cintillo::before {
+    width: 20px;
+  }
+
+  .hero .subtitle {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    margin-bottom: 32px;
+  }
+
+  /* Los dos botones del hero caben en una línea hasta los 640px. Por debajo
+     se parten: a 430px ocupan 2 líneas y a 390px llegan a 4. A partir de aquí
+     van uno por fila. */
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -506,6 +540,15 @@ a {
 
   .hero-actions .btn {
     width: 100%;
+  }
+}
+
+/* En pantallas de 375px o menos el mínimo de 2.2rem del clamp() dejaba el h1
+   en 4 líneas y el bloque terminaba pegado al borde inferior en un iPhone SE.
+   Con 2rem entra "mercado inmobiliario" completo en una línea y baja a 3. */
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 2rem;
   }
 }
 
