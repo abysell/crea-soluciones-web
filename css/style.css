@@ -597,6 +597,19 @@ a {
   margin: 0;
 }
 
+/* Variante de 5 columnas (mismo componente, un dato mas) */
+.metrics-editorial-grid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .metrics-editorial-grid.cols-5 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .metrics-editorial-grid.cols-5 { grid-template-columns: 1fr !important; }
+}
+
 /* Value Prop (Redesigned) */
 .value-prop-premium {
   position: relative;
