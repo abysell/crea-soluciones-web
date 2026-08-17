@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reposicionamiento Inmobiliario | CREA Soluciones</title>
-  <meta name="description" content="¿Tu propiedad no rinde como debería? Nosotros la transformamos. Análisis y rediseño estratégico para maximizar valor.">
-  
+  <title>Reposicionamiento y reconversión inmobiliaria: qué hacer con un activo que no rinde | CREA Soluciones</title>
+  <meta name="description" content="Diagnosticamos si tu inmueble necesita reposicionamiento o reconversión, con datos actuales de la zona y el modelo financiero que sustenta la decisión.">
+
   <!-- Fonts: Barlow and Noto Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-  
+
   <!-- Icons: Phosphor -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -52,7 +52,7 @@
             <a href="test-fit-arquitectonico.html">Test Fit Arquitectónico</a>
           </div>
         </div>
-        
+
         <div class="dropdown">
           <a href="sectores.html" class="dropbtn">Sectores</a>
           <!-- <div class="dropdown-content">
@@ -105,148 +105,486 @@
 
   <main>
     <!-- CABECERA SAAS (Interior) -->
-    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/reposicionamiento-hero.jpg'); background-size: cover; background-position: center; padding-top: 200px; padding-bottom: 140px; text-align: center; z-index: 1;">
+    <section class="hero-interior dark-layer" style="position: relative; background-image: url('./img/reposicionamiento-hero.jpg'); background-size: cover; background-position: center; padding-top: 180px; padding-bottom: 120px; text-align: center; z-index: 1;">
       <div class="container" style="position: relative; z-index: 2;">
         <span class="cintillo gsap-fade-up">Inteligencia de Mercado Inmobiliario</span>
-        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.8rem); margin-bottom: 1rem; font-weight: 700; letter-spacing: -1px;">Reposicionamiento Inmobiliario</h1>
-        <p class="gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.25rem; color: rgba(255,255,255,0.9); max-width: 800px; margin: 0 auto; line-height: 1.6;">¿Tu propiedad no rinde como debería? Nosotros la transformamos.</p>
+        <h1 class="text-white gsap-fade-up" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -1px;">Reposicionamiento y reconversión inmobiliaria</h1>
+        <p class="gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 820px; margin: 0 auto 1.25rem auto; line-height: 1.7;">Un activo deja de rendir por dos razones distintas y cada una tiene una solución distinta. O el inmueble ya no responde al mercado que hoy lo rodea, y hay que corregirlo dentro de su mismo giro. O el giro perdió sentido en esa zona, y hay que cambiarlo.</p>
+        <p class="gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: rgba(255,255,255,0.7); max-width: 780px; margin: 0 auto; line-height: 1.7;">Medimos la zona con datos de hoy y determinamos cuál de las dos corresponde, con el modelo financiero que sustenta la decisión.</p>
       </div>
     </section>
 
-    <!-- SECCIÓN 1: INTRODUCCIÓN 1 COLUMNA -->
-    <section class="section-pad">
-      <div class="container gsap-fade-up">
-        
-        <div style="max-width: 1100px; margin: 0 auto; text-align: center; margin-bottom: 3.5rem;">
-          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
-            ¡Incrementa tus ganancias en cuestión de semanas!
+    <!-- SECCIÓN: BIFURCACIÓN — CUÁL DE LOS DOS NECESITAS -->
+    <section class="section-pad" id="cual-necesitas">
+      <div class="container">
+        <div class="text-center gsap-fade-up" style="max-width: 780px; margin: 0 auto 3.5rem auto;">
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.25rem; line-height: 1.2;">
+            ¿Cuál de los dos necesitas?
           </h2>
-          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">
-            Es el momento de que tu empresa retome la curva de crecimiento. Ya sea un centro comercial, oficinas, hotel o cualquier tipo de desarrollo, reposicionamos tu inmueble para maximizar su valor y rentabilidad.
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.7; margin: 0;">
+            Los dos servicios parten de preguntas distintas. Ubica la tuya en las tarjetas de abajo antes de seguir leyendo.
           </p>
         </div>
 
-        <div style="max-width: 1100px; margin: 0 auto;">
+        <div class="gsap-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
+
+          <!-- TARJETA: REPOSICIONAMIENTO -->
+          <div class="saas-card" style="display: flex; flex-direction: column;">
+            <i class="ph-fill ph-chart-line-up" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 1.25rem;"></i>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--black); margin-bottom: 0.75rem;">Reposicionamiento</h4>
+            <p style="font-family: 'Noto Serif', serif; font-style: italic; color: var(--neutral-dark); font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem;">¿Por qué mi activo no rinde lo que debería?</p>
+
+            <div style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1; margin-bottom: 2rem;">
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">El giro</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.05rem;">Se mantiene</span>
+              </div>
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">El inmueble</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.05rem; line-height: 1.5;">Está operando</span>
+              </div>
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">Casos típicos</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.02rem; line-height: 1.5;">Centro comercial que perdió ocupación, parque industrial que no coloca espacios, desarrollo que no se vende al ritmo previsto</span>
+              </div>
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">Etapa del desarrollo</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.05rem;">Comercialización y operación</span>
+              </div>
+            </div>
+
+            <a href="#reposicionamiento" class="btn btn-primary" style="width: 100%;">Ver reposicionamiento <i class="ph ph-arrow-right"></i></a>
+          </div>
+
+          <!-- TARJETA: RECONVERSIÓN -->
+          <div class="saas-card" style="display: flex; flex-direction: column;">
+            <i class="ph ph-arrows-clockwise" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 1.25rem;"></i>
+            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--black); margin-bottom: 0.75rem;">Reconversión</h4>
+            <p style="font-family: 'Noto Serif', serif; font-style: italic; color: var(--neutral-dark); font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem;">¿A qué otro uso puedo convertir este inmueble?</p>
+
+            <div style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1; margin-bottom: 2rem;">
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">El giro</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.05rem;">Cambia</span>
+              </div>
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">El inmueble</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.05rem; line-height: 1.5;">Está desocupado, subutilizado o a punto de dejar de operar</span>
+              </div>
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">Casos típicos</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.02rem; line-height: 1.5;">Edificio de oficinas vacío, inmueble en desuso, predio cuyo uso de suelo hoy permite algo más rentable</span>
+              </div>
+              <div>
+                <span style="display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-cyan); font-weight: 600; margin-bottom: 4px;">Etapa del desarrollo</span>
+                <span style="font-family: 'Noto Serif', serif; color: var(--neutral-dark); font-size: 1.05rem;">Administración del activo</span>
+              </div>
+            </div>
+
+            <a href="#reconversion" class="btn btn-primary" style="width: 100%;">Ver reconversión <i class="ph ph-arrow-right"></i></a>
+          </div>
+
+        </div>
+
+        <p class="text-center gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); max-width: 700px; margin: 3rem auto 0 auto; line-height: 1.7;">
+          Si después de leer esto sigues sin tener claro cuál corresponde, <a href="#footer" style="color: var(--brand-cyan); text-decoration: underline;">escríbenos</a>. Esa definición es parte del diagnóstico y no se cobra aparte.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: REPOSICIONAMIENTO INMOBILIARIO -->
+    <section class="section-pad" id="reposicionamiento" style="background-color: #F5F5F5;">
+      <div class="container">
+        <div class="gsap-fade-up" style="max-width: 900px; margin: 0 auto 3.5rem auto; text-align: center;">
+          <span class="cintillo" style="justify-content: center;">Reposicionamiento</span>
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
+            Reposicionamiento inmobiliario
+          </h2>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">
+            Identificamos por qué un inmueble en operación rinde por debajo de lo proyectado y qué se debe corregir para revertirlo, dentro de su mismo giro. El diagnóstico se hace contra el mercado actual de la zona, no contra los supuestos con los que se planeó el activo.
+          </p>
+        </div>
+
+        <div class="gsap-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto;">
+
+          <!-- CUÁNDO CONVIENE -->
+          <div>
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--black); margin-bottom: 1.5rem;">Cuándo conviene</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Tu centro comercial perdió ocupación o el tenant mix dejó de responder al consumidor de la zona.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Tu parque industrial no coloca los espacios al ritmo con el que se proyectó.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">El desarrollo se comercializa por debajo de lo previsto y no tienes claro si el problema es el precio, el producto o la promoción.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">El activo opera con un estudio de mercado que se hizo hace diez años o más.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Necesitas sustentar la actualización de rentas frente a tus inquilinos.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Vas a renegociar contratos, refinanciar o vender, y necesitas un diagnóstico independiente.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- QUÉ RESPONDE EL ESTUDIO -->
+          <div>
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--black); margin-bottom: 1.5rem;">Qué responde el estudio</h3>
+            <ul style="list-style-type: none; margin: 0; padding: 0;">
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿El problema está en el precio, en el producto, en el mercado objetivo o en la zona?
+              </li>
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Quién vive, trabaja y consume hoy alrededor del inmueble, y coincide con el perfil que el activo atiende?
+              </li>
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Qué está ofreciendo la competencia directa que este activo no ofrece?
+              </li>
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Qué precio sostiene la zona hoy?
+              </li>
+              <li style="position: relative; padding-left: 20px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Qué cambios corrigen el desempeño, cuánto cuestan y cuánto ingreso recuperan?
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CALLOUT: UN ESTUDIO DE MERCADO TIENE FECHA DE CADUCIDAD -->
+        <div class="gsap-fade-up" style="background: var(--white); border-left: 4px solid var(--brand-cyan); padding: 2.75rem; border-radius: 4px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); max-width: 1100px; margin: 3.5rem auto 0 auto;">
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--black); margin-bottom: 1.25rem;">Un estudio de mercado tiene fecha de caducidad</h3>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.8; margin-bottom: 1.25rem;">Un centro comercial planeado con datos de hace quince años opera hoy en un mercado que no existía cuando se diseñó. Cambió la población de su zona de influencia, cambió el ingreso, cambiaron los hábitos de consumo y llegó competencia que no estaba prevista.</p>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">Eso le ocurre a todos los activos patrimoniales a la renta, y es la razón por la que existe el reposicionamiento. El estudio vuelve a medir la zona con datos de hoy y ajusta el activo a lo que el mercado es ahora.</p>
+        </div>
+
+        <p class="gsap-fade-up text-center" style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); max-width: 900px; margin: 2.5rem auto 0 auto; line-height: 1.7;">
+          <strong style="color: var(--black);">Dónde lo hemos aplicado:</strong> hemos reposicionado centros comerciales, torres de oficinas y parques industriales.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: RECONVERSIÓN DE PROYECTOS INMOBILIARIOS -->
+    <section class="section-pad" id="reconversion">
+      <div class="container">
+        <div class="gsap-fade-up" style="max-width: 900px; margin: 0 auto 3.5rem auto; text-align: center;">
+          <span class="cintillo" style="justify-content: center;">Reconversión</span>
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2;">
+            Reconversión de proyectos inmobiliarios
+          </h2>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">
+            Determinamos a qué uso conviene convertir un inmueble construido, qué demanda existe para ese uso en su zona y cuánto rinde frente a mantenerlo como está o venderlo. El punto de partida es la estructura que el edificio ya tiene.
+          </p>
+        </div>
+
+        <div class="gsap-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto;">
+
+          <!-- CUÁNDO CONVIENE -->
+          <div>
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--black); margin-bottom: 1.5rem;">Cuándo conviene</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Tienes un edificio de oficinas con vacancia sostenida y no sabes hacia qué uso moverlo.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">El inmueble dejó de operar y hoy solo genera costos de mantenimiento y predial.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">El uso de suelo vigente permite giros distintos a los que se construyeron en su momento.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Recibiste o adquiriste un inmueble en desuso y necesitas saber qué se puede hacer con él antes de decidir si lo vendes.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 14px;">
+                <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;"></i>
+                <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Quieres cambiar de giro aprovechando la estructura existente, con la menor intervención posible.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- QUÉ RESPONDE EL ESTUDIO -->
+          <div>
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--black); margin-bottom: 1.5rem;">Qué responde el estudio</h3>
+            <ul style="list-style-type: none; margin: 0; padding: 0;">
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Qué usos admite la normatividad vigente hoy, y no la que aplicaba cuando se construyó el inmueble?
+              </li>
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Cuál de esos usos tiene demanda no atendida en la zona de influencia?
+              </li>
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Qué permite la estructura actual sin intervención mayor, y qué implica cada adecuación adicional?
+              </li>
+              <li style="position: relative; padding-left: 20px; margin-bottom: 14px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Qué producto, para qué mercado objetivo, a qué precio y con qué configuración?
+              </li>
+              <li style="position: relative; padding-left: 20px; font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">
+                <span style="color: var(--brand-cyan); position: absolute; left: 0; top: 0; font-size: 1.3rem;">•</span> ¿Cuánto rinde la reconversión frente a mantener el inmueble como está o venderlo?
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TRABAJAMOS SOBRE LO QUE YA ESTÁ CONSTRUIDO -->
+        <div class="gsap-fade-up" style="max-width: 1100px; margin: 3.5rem auto 0 auto;">
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--black); margin-bottom: 1.25rem;">Trabajamos sobre lo que ya está construido</h3>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.8; margin: 0;">El inmueble existe y tiene una estructura, una altura y una superficie definidas. El estudio se construye sobre esa base. Cuando conviene adaptar, retirar o agregar elementos, lo contemplamos y lo dimensionamos dentro del análisis. La decisión de intervenir la toma el cliente con el costo y el retorno de cada escenario en la mano.</p>
+        </div>
+
+        <p class="gsap-fade-up text-center" style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); max-width: 900px; margin: 2rem auto 0 auto; line-height: 1.7;">
+          <strong style="color: var(--black);">Dónde lo hemos aplicado:</strong> hemos estudiado la conversión de edificios de oficinas a vivienda vertical en renta y a espacios de trabajo colaborativo, de estacionamientos a superficie comercial y de suelo industrial a vivienda vertical en venta.
+        </p>
+
+        <!-- CALLOUT: CUANDO TODAVÍA NO SABES A QUÉ GIRO CONVERTIR -->
+        <div class="gsap-fade-up" style="background: rgba(0,152,180,0.06); border: 1px solid rgba(0,152,180,0.25); border-radius: 8px; padding: 2.5rem; max-width: 1100px; margin: 3rem auto 0 auto;">
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--black); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+            <i class="ph ph-compass" style="color: var(--brand-cyan); font-size: 1.4rem;"></i> Cuando todavía no sabes a qué giro convertir
+          </h4>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.7; margin: 0;">Si el inmueble está en una buena zona pero no hay claridad sobre el uso destino, el orden correcto es distinto: primero un <a href="#smart-scan" style="color: var(--brand-cyan); font-weight: 600;">Smart Scan</a> que identifique qué giros admite el predio y su entorno, y después el estudio de reconversión sobre el giro seleccionado. Hacer el estudio completo antes de tener esa definición cuesta más y responde menos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: METODOLOGÍA CREA® 360° (TRONCO COMPARTIDO) -->
+    <section class="section-pad" style="background-color: var(--black);">
+      <div class="container">
+        <div class="gsap-fade-up text-center" style="max-width: 800px; margin: 0 auto 3.5rem auto;">
+          <span class="cintillo" style="justify-content: center;">Común a los dos servicios</span>
+          <h2 class="text-white" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.25rem; line-height: 1.2;">
+            Metodología CREA® 360°
+          </h2>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin: 0;">
+            Los dos estudios se construyen con la misma metodología. Lo que cambia es el punto de partida: en reposicionamiento se mide un activo que ya opera; en reconversión, uno que va a cambiar de uso.
+          </p>
+        </div>
+
+        <div class="methodology-steps gsap-fade-up" style="max-width: 950px; margin: 0 auto;">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon"><i class="ph ph-magnifying-glass"></i></div>
+            <div class="step-text">
+              <h4>Condiciones del mercado</h4>
+              <p>Entorno económico, político y social con fuentes oficiales (INEGI, DENUE, BANXICO, CONAPO, Secretaría de Economía). Zona de captación por isócronas, crecimiento demográfico, formación de hogares, niveles socioeconómicos e ingreso familiar. Benchmarking de los proyectos comparables mediante mystery shopper: precios, superficies, tipologías, amenidades, acabados y condiciones comerciales. Modelo de capacidad de la zona.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon"><i class="ph ph-map-pin-line"></i></div>
+            <div class="step-text">
+              <h4>Análisis del sitio y de la normatividad vigente</h4>
+              <p>Certificado de uso de suelo, COS, CUS, niveles máximos y superficie máxima de construcción vigentes. Inspección del inmueble y de su entorno inmediato. Infraestructura urbana, movilidad, accesos, aforos y transporte público. Vuelo de dron sobre el inmueble y su zona de influencia.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon"><i class="ph ph-currency-circle-dollar"></i></div>
+            <div class="step-text">
+              <h4>Modelo financiero por escenarios</h4>
+              <p>Costos paramétricos de la intervención, ingresos ajustados a los precios que sostiene la zona, estructura de inversión o financiamiento, flujos descontados, TIR y VPN. Los escenarios se comparan entre sí para que la decisión se tome sobre números y no sobre intuición.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: ENTREGABLES -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="text-center gsap-fade-up" style="margin-bottom: 3.5rem;">
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.2;">Entregables</h2>
+        </div>
+
+        <div class="gsap-fade-up" style="max-width: 850px; margin: 0 auto 3rem auto;">
           <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
-              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
-              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
-                <strong>Líneas de acción estratégicas:</strong> Mejoramos las condiciones del mercado actual para que tu proyecto tenga un mayor desempeño.
-              </span>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">Documento completo del estudio, con fuentes citadas dato por dato.</span>
             </li>
-            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
-              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
-              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
-                <strong>Aumento de ocupación:</strong> Impulsamos la ocupación del inmueble comercial atrayendo marcas clave.
-              </span>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">Presentación ejecutiva y reunión de resultados con el equipo del cliente.</span>
             </li>
-            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
-              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
-              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
-                <strong>Identificación de marcas preferidas:</strong> Detectamos las marcas, tiendas y servicios más valorados por los clientes.
-              </span>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">Perfil del mercado que rodea al inmueble hoy.</span>
             </li>
-            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
-              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
-              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
-                <strong>Reconocimiento de marcas no atendidas:</strong> Aprovechamos oportunidades detectando marcas que aún no están presentes en tu desarrollo.
-              </span>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">Benchmarking de la competencia directa.</span>
             </li>
-            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px;">
-              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
-              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
-                <strong>Incremento de rentabilidad:</strong> Creamos estrategias para elevar el rendimiento de tu centro comercial.
-              </span>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">FODA del inmueble y análisis de la etapa del ciclo inmobiliario de su giro.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">Modelo financiero con escenarios.</span>
             </li>
             <li style="display: flex; align-items: flex-start; gap: 15px;">
-              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;"></i>
-              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">
-                <strong>Oportunidades de reconversión:</strong> Analizamos opciones como cambio de uso, renovación o comercialización del espacio.
-              </span>
+              <i class="ph-fill ph-check-circle" style="color: var(--brand-cyan); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.6;">Factores clave de éxito y línea de tiempo de la intervención.</span>
             </li>
           </ul>
         </div>
+
+        <!-- ADEMÁS, SEGÚN EL ESTUDIO -->
+        <div class="text-center gsap-fade-up" style="margin-bottom: 2.5rem;">
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--black);">Además, según el estudio</h3>
+        </div>
+
+        <div class="saas-cards-grid gsap-fade-up" style="max-width: 1000px; margin: 0 auto;">
+          <div class="saas-card">
+            <h4>Reposicionamiento</h4>
+            <p>Diagnóstico de las causas del desempeño actual y recomendaciones de producto, tenant mix, precio y estrategia comercial.</p>
+          </div>
+          <div class="saas-card">
+            <h4>Reconversión</h4>
+            <p>Veredicto de viabilidad del uso destino, definición del producto con tipologías y distribución preliminar de superficies, perfil del mercado objetivo y precios de referencia del nuevo giro.</p>
+          </div>
+        </div>
+
+        <p class="text-center gsap-fade-up" style="font-family: var(--font-display); font-weight: 600; color: var(--black); font-size: 1.1rem; margin: 2.5rem 0 0 0;">
+          Tiempo de entrega aproximado: <span style="color: var(--brand-cyan);">de 4 a 6 semanas</span>
+        </p>
       </div>
     </section>
 
-    <!-- SECCIÓN 2: 3 FASES (ESTILO SECCIÓN 4 M&M USO) -->
-    <style>
-      .white-hover-card {
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      }
-      .white-hover-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--brand-cyan) !important;
-        box-shadow: 0 12px 25px rgba(0,0,0,0.08) !important;
-      }
-      .phase-list {
-        list-style: disc;
-        padding-left: 20px;
-        margin: 0;
-      }
-      .phase-list li {
-        font-family: 'Noto Serif', serif;
-        font-size: 1rem;
-        color: var(--neutral-dark);
-        line-height: 1.6;
-        margin-bottom: 12px;
-      }
-      .phase-list li:last-child {
-        margin-bottom: 0;
-      }
-    </style>
+    <!-- SECCIÓN: QUÉ NO INCLUYE -->
     <section class="section-pad" style="background-color: #F5F5F5;">
       <div class="container">
-        
-        <!-- Título y Texto -->
-        <div class="text-center gsap-fade-up" style="margin-bottom: 4rem;">
-          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); max-width: 900px; margin: 0 auto 1.5rem auto;">
-            Nuestro servicio de reposicionamiento de desarrollos inmobiliarios
-          </h2>
-          <p style="font-family: 'Noto Serif', serif; font-size: 1.15rem; color: var(--neutral-dark); line-height: 1.8; max-width: 1000px; margin: 0 auto;">
-            No dejes que tu propiedad comercial se quede atrás en un entorno competitivo. Un estudio de reposicionamiento es una inversión estratégica para garantizar el crecimiento y rentabilidad de tu negocio. <strong>Reposicionamos tu inmueble para maximizar su valor y rentabilidad.</strong> ¡Contáctanos hoy mismo y da el siguiente paso hacia el éxito!
-          </p>
+        <div class="text-center gsap-fade-up" style="max-width: 850px; margin: 0 auto 2.5rem auto;">
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.25rem; line-height: 1.2;">Qué no incluye</h2>
+          <p style="font-family: 'Noto Serif', serif; font-size: 1.1rem; color: var(--neutral-dark); line-height: 1.7; margin: 0;">Los dos estudios definen qué hacer con el inmueble y para quién. No sustituyen a los especialistas que vienen después:</p>
         </div>
 
-        <!-- 3 Columnas -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px;">
-          
-          <!-- FASE I -->
-          <div class="gsap-fade-up white-hover-card" style="background: #FFFFFF; border: 1px solid var(--neutral-dark); border-radius: 8px; padding: 40px; box-shadow: none;">
-            <i class="ph ph-magnifying-glass" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 20px; display: inline-block;"></i>
-            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--black); margin-bottom: 1.5rem; line-height: 1.4;">FASE I: Evaluación del Mercado</h4>
-            <ul class="phase-list">
-              <li>Identificamos el tamaño del mercado, analizando tanto la demanda potencial como las condiciones de la oferta existente.</li>
-              <li>Comprendemos las tendencias del mercado inmobiliario, así como las necesidades y preferencias de los posibles compradores o arrendatarios.</li>
-              <li>Realizamos entrevistas cualitativas con stakeholders clave del desarrollo.</li>
-              <li>Empleamos herramientas de escucha en redes sociales para comprender las percepciones del mercado sobre el desarrollo.</li>
-              <li>Analizamos el posicionamiento y las estrategias de la competencia en la zona.</li>
-            </ul>
+        <div class="gsap-fade-up" style="max-width: 750px; margin: 0 auto 2.5rem auto;">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 16px;">
+              <i class="ph ph-x" style="color: var(--neutral-dark); font-size: 1.3rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Proyecto ejecutivo y planos de la intervención.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 16px;">
+              <i class="ph ph-x" style="color: var(--neutral-dark); font-size: 1.3rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Dictamen estructural, mecánica de suelos y estudio de impacto ambiental.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 16px;">
+              <i class="ph ph-x" style="color: var(--neutral-dark); font-size: 1.3rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Gestión de permisos y licencias ante la autoridad.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 15px;">
+              <i class="ph ph-x" style="color: var(--neutral-dark); font-size: 1.3rem; flex-shrink: 0; margin-top: 2px;"></i>
+              <span style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); line-height: 1.6;">Obra, remodelación y comercialización.</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="text-center gsap-fade-up" style="font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--neutral-dark); max-width: 800px; margin: 0 auto; line-height: 1.7;">
+          Cuando el proyecto avanza, complementamos con <a href="test-fit-arquitectonico.html" style="color: var(--brand-cyan);">test fit arquitectónico</a>, InmoVisión AI, búsqueda de <a href="financiamiento.html" style="color: var(--brand-cyan);">financiamiento</a> y asesoría legal.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: SERVICIOS RELACIONADOS -->
+    <section class="section-pad" id="servicios-relacionados">
+      <div class="container">
+        <div class="text-center gsap-fade-up" style="margin-bottom: 3.5rem;">
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.2;">Servicios relacionados</h2>
+        </div>
+
+        <div class="gsap-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
+
+          <div class="saas-card">
+            <i class="ph-fill ph-clipboard-text" style="color: var(--brand-cyan); font-size: 2rem; margin-bottom: 1.25rem;"></i>
+            <h4>Justipreciación de rentas</h4>
+            <p>Cuando la pregunta se limita a actualizar los precios de renta a los inquilinos, con sustento de mercado.</p>
           </div>
 
-          <!-- FASE II -->
-          <div class="gsap-fade-up white-hover-card" style="background: #FFFFFF; border: 1px solid var(--neutral-dark); border-radius: 8px; padding: 40px; box-shadow: none">
-            <i class="ph ph-target" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 20px; display: inline-block;"></i>
-            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--black); margin-bottom: 1.5rem; line-height: 1.4;">FASE II: Identificación de Oportunidades</h4>
-            <ul class="phase-list">
-              <li>Exploramos otras posibles oportunidades de desarrollo inmobiliario que puedan complementar el proyecto principal.</li>
-              <li>Identificación de nichos con oportunidades específicas dentro del mercado donde el reposicionamiento pueda tener un impacto positivo y generar demanda.</li>
-            </ul>
+          <div class="saas-card">
+            <i class="ph-fill ph-scales" style="color: var(--brand-cyan); font-size: 2rem; margin-bottom: 1.25rem;"></i>
+            <h4>Avalúo comercial y valor residual</h4>
+            <p style="margin-bottom: 1.25rem;">Cuando lo que se necesita es conocer el valor actual del inmueble.</p>
+            <a href="avaluos-inmobiliarios.html" style="font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--brand-cyan); display: inline-flex; align-items: center; gap: 6px;">Ver avalúos inmobiliarios <i class="ph ph-arrow-right"></i></a>
           </div>
 
-          <!-- FASE III -->
-          <div class="gsap-fade-up white-hover-card" style="background: #FFFFFF; border: 1px solid var(--neutral-dark); border-radius: 8px; padding: 40px; box-shadow: none">
-            <i class="ph ph-strategy" style="color: var(--brand-cyan); font-size: 2.2rem; margin-bottom: 20px; display: inline-block;"></i>
-            <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--black); margin-bottom: 0.5rem; line-height: 1.4;">FASE III: Plan o estrategia única de valor</h4>
-            <p style="font-family: 'Noto Serif', serif; font-size: 1rem; color: var(--neutral-dark); line-height: 1.6; margin-bottom: 1.5rem; margin-top: 0;">que diferencie el proyecto de la competencia y atraiga a los clientes objetivo.</p>
-            <ul class="phase-list">
-              <li>Definimos medidas para cambiar la percepción, el enfoque o la dirección, como: renovaciones de propiedades, reajustes de precios, campañas de marketing, entre otras.</li>
-              <li>Gestión del cambio: Gestionar eficazmente el cambio dentro de la organización, los clientes y partes interesadas para garantizar una transición suave hacia el nuevo posicionamiento.</li>
-            </ul>
+          <div class="saas-card" id="smart-scan">
+            <i class="ph ph-list-magnifying-glass" style="color: var(--brand-cyan); font-size: 2rem; margin-bottom: 1.25rem;"></i>
+            <h4>Smart Scan de tierras estratégicas</h4>
+            <p>Cuando hay varios predios o inmuebles y la pregunta es por dónde empezar.</p>
           </div>
 
         </div>
+      </div>
+    </section>
 
+    <!-- SECCIÓN: PREGUNTAS FRECUENTES -->
+    <section class="section-pad" style="background-color: #F5F5F5;">
+      <div class="container">
+        <div class="text-center gsap-fade-up" style="margin-bottom: 3rem;">
+          <h2 style="font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.2;">Preguntas frecuentes</h2>
+        </div>
+
+        <div class="gsap-fade-up" style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+
+          <details class="saas-accordion">
+            <summary class="saas-accordion-header">¿Puedo empezar por uno y terminar en el otro? <i class="ph ph-caret-down accordion-caret"></i></summary>
+            <div class="saas-accordion-content">
+              <p style="font-family: 'Noto Serif', serif; margin: 0; line-height: 1.7;">Ocurre con frecuencia. Un diagnóstico de reposicionamiento puede concluir que el giro actual ya no tiene mercado en esa zona y que lo que corresponde es reconvertir. Cuando pasa, lo decimos y el trabajo ya hecho se aprovecha.</p>
+            </div>
+          </details>
+
+          <details class="saas-accordion">
+            <summary class="saas-accordion-header">¿Y si el uso de suelo no permite el giro que me interesa? <i class="ph ph-caret-down accordion-caret"></i></summary>
+            <div class="saas-accordion-content">
+              <p style="font-family: 'Noto Serif', serif; margin: 0; line-height: 1.7;">El uso de suelo es la primera restricción que revisamos, antes de cualquier análisis de mercado. Si el giro que interesa no está permitido, lo sabes en las primeras semanas del estudio y trabajamos sobre los que sí lo están.</p>
+            </div>
+          </details>
+
+          <details class="saas-accordion">
+            <summary class="saas-accordion-header">¿Sirve si el inmueble forma parte de un portafolio? <i class="ph ph-caret-down accordion-caret"></i></summary>
+            <div class="saas-accordion-content">
+              <p style="font-family: 'Noto Serif', serif; margin: 0; line-height: 1.7;">Sí. Cuando son varios activos, el estudio permite compararlos con el mismo criterio y priorizar dónde se aplica el capital disponible.</p>
+            </div>
+          </details>
+
+          <details class="saas-accordion">
+            <summary class="saas-accordion-header">¿El estudio sirve para gestionar financiamiento? <i class="ph ph-caret-down accordion-caret"></i></summary>
+            <div class="saas-accordion-content">
+              <p style="font-family: 'Noto Serif', serif; margin: 0; line-height: 1.7;">Sí. El modelo financiero se construye con el nivel de detalle que las instituciones financieras piden para evaluar un proyecto.</p>
+            </div>
+          </details>
+
+          <details class="saas-accordion">
+            <summary class="saas-accordion-header">¿Cuánto cuesta? <i class="ph ph-caret-down accordion-caret"></i></summary>
+            <div class="saas-accordion-content">
+              <p style="font-family: 'Noto Serif', serif; margin: 0; line-height: 1.7;">La inversión depende del inmueble, de su superficie y del alcance del análisis. Escríbenos con los datos del inmueble y te enviamos una propuesta con alcance y tiempos.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: CIERRE -->
+    <section class="section-pad text-center" style="padding-bottom: 80px;">
+      <div class="container gsap-fade-up" style="max-width: 800px; margin: 0 auto;">
+        <p style="font-family: 'Noto Serif', serif; font-size: 1.25rem; color: var(--neutral-dark); line-height: 1.7; margin-bottom: 2rem;">
+          Más de 3,000 estudios en 10 países y los 32 estados de México desde 2004. Oficinas en Ciudad de México, Guadalajara y Monterrey.
+        </p>
+        <a href="#footer" class="btn btn-primary">Cuéntanos sobre tu inmueble <i class="ph ph-paper-plane-tilt"></i></a>
       </div>
     </section>
 
@@ -369,7 +707,7 @@
           </li>
         </ul>
       </div>
-      
+
     </div>
     <div class="container footer-bottom text-center mt-5" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
       <p>&copy; 2026 CREA Soluciones. Todos los derechos reservados. | <a href="aviso-privacidad.html" style="color: inherit; text-decoration: underline;">Políticas de Privacidad</a></p>
