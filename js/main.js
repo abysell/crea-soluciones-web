@@ -411,7 +411,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdowns = navLinks.querySelectorAll('.dropdown, .sub-dropdown');
     dropdowns.forEach(dropdown => {
       const btn = dropdown.querySelector('.dropbtn, .sub-dropbtn');
-      if (btn) {
+      // Solo interceptar el clic si el dropdown tiene contenido real que
+      // desplegar (p.ej. "Sectores" es un <a> normal envuelto en .dropdown
+      // sin .dropdown-content, así que debe navegar como link normal).
+      const content = dropdown.querySelector('.dropdown-content, .sub-dropdown-content');
+      if (btn && content) {
         btn.addEventListener('click', (e) => {
           if (window.innerWidth <= 1024) {
             e.preventDefault();
