@@ -1221,6 +1221,20 @@ a {
   transition: background-color 5000s ease-in-out 0s !important;
 }
 
+/* Filas de 2 columnas del formulario (email/teléfono, servicio/etapa) */
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 /* Footer */
 .footer-grid {
   display: grid;
@@ -1769,6 +1783,38 @@ details[open] .saas-accordion-header .accordion-caret {
   .tab-content > div[style*="display: grid"],
   .tab-pane > div[style*="display: grid"] {
     grid-template-columns: 1fr !important;
+  }
+
+  .tabs-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    justify-content: initial;
+    margin-bottom: 30px;
+  }
+
+  .tab-btn {
+    padding: 16px 8px;
+    font-size: 1rem;
+    border-bottom: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+
+  .tab-btn.active {
+    border-color: var(--brand-cyan);
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-btn {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .tab-btn i {
+    font-size: 1.6rem;
   }
 }
 
