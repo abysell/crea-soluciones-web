@@ -18,7 +18,7 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css?v=20260826b">
   <!-- Favicon -->
   <link rel="icon" href="img/favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="img/favicon.png">
@@ -830,7 +830,7 @@
             style="color: #ff6b6b; font-size: 0.85rem; display: none; margin-bottom: 8px;">Este campo es
             obligatorio</span>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-row-2col">
             <div>
               <input id="form-email-footer" type="email" name="email" placeholder="Correo electrónico*" required>
           <span class="error-message" id="error-email-footer"
@@ -845,7 +845,7 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-row-2col">
             <div>
               <select id="form-service-footer" name="service" required>
             <option value="" disabled selected>Servicio a contratar*</option>
@@ -877,6 +877,7 @@
 
           <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Solicitar Información <i
               class="ph ph-paper-plane-tilt"></i></button>
+          <p class="recaptcha-disclaimer">Este sitio está protegido por reCAPTCHA y aplican la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidad</a> y los <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Términos de Servicio</a> de Google.</p>
         </form>
       </div>
     </div>
@@ -964,7 +965,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
   <!-- Main JS -->
-  <script src="./js/main.js"></script>
+  <script src="./js/main.js?v=20260826b"></script>
 
   <!-- Parallax & Hover for Casos JS -->
   <script>

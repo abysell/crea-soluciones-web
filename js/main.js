@@ -46,49 +46,6 @@ function csCargarSalesIQ() {
   document.head.appendChild(script);
 }
 
-/**
- * Sube el distintivo de reCAPTCHA si aparece el botón de chat de SalesIQ.
- *
- * Ambos se anclan abajo a la derecha y se encimarían. No se aplica un valor
- * fijo porque el botón no siempre está: SalesIQ solo lo muestra en los
- * dominios autorizados en su panel, así que en local o en un entorno de
- * pruebas no existe y el distintivo debe quedarse a la altura del botón de
- * WhatsApp. Marcando el <html> solo cuando el botón es visible, la hoja de
- * estilos resuelve los dos casos.
- *
- * La detección no depende de un selector concreto de SalesIQ —que ellos
- * pueden cambiar— sino de encontrar un elemento suyo visible y anclado
- * abajo a la derecha.
- */
-function csVigilarChatSalesIQ() {
-  let intentos = 0;
-
-  const revisar = () => {
-    const candidatos = document.querySelectorAll('[id*="zsiq"], [class*="zsiq"]');
-
-    for (const el of candidatos) {
-      const caja = el.getBoundingClientRect();
-      const abajo = window.innerHeight - caja.bottom;
-      const derecha = window.innerWidth - caja.right;
-
-      if (caja.width > 20 && caja.height > 20 && abajo < 200 && derecha < 200) {
-        document.documentElement.classList.add("cs-salesiq-visible");
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  if (revisar()) return;
-
-  const intervalo = setInterval(() => {
-    if (revisar() || ++intentos > 40) {   // deja de mirar a los ~20 s
-      clearInterval(intervalo);
-    }
-  }, 500);
-}
-
 // Último correo declarado a SalesIQ, para no repetir la llamada en cada evento.
 let csCorreoDeclarado = "";
 
@@ -383,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1.6 CARGA DE SALESIQ (en todas: el rastreo necesita ver el recorrido completo)
   csCargarSalesIQ();
-  csVigilarChatSalesIQ();
 
   // Declarar el visitante en cuanto escriba su correo, no al enviar: así la
   // llamada a SalesIQ tiene tiempo de completarse antes de cambiar de página.
@@ -411,7 +367,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdowns = navLinks.querySelectorAll('.dropdown, .sub-dropdown');
     dropdowns.forEach(dropdown => {
       const btn = dropdown.querySelector('.dropbtn, .sub-dropbtn');
-      if (btn) {
+      // Solo interceptar el clic si el dropdown tiene contenido real que
+      // desplegar (p.ej. "Sectores" es un <a> normal envuelto en .dropdown
+      // sin .dropdown-content, así que debe navegar como link normal).
+      const content = dropdown.querySelector('.dropdown-content, .sub-dropdown-content');
+      if (btn && content) {
         btn.addEventListener('click', (e) => {
           if (window.innerWidth <= 1024) {
             e.preventDefault();
