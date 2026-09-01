@@ -6,7 +6,7 @@
    Mientras el valor siga en PENDIENTE_SITE_KEY, reCAPTCHA no
    se carga y los formularios funcionan con honeypot y filtros.
    ============================================================ */
-const RECAPTCHA_SITE_KEY = "6Ld3NGotAAAAAK_wTjmoPIMEX8D749YzHHiNgvnf";
+const RECAPTCHA_SITE_KEY = "6LeRckspAAAAAD_w1UIymdgZfoGlN2SRRTDP0NJI";
 
 /* ============================================================
    ZOHO SALESIQ — rastreo de navegación y chat en vivo
