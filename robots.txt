@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /gracias.html
 
 Sitemap: https://creasoluciones.com.mx/sitemap.xml
-Sitemap: https://creasoluciones.com.mx/blog/wp-sitemap.xml
+Sitemap: https://creasoluciones.com.mx/blog/sitemap_index.xml
